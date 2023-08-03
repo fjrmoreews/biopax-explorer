@@ -1,2 +1,2 @@
 # biopax-explorer
-source of the web documentation related to the biopax-explorer tool
+soon : the web documentation related to the biopax-explorer tool
