@@ -1,15 +1,18 @@
 ### Jupyter notebooks tutorials
 
- - pattern-first-step.html
 
- - pattern-collection.html
+[jupyter notebook tutorials](tutorials/notebooks_main.md)
 
- - BIOPAX-model-helper.html
+ - [Create your own query patterns](pattern-first-step.html)
 
- - entity2RDF_serialize.html
+ - [pre build Patterns](pattern-collection.html)
 
- - graph_export.html
+ - [Python BIOPAX model doc](BIOPAX-model-helper.html)
 
- - graph_layer.html
+ - [write BIOPAX files](entity2RDF_serialize.html)
+
+ - [graph_export](graph_export.html)
+
+ - [graph_layer](graph_layer.html)
 
  - query_optimize.html
