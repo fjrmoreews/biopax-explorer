@@ -5,14 +5,18 @@
 
  - [Create your own query patterns](pattern-first-step.html)
 
- - [pre build Patterns](pattern-collection.html)
+ - [Pre build Pattern collection](pattern-collection.html)
 
  - [Python BIOPAX model doc](BIOPAX-model-helper.html)
 
- - [write BIOPAX files](entity2RDF_serialize.html)
+ - [Optimize queries](query_optimize.html)
 
- - [graph_export](graph_export.html)
+ - [Write BIOPAX files from entities](entity2RDF_serialize.html)
 
- - [graph_layer](graph_layer.html)
+ - [export graph](graph_export.html)
 
- - query_optimize.html
+ - [Graph layer](graph_layer.html)
+
+
+
+
