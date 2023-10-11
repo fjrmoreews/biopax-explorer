@@ -1,4 +1,4 @@
-# biopax-explorer
+# Biopax Explorer
 
 
 BIOPAX-Explorer is a Python package, designed to ease the manipulation of BIOPAX datasets.
