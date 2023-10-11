@@ -1,7 +1,8 @@
 ### Jupyter notebooks tutorials
 
-
-[jupyter notebook tutorials](tutorials/notebooks_main.md)
+{::comment}
+[jupyter notebook tutorials](notebooks_main.html)
+{:/comment}
 
  - [Create your own query patterns](pattern-first-step.html)
 
