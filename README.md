@@ -32,11 +32,12 @@ networks.
 ## Code &  Installation
 [git repository](https://forgemia.inra.fr/pegase/biopax-explorer)
 
+{::comment}
 ### communications
  
  - [INRAE Semantic Linked Data workshop - Agde 2023](https://www6.inrae.fr/reseau-in-ovive/Actions-du-reseau/Seminaires/Seminaire-residentiel-INRAE-Semantic-Linked-Data-2023
 )
-
+{:/comment}
 
 
  
