@@ -1,6 +1,0 @@
-writePatternGraphView
-=====================
-
-.. currentmodule:: biopax_explorer.pattern.view
-
-.. autofunction:: writePatternGraphView

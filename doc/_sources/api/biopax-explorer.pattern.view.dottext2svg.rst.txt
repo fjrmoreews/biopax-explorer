@@ -1,6 +1,0 @@
-dottext2svg
-===========
-
-.. currentmodule:: biopax_explorer.pattern.view
-
-.. autofunction:: dottext2svg

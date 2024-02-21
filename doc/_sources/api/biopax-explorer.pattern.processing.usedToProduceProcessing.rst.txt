@@ -1,6 +1,0 @@
-usedToProduceProcessing
-=======================
-
-.. currentmodule:: biopax_explorer.pattern.processing
-
-.. autofunction:: usedToProduceProcessing

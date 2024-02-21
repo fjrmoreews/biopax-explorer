@@ -1,7 +1,0 @@
-Step
-====
-
-.. currentmodule:: biopax_explorer.pattern.pattern
-
-.. autoclass:: Step
-   :show-inheritance:

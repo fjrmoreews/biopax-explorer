@@ -1,7 +1,0 @@
-BaseDecorator
-=============
-
-.. currentmodule:: biopax_explorer.biopax.utils.validate_utils
-
-.. autoclass:: BaseDecorator
-   :show-inheritance:

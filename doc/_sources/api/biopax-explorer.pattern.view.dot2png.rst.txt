@@ -1,6 +1,0 @@
-dot2png
-=======
-
-.. currentmodule:: biopax_explorer.pattern.view
-
-.. autofunction:: dot2png

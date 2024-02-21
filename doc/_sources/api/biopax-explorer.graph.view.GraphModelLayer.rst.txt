@@ -1,7 +1,0 @@
-GraphModelLayer
-===============
-
-.. currentmodule:: biopax_explorer.graph.view
-
-.. autoclass:: GraphModelLayer
-   :show-inheritance:

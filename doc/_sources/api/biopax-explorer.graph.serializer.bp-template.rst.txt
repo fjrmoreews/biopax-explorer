@@ -1,6 +1,0 @@
-bp_template
-===========
-
-.. currentmodule:: biopax_explorer.graph.serializer
-
-.. autofunction:: bp_template

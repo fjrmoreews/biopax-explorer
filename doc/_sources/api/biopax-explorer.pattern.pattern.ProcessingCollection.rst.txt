@@ -1,7 +1,0 @@
-ProcessingCollection
-====================
-
-.. currentmodule:: biopax_explorer.pattern.pattern
-
-.. autoclass:: ProcessingCollection
-   :show-inheritance:

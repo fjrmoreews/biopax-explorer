@@ -1,7 +1,0 @@
-PatternExecutor
-===============
-
-.. currentmodule:: biopax_explorer.pattern
-
-.. autoclass:: PatternExecutor
-   :show-inheritance:

@@ -1,7 +1,0 @@
-LocalProcessing
-===============
-
-.. currentmodule:: biopax_explorer.pattern.pattern
-
-.. autoclass:: LocalProcessing
-   :show-inheritance:

@@ -1,6 +1,0 @@
-class_children
-==============
-
-.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
-
-.. autofunction:: class_children

@@ -1,0 +1,5 @@
+<map id="inheritance966fb84c02" name="inheritance966fb84c02">
+<area shape="rect" id="node1" href="api/biopax_explorer.biopax.utils.class_utils.CustomEncoder.html#biopax_explorer.biopax.utils.class_utils.CustomEncoder" target="_top" title="CustomEncoder : a Custom Class for instance serialization" alt="" coords="367,5,491,31"/>
+<area shape="rect" id="node2" href="api/biopax_explorer.biopax.utils.class_utils.CustomEncoderShort.html#biopax_explorer.biopax.utils.class_utils.CustomEncoderShort" target="_top" title="A Class to limit recursion in serialization" alt="" coords="160,5,319,31"/>
+<area shape="rect" id="node3" title="Extensible JSON &lt;http://json.org&gt; encoder for Python data structures." alt="" coords="5,5,112,31"/>
+</map>

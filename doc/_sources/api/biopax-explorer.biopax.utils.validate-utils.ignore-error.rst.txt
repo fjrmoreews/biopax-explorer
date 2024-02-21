@@ -1,6 +1,0 @@
-ignore_error
-============
-
-.. currentmodule:: biopax_explorer.biopax.utils.validate_utils
-
-.. autofunction:: ignore_error

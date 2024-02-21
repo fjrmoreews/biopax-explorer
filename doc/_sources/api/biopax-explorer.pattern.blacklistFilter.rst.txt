@@ -1,6 +1,0 @@
-blacklistFilter
-===============
-
-.. currentmodule:: biopax_explorer.pattern
-
-.. autofunction:: blacklistFilter

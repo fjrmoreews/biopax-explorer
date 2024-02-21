@@ -1,6 +1,0 @@
-graphString
-===========
-
-.. currentmodule:: biopax_explorer.graph.view
-
-.. autofunction:: graphString

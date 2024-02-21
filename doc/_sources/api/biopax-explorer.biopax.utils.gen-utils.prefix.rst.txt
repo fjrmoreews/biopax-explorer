@@ -1,6 +1,0 @@
-prefix
-======
-
-.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
-
-.. autofunction:: prefix
