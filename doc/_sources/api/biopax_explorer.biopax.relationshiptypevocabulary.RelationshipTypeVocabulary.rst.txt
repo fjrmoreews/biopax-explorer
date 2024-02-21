@@ -1,0 +1,23 @@
+RelationshipTypeVocabulary
+==========================
+
+.. currentmodule:: biopax_explorer.biopax.relationshiptypevocabulary
+
+.. autoclass:: RelationshipTypeVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~RelationshipTypeVocabulary.attribute_type_by_name
+      ~RelationshipTypeVocabulary.object_attributes
+      ~RelationshipTypeVocabulary.to_json
+      ~RelationshipTypeVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: object_attributes
+   .. automethod:: to_json
+   .. automethod:: type_attributes

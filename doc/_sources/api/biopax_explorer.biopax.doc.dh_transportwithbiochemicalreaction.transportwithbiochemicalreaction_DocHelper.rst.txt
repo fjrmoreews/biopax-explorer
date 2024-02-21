@@ -1,0 +1,35 @@
+transportwithbiochemicalreaction_DocHelper
+==========================================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_transportwithbiochemicalreaction
+
+.. autoclass:: transportwithbiochemicalreaction_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~transportwithbiochemicalreaction_DocHelper.attr_type_def
+      ~transportwithbiochemicalreaction_DocHelper.attributeInfo
+      ~transportwithbiochemicalreaction_DocHelper.attributeNameString
+      ~transportwithbiochemicalreaction_DocHelper.attributeNames
+      ~transportwithbiochemicalreaction_DocHelper.attributeType
+      ~transportwithbiochemicalreaction_DocHelper.attributesInfo
+      ~transportwithbiochemicalreaction_DocHelper.classInfo
+      ~transportwithbiochemicalreaction_DocHelper.definitions
+      ~transportwithbiochemicalreaction_DocHelper.objectAttributeNames
+      ~transportwithbiochemicalreaction_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

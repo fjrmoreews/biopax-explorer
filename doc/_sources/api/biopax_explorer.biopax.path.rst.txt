@@ -1,0 +1,6 @@
+path
+====
+
+.. currentmodule:: biopax_explorer.biopax
+
+.. autodata:: path

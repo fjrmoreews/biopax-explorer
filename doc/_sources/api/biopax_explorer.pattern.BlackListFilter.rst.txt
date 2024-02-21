@@ -1,0 +1,19 @@
+BlackListFilter
+===============
+
+.. currentmodule:: biopax_explorer.pattern
+
+.. autoclass:: BlackListFilter
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~BlackListFilter.filter
+      ~BlackListFilter.funcf
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: filter
+   .. automethod:: funcf

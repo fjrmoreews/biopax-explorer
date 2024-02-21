@@ -1,0 +1,35 @@
+sequencemodificationvocabulary_DocHelper
+========================================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_sequencemodificationvocabulary
+
+.. autoclass:: sequencemodificationvocabulary_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~sequencemodificationvocabulary_DocHelper.attr_type_def
+      ~sequencemodificationvocabulary_DocHelper.attributeInfo
+      ~sequencemodificationvocabulary_DocHelper.attributeNameString
+      ~sequencemodificationvocabulary_DocHelper.attributeNames
+      ~sequencemodificationvocabulary_DocHelper.attributeType
+      ~sequencemodificationvocabulary_DocHelper.attributesInfo
+      ~sequencemodificationvocabulary_DocHelper.classInfo
+      ~sequencemodificationvocabulary_DocHelper.definitions
+      ~sequencemodificationvocabulary_DocHelper.objectAttributeNames
+      ~sequencemodificationvocabulary_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

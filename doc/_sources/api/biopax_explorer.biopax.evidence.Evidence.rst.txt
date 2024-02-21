@@ -1,0 +1,39 @@
+Evidence
+========
+
+.. currentmodule:: biopax_explorer.biopax.evidence
+
+.. autoclass:: Evidence
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Evidence.attribute_type_by_name
+      ~Evidence.get_confidence
+      ~Evidence.get_evidenceCode
+      ~Evidence.get_experimentalForm
+      ~Evidence.get_xref
+      ~Evidence.object_attributes
+      ~Evidence.set_confidence
+      ~Evidence.set_evidenceCode
+      ~Evidence.set_experimentalForm
+      ~Evidence.set_xref
+      ~Evidence.to_json
+      ~Evidence.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_confidence
+   .. automethod:: get_evidenceCode
+   .. automethod:: get_experimentalForm
+   .. automethod:: get_xref
+   .. automethod:: object_attributes
+   .. automethod:: set_confidence
+   .. automethod:: set_evidenceCode
+   .. automethod:: set_experimentalForm
+   .. automethod:: set_xref
+   .. automethod:: to_json
+   .. automethod:: type_attributes

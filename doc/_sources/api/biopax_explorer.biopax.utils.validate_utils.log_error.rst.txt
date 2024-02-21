@@ -1,0 +1,6 @@
+log_error
+=========
+
+.. currentmodule:: biopax_explorer.biopax.utils.validate_utils
+
+.. autofunction:: log_error

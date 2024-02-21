@@ -1,0 +1,35 @@
+SmallMoleculeReference
+======================
+
+.. currentmodule:: biopax_explorer.biopax.smallmoleculereference
+
+.. autoclass:: SmallMoleculeReference
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SmallMoleculeReference.attribute_type_by_name
+      ~SmallMoleculeReference.get_chemicalFormula
+      ~SmallMoleculeReference.get_molecularWeight
+      ~SmallMoleculeReference.get_structure
+      ~SmallMoleculeReference.object_attributes
+      ~SmallMoleculeReference.set_chemicalFormula
+      ~SmallMoleculeReference.set_molecularWeight
+      ~SmallMoleculeReference.set_structure
+      ~SmallMoleculeReference.to_json
+      ~SmallMoleculeReference.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_chemicalFormula
+   .. automethod:: get_molecularWeight
+   .. automethod:: get_structure
+   .. automethod:: object_attributes
+   .. automethod:: set_chemicalFormula
+   .. automethod:: set_molecularWeight
+   .. automethod:: set_structure
+   .. automethod:: to_json
+   .. automethod:: type_attributes

@@ -1,0 +1,23 @@
+EntityReferenceTypeVocabulary
+=============================
+
+.. currentmodule:: biopax_explorer.biopax.entityreferencetypevocabulary
+
+.. autoclass:: EntityReferenceTypeVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~EntityReferenceTypeVocabulary.attribute_type_by_name
+      ~EntityReferenceTypeVocabulary.object_attributes
+      ~EntityReferenceTypeVocabulary.to_json
+      ~EntityReferenceTypeVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: object_attributes
+   .. automethod:: to_json
+   .. automethod:: type_attributes

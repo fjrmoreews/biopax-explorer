@@ -1,0 +1,31 @@
+Score
+=====
+
+.. currentmodule:: biopax_explorer.biopax.score
+
+.. autoclass:: Score
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Score.attribute_type_by_name
+      ~Score.get_scoreSource
+      ~Score.get_value
+      ~Score.object_attributes
+      ~Score.set_scoreSource
+      ~Score.set_value
+      ~Score.to_json
+      ~Score.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_scoreSource
+   .. automethod:: get_value
+   .. automethod:: object_attributes
+   .. automethod:: set_scoreSource
+   .. automethod:: set_value
+   .. automethod:: to_json
+   .. automethod:: type_attributes

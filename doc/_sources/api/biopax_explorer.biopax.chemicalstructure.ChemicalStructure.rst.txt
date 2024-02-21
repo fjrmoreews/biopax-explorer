@@ -1,0 +1,31 @@
+ChemicalStructure
+=================
+
+.. currentmodule:: biopax_explorer.biopax.chemicalstructure
+
+.. autoclass:: ChemicalStructure
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ChemicalStructure.attribute_type_by_name
+      ~ChemicalStructure.get_structureData
+      ~ChemicalStructure.get_structureFormat
+      ~ChemicalStructure.object_attributes
+      ~ChemicalStructure.set_structureData
+      ~ChemicalStructure.set_structureFormat
+      ~ChemicalStructure.to_json
+      ~ChemicalStructure.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_structureData
+   .. automethod:: get_structureFormat
+   .. automethod:: object_attributes
+   .. automethod:: set_structureData
+   .. automethod:: set_structureFormat
+   .. automethod:: to_json
+   .. automethod:: type_attributes

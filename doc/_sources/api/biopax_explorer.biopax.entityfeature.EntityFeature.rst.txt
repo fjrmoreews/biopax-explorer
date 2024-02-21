@@ -1,0 +1,39 @@
+EntityFeature
+=============
+
+.. currentmodule:: biopax_explorer.biopax.entityfeature
+
+.. autoclass:: EntityFeature
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~EntityFeature.attribute_type_by_name
+      ~EntityFeature.get_evidence
+      ~EntityFeature.get_featureLocation
+      ~EntityFeature.get_featureLocationType
+      ~EntityFeature.get_memberFeature
+      ~EntityFeature.object_attributes
+      ~EntityFeature.set_evidence
+      ~EntityFeature.set_featureLocation
+      ~EntityFeature.set_featureLocationType
+      ~EntityFeature.set_memberFeature
+      ~EntityFeature.to_json
+      ~EntityFeature.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_evidence
+   .. automethod:: get_featureLocation
+   .. automethod:: get_featureLocationType
+   .. automethod:: get_memberFeature
+   .. automethod:: object_attributes
+   .. automethod:: set_evidence
+   .. automethod:: set_featureLocation
+   .. automethod:: set_featureLocationType
+   .. automethod:: set_memberFeature
+   .. automethod:: to_json
+   .. automethod:: type_attributes

@@ -1,0 +1,23 @@
+ExperimentalFormVocabulary
+==========================
+
+.. currentmodule:: biopax_explorer.biopax.experimentalformvocabulary
+
+.. autoclass:: ExperimentalFormVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ExperimentalFormVocabulary.attribute_type_by_name
+      ~ExperimentalFormVocabulary.object_attributes
+      ~ExperimentalFormVocabulary.to_json
+      ~ExperimentalFormVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: object_attributes
+   .. automethod:: to_json
+   .. automethod:: type_attributes

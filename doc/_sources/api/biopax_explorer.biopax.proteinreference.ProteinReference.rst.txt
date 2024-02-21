@@ -1,0 +1,31 @@
+ProteinReference
+================
+
+.. currentmodule:: biopax_explorer.biopax.proteinreference
+
+.. autoclass:: ProteinReference
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ProteinReference.attribute_type_by_name
+      ~ProteinReference.get_organism
+      ~ProteinReference.get_sequence
+      ~ProteinReference.object_attributes
+      ~ProteinReference.set_organism
+      ~ProteinReference.set_sequence
+      ~ProteinReference.to_json
+      ~ProteinReference.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_organism
+   .. automethod:: get_sequence
+   .. automethod:: object_attributes
+   .. automethod:: set_organism
+   .. automethod:: set_sequence
+   .. automethod:: to_json
+   .. automethod:: type_attributes

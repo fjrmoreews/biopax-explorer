@@ -1,0 +1,55 @@
+Entity
+======
+
+.. currentmodule:: biopax_explorer.biopax.entity
+
+.. autoclass:: Entity
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Entity.attribute_type_by_name
+      ~Entity.get_availability
+      ~Entity.get_comment
+      ~Entity.get_dataSource
+      ~Entity.get_displayName
+      ~Entity.get_evidence
+      ~Entity.get_name
+      ~Entity.get_standardName
+      ~Entity.get_xref
+      ~Entity.object_attributes
+      ~Entity.set_availability
+      ~Entity.set_comment
+      ~Entity.set_dataSource
+      ~Entity.set_displayName
+      ~Entity.set_evidence
+      ~Entity.set_name
+      ~Entity.set_standardName
+      ~Entity.set_xref
+      ~Entity.to_json
+      ~Entity.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_availability
+   .. automethod:: get_comment
+   .. automethod:: get_dataSource
+   .. automethod:: get_displayName
+   .. automethod:: get_evidence
+   .. automethod:: get_name
+   .. automethod:: get_standardName
+   .. automethod:: get_xref
+   .. automethod:: object_attributes
+   .. automethod:: set_availability
+   .. automethod:: set_comment
+   .. automethod:: set_dataSource
+   .. automethod:: set_displayName
+   .. automethod:: set_evidence
+   .. automethod:: set_name
+   .. automethod:: set_standardName
+   .. automethod:: set_xref
+   .. automethod:: to_json
+   .. automethod:: type_attributes

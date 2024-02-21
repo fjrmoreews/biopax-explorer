@@ -32,6 +32,12 @@ networks.
 ## Code &  Installation
 [git repository](https://forgemia.inra.fr/pegase/biopax-explorer)
 
+
+### Documentation
+
+[code documentation](https://fjrmoreews.github.io/biopax-explorer/doc/index.html)
+
+
 {::comment}
 ### communications
  

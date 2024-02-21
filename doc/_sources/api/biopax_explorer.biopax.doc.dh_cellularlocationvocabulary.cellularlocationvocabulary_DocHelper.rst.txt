@@ -1,0 +1,35 @@
+cellularlocationvocabulary_DocHelper
+====================================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_cellularlocationvocabulary
+
+.. autoclass:: cellularlocationvocabulary_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~cellularlocationvocabulary_DocHelper.attr_type_def
+      ~cellularlocationvocabulary_DocHelper.attributeInfo
+      ~cellularlocationvocabulary_DocHelper.attributeNameString
+      ~cellularlocationvocabulary_DocHelper.attributeNames
+      ~cellularlocationvocabulary_DocHelper.attributeType
+      ~cellularlocationvocabulary_DocHelper.attributesInfo
+      ~cellularlocationvocabulary_DocHelper.classInfo
+      ~cellularlocationvocabulary_DocHelper.definitions
+      ~cellularlocationvocabulary_DocHelper.objectAttributeNames
+      ~cellularlocationvocabulary_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

@@ -1,0 +1,23 @@
+Degradation
+===========
+
+.. currentmodule:: biopax_explorer.biopax.degradation
+
+.. autoclass:: Degradation
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Degradation.attribute_type_by_name
+      ~Degradation.object_attributes
+      ~Degradation.to_json
+      ~Degradation.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: object_attributes
+   .. automethod:: to_json
+   .. automethod:: type_attributes

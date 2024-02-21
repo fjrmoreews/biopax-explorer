@@ -1,0 +1,35 @@
+Control
+=======
+
+.. currentmodule:: biopax_explorer.biopax.control
+
+.. autoclass:: Control
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Control.attribute_type_by_name
+      ~Control.get_controlType
+      ~Control.get_controlled
+      ~Control.get_controller
+      ~Control.object_attributes
+      ~Control.set_controlType
+      ~Control.set_controlled
+      ~Control.set_controller
+      ~Control.to_json
+      ~Control.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_controlType
+   .. automethod:: get_controlled
+   .. automethod:: get_controller
+   .. automethod:: object_attributes
+   .. automethod:: set_controlType
+   .. automethod:: set_controlled
+   .. automethod:: set_controller
+   .. automethod:: to_json
+   .. automethod:: type_attributes

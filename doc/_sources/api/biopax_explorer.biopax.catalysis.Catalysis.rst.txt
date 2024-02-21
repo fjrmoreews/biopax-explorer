@@ -1,0 +1,31 @@
+Catalysis
+=========
+
+.. currentmodule:: biopax_explorer.biopax.catalysis
+
+.. autoclass:: Catalysis
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Catalysis.attribute_type_by_name
+      ~Catalysis.get_catalysisDirection
+      ~Catalysis.get_cofactor
+      ~Catalysis.object_attributes
+      ~Catalysis.set_catalysisDirection
+      ~Catalysis.set_cofactor
+      ~Catalysis.to_json
+      ~Catalysis.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_catalysisDirection
+   .. automethod:: get_cofactor
+   .. automethod:: object_attributes
+   .. automethod:: set_catalysisDirection
+   .. automethod:: set_cofactor
+   .. automethod:: to_json
+   .. automethod:: type_attributes

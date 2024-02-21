@@ -1,0 +1,31 @@
+Complex
+=======
+
+.. currentmodule:: biopax_explorer.biopax.complex
+
+.. autoclass:: Complex
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Complex.attribute_type_by_name
+      ~Complex.get_component
+      ~Complex.get_componentStoichiometry
+      ~Complex.object_attributes
+      ~Complex.set_component
+      ~Complex.set_componentStoichiometry
+      ~Complex.to_json
+      ~Complex.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_component
+   .. automethod:: get_componentStoichiometry
+   .. automethod:: object_attributes
+   .. automethod:: set_component
+   .. automethod:: set_componentStoichiometry
+   .. automethod:: to_json
+   .. automethod:: type_attributes

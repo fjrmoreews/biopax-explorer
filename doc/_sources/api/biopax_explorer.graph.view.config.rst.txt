@@ -1,0 +1,6 @@
+config
+======
+
+.. currentmodule:: biopax_explorer.graph.view
+
+.. autofunction:: config

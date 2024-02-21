@@ -1,0 +1,186 @@
+.. biopax-explorer documentation master file, created by
+   sphinx-quickstart on Wed Feb 21 09:01:26 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Biopax-Explorer  documentation
+===========================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. automodapi:: biopax_explorer.biopax.dna  
+
+.. automodapi:: biopax_explorer.biopax   
+   :imported-members:  
+
+.. automodapi:: biopax_explorer.graph.serializer
+.. automodapi:: biopax_explorer.graph.view
+ 
+
+.. automodapi:: biopax_explorer.query.client
+ 
+.. automodapi:: biopax_explorer.pattern.rack
+.. automodapi:: biopax_explorer.pattern.processing
+.. automodapi:: biopax_explorer.pattern.view
+.. automodapi:: biopax_explorer.pattern.pattern
+
+ 
+ 
+.. automodapi:: biopax_explorer.biopax.bindingfeature 
+.. automodapi:: biopax_explorer.biopax.biochemicalpathwaystep 
+.. automodapi:: biopax_explorer.biopax.biochemicalreaction 
+.. automodapi:: biopax_explorer.biopax.biosource 
+.. automodapi:: biopax_explorer.biopax.catalysis 
+.. automodapi:: biopax_explorer.biopax.cellularlocationvocabulary 
+.. automodapi:: biopax_explorer.biopax.cellvocabulary 
+.. automodapi:: biopax_explorer.biopax.chemicalstructure 
+.. automodapi:: biopax_explorer.biopax.complex 
+.. automodapi:: biopax_explorer.biopax.complexassembly 
+.. automodapi:: biopax_explorer.biopax.control 
+.. automodapi:: biopax_explorer.biopax.controlledvocabulary 
+.. automodapi:: biopax_explorer.biopax.conversion 
+.. automodapi:: biopax_explorer.biopax.covalentbindingfeature 
+.. automodapi:: biopax_explorer.biopax.degradation 
+.. automodapi:: biopax_explorer.biopax.deltag 
+.. automodapi:: biopax_explorer.biopax.dna 
+.. automodapi:: biopax_explorer.biopax.dnareference 
+.. automodapi:: biopax_explorer.biopax.dnaregion 
+.. automodapi:: biopax_explorer.biopax.dnaregionreference 
+.. automodapi:: biopax_explorer.biopax.entity 
+.. automodapi:: biopax_explorer.biopax.entityfeature 
+.. automodapi:: biopax_explorer.biopax.entityreference 
+.. automodapi:: biopax_explorer.biopax.entityreferencetypevocabulary 
+.. automodapi:: biopax_explorer.biopax.evidence 
+.. automodapi:: biopax_explorer.biopax.evidencecodevocabulary 
+.. automodapi:: biopax_explorer.biopax.experimentalform 
+.. automodapi:: biopax_explorer.biopax.experimentalformvocabulary 
+.. automodapi:: biopax_explorer.biopax.fragmentfeature 
+.. automodapi:: biopax_explorer.biopax.gene 
+.. automodapi:: biopax_explorer.biopax.geneticinteraction 
+.. automodapi:: biopax_explorer.biopax.interaction 
+.. automodapi:: biopax_explorer.biopax.interactionvocabulary 
+.. automodapi:: biopax_explorer.biopax.kprime 
+.. automodapi:: biopax_explorer.biopax.modificationfeature 
+.. automodapi:: biopax_explorer.biopax.modulation 
+.. automodapi:: biopax_explorer.biopax.molecularinteraction 
+.. automodapi:: biopax_explorer.biopax.pathway 
+.. automodapi:: biopax_explorer.biopax.pathwaystep 
+.. automodapi:: biopax_explorer.biopax.phenotypevocabulary 
+.. automodapi:: biopax_explorer.biopax.physicalentity 
+.. automodapi:: biopax_explorer.biopax.protein 
+.. automodapi:: biopax_explorer.biopax.proteinreference 
+.. automodapi:: biopax_explorer.biopax.provenance 
+.. automodapi:: biopax_explorer.biopax.publicationxref 
+.. automodapi:: biopax_explorer.biopax.relationshiptypevocabulary 
+.. automodapi:: biopax_explorer.biopax.relationshipxref 
+.. automodapi:: biopax_explorer.biopax.rna 
+.. automodapi:: biopax_explorer.biopax.rnareference 
+.. automodapi:: biopax_explorer.biopax.rnaregion 
+.. automodapi:: biopax_explorer.biopax.rnaregionreference 
+.. automodapi:: biopax_explorer.biopax.score 
+.. automodapi:: biopax_explorer.biopax.sequenceinterval 
+.. automodapi:: biopax_explorer.biopax.sequencelocation 
+.. automodapi:: biopax_explorer.biopax.sequencemodificationvocabulary 
+.. automodapi:: biopax_explorer.biopax.sequenceregionvocabulary 
+.. automodapi:: biopax_explorer.biopax.sequencesite 
+.. automodapi:: biopax_explorer.biopax.smallmolecule 
+.. automodapi:: biopax_explorer.biopax.smallmoleculereference 
+.. automodapi:: biopax_explorer.biopax.stoichiometry 
+.. automodapi:: biopax_explorer.biopax.templatereaction 
+.. automodapi:: biopax_explorer.biopax.templatereactionregulation 
+.. automodapi:: biopax_explorer.biopax.tissuevocabulary 
+.. automodapi:: biopax_explorer.biopax.transport 
+.. automodapi:: biopax_explorer.biopax.transportwithbiochemicalreaction 
+.. automodapi:: biopax_explorer.biopax.unificationxref 
+.. automodapi:: biopax_explorer.biopax.utilityclass 
+.. automodapi:: biopax_explorer.biopax.xref 
+
+
+.. automodapi:: biopax_explorer.biopax.utils.class_utils 
+.. automodapi:: biopax_explorer.biopax.utils.gen_utils 
+.. automodapi:: biopax_explorer.biopax.utils.validate_utils 
+
+ 
+.. automodapi:: biopax_explorer.biopax.doc.dh_bindingfeature 
+.. automodapi:: biopax_explorer.biopax.doc.dh_biochemicalpathwaystep 
+.. automodapi:: biopax_explorer.biopax.doc.dh_biochemicalreaction 
+.. automodapi:: biopax_explorer.biopax.doc.dh_biosource 
+.. automodapi:: biopax_explorer.biopax.doc.dh_catalysis 
+.. automodapi:: biopax_explorer.biopax.doc.dh_cellularlocationvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_cellvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_chemicalstructure 
+.. automodapi:: biopax_explorer.biopax.doc.dh_complex 
+.. automodapi:: biopax_explorer.biopax.doc.dh_complexassembly 
+.. automodapi:: biopax_explorer.biopax.doc.dh_control 
+.. automodapi:: biopax_explorer.biopax.doc.dh_controlledvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_conversion 
+.. automodapi:: biopax_explorer.biopax.doc.dh_covalentbindingfeature 
+.. automodapi:: biopax_explorer.biopax.doc.dh_degradation 
+.. automodapi:: biopax_explorer.biopax.doc.dh_deltag 
+.. automodapi:: biopax_explorer.biopax.doc.dh_dna 
+.. automodapi:: biopax_explorer.biopax.doc.dh_dnareference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_dnaregion 
+.. automodapi:: biopax_explorer.biopax.doc.dh_dnaregionreference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_entity 
+.. automodapi:: biopax_explorer.biopax.doc.dh_entityfeature 
+.. automodapi:: biopax_explorer.biopax.doc.dh_entityreference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_entityreferencetypevocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_evidence 
+.. automodapi:: biopax_explorer.biopax.doc.dh_evidencecodevocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_experimentalform 
+.. automodapi:: biopax_explorer.biopax.doc.dh_experimentalformvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_fragmentfeature 
+.. automodapi:: biopax_explorer.biopax.doc.dh_gene 
+.. automodapi:: biopax_explorer.biopax.doc.dh_geneticinteraction 
+.. automodapi:: biopax_explorer.biopax.doc.dh_interaction 
+.. automodapi:: biopax_explorer.biopax.doc.dh_interactionvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_kprime 
+.. automodapi:: biopax_explorer.biopax.doc.dh_modificationfeature 
+.. automodapi:: biopax_explorer.biopax.doc.dh_modulation 
+.. automodapi:: biopax_explorer.biopax.doc.dh_molecularinteraction 
+.. automodapi:: biopax_explorer.biopax.doc.dh_pathway 
+.. automodapi:: biopax_explorer.biopax.doc.dh_pathwaystep 
+.. automodapi:: biopax_explorer.biopax.doc.dh_phenotypevocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_physicalentity 
+.. automodapi:: biopax_explorer.biopax.doc.dh_protein 
+.. automodapi:: biopax_explorer.biopax.doc.dh_proteinreference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_provenance 
+.. automodapi:: biopax_explorer.biopax.doc.dh_publicationxref 
+.. automodapi:: biopax_explorer.biopax.doc.dh_relationshiptypevocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_relationshipxref 
+.. automodapi:: biopax_explorer.biopax.doc.dh_rna 
+.. automodapi:: biopax_explorer.biopax.doc.dh_rnareference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_rnaregion 
+.. automodapi:: biopax_explorer.biopax.doc.dh_rnaregionreference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_score 
+.. automodapi:: biopax_explorer.biopax.doc.dh_sequenceinterval 
+.. automodapi:: biopax_explorer.biopax.doc.dh_sequencelocation 
+.. automodapi:: biopax_explorer.biopax.doc.dh_sequencemodificationvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_sequenceregionvocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_sequencesite 
+.. automodapi:: biopax_explorer.biopax.doc.dh_smallmolecule 
+.. automodapi:: biopax_explorer.biopax.doc.dh_smallmoleculereference 
+.. automodapi:: biopax_explorer.biopax.doc.dh_stoichiometry 
+.. automodapi:: biopax_explorer.biopax.doc.dh_templatereaction 
+.. automodapi:: biopax_explorer.biopax.doc.dh_templatereactionregulation 
+.. automodapi:: biopax_explorer.biopax.doc.dh_tissuevocabulary 
+.. automodapi:: biopax_explorer.biopax.doc.dh_transport 
+.. automodapi:: biopax_explorer.biopax.doc.dh_transportwithbiochemicalreaction 
+.. automodapi:: biopax_explorer.biopax.doc.dh_unificationxref 
+.. automodapi:: biopax_explorer.biopax.doc.dh_utilityclass 
+.. automodapi:: biopax_explorer.biopax.doc.dh_xref 
+
+
+---------------------------
+ 
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

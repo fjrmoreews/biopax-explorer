@@ -1,0 +1,39 @@
+Provenance
+==========
+
+.. currentmodule:: biopax_explorer.biopax.provenance
+
+.. autoclass:: Provenance
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Provenance.attribute_type_by_name
+      ~Provenance.get_displayName
+      ~Provenance.get_name
+      ~Provenance.get_standardName
+      ~Provenance.get_xref
+      ~Provenance.object_attributes
+      ~Provenance.set_displayName
+      ~Provenance.set_name
+      ~Provenance.set_standardName
+      ~Provenance.set_xref
+      ~Provenance.to_json
+      ~Provenance.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_displayName
+   .. automethod:: get_name
+   .. automethod:: get_standardName
+   .. automethod:: get_xref
+   .. automethod:: object_attributes
+   .. automethod:: set_displayName
+   .. automethod:: set_name
+   .. automethod:: set_standardName
+   .. automethod:: set_xref
+   .. automethod:: to_json
+   .. automethod:: type_attributes

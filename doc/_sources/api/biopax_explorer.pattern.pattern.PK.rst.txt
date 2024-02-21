@@ -1,0 +1,7 @@
+PK
+==
+
+.. currentmodule:: biopax_explorer.pattern.pattern
+
+.. autoclass:: PK
+   :show-inheritance:

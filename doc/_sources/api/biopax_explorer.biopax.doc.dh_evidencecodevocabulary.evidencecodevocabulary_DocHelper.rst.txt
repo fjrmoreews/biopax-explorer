@@ -1,0 +1,35 @@
+evidencecodevocabulary_DocHelper
+================================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_evidencecodevocabulary
+
+.. autoclass:: evidencecodevocabulary_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~evidencecodevocabulary_DocHelper.attr_type_def
+      ~evidencecodevocabulary_DocHelper.attributeInfo
+      ~evidencecodevocabulary_DocHelper.attributeNameString
+      ~evidencecodevocabulary_DocHelper.attributeNames
+      ~evidencecodevocabulary_DocHelper.attributeType
+      ~evidencecodevocabulary_DocHelper.attributesInfo
+      ~evidencecodevocabulary_DocHelper.classInfo
+      ~evidencecodevocabulary_DocHelper.definitions
+      ~evidencecodevocabulary_DocHelper.objectAttributeNames
+      ~evidencecodevocabulary_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

@@ -1,0 +1,7 @@
+<map id="inheritance1468a8496c" name="inheritance1468a8496c">
+<area shape="rect" id="node1" href="api/biopax_explorer.graph.view.CytoViewer.html#biopax_explorer.graph.view.CytoViewer" target="_top" title="A wrapper for the cytoscape.js jupyter widget." alt="" coords="45,153,129,174"/>
+<area shape="rect" id="node2" href="api/biopax_explorer.graph.view.Factory.html#biopax_explorer.graph.view.Factory" target="_top" title="Factory class for creating graph dataset layers." alt="" coords="56,110,118,132"/>
+<area shape="rect" id="node7" href="api/biopax_explorer.graph.view.GraphDatasetLayerNX.html#biopax_explorer.graph.view.GraphDatasetLayerNX" target="_top" title="GraphDatasetLayerNX class for NetworkX backend." alt="" coords="417,88,561,110"/>
+<area shape="rect" id="node6" href="api/biopax_explorer.graph.view.GraphDatasetLayerGT.html#biopax_explorer.graph.view.GraphDatasetLayerGT" target="_top" title="GraphDatasetLayerGT class for Graph&#45;tool backend." alt="" coords="620,46,763,68"/>
+<area shape="rect" id="node8" href="api/biopax_explorer.graph.view.GraphModelLayer.html#biopax_explorer.graph.view.GraphModelLayer" target="_top" title="GraphModelLayer class." alt="" coords="28,25,146,47"/>
+</map>

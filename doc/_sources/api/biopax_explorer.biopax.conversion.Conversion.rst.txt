@@ -1,0 +1,43 @@
+Conversion
+==========
+
+.. currentmodule:: biopax_explorer.biopax.conversion
+
+.. autoclass:: Conversion
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Conversion.attribute_type_by_name
+      ~Conversion.get_conversionDirection
+      ~Conversion.get_left
+      ~Conversion.get_participantStoichiometry
+      ~Conversion.get_right
+      ~Conversion.get_spontaneous
+      ~Conversion.object_attributes
+      ~Conversion.set_conversionDirection
+      ~Conversion.set_left
+      ~Conversion.set_participantStoichiometry
+      ~Conversion.set_right
+      ~Conversion.set_spontaneous
+      ~Conversion.to_json
+      ~Conversion.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_conversionDirection
+   .. automethod:: get_left
+   .. automethod:: get_participantStoichiometry
+   .. automethod:: get_right
+   .. automethod:: get_spontaneous
+   .. automethod:: object_attributes
+   .. automethod:: set_conversionDirection
+   .. automethod:: set_left
+   .. automethod:: set_participantStoichiometry
+   .. automethod:: set_right
+   .. automethod:: set_spontaneous
+   .. automethod:: to_json
+   .. automethod:: type_attributes

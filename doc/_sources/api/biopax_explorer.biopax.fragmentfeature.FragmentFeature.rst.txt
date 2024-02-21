@@ -1,0 +1,23 @@
+FragmentFeature
+===============
+
+.. currentmodule:: biopax_explorer.biopax.fragmentfeature
+
+.. autoclass:: FragmentFeature
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~FragmentFeature.attribute_type_by_name
+      ~FragmentFeature.object_attributes
+      ~FragmentFeature.to_json
+      ~FragmentFeature.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: object_attributes
+   .. automethod:: to_json
+   .. automethod:: type_attributes
