@@ -1,0 +1,1123 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="ControlledVocabulary" href="biopax_explorer.biopax.controlledvocabulary.ControlledVocabulary.html" /><link rel="prev" title="ComplexAssembly" href="biopax_explorer.biopax.complexassembly.ComplexAssembly.html" />
+
+    <!-- Generated with Sphinx 6.0.0 and Furo 2024.01.29 -->
+        <title>Control - biopax-explorer 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #eeffcc;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">biopax-explorer 1.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">biopax-explorer 1.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.dna.Dna.html">Dna</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.serializer.bp_template.html">bp_template</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.serializer.BPSerializer.html">BPSerializer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.config.html">config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.graphString.html">graphString</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.CytoViewer.html">CytoViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.Factory.html">Factory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.GraphDatasetLayerGT.html">GraphDatasetLayerGT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.GraphDatasetLayerNX.html">GraphDatasetLayerNX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.graph.view.GraphModelLayer.html">GraphModelLayer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.rack.Rack.html">Rack</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.processing.blacklistFilter.html">blacklistFilter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.processing.usedToProduceProcessing.html">usedToProduceProcessing</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.processing.BlackListFilter.html">BlackListFilter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.processing.ProcessingCollection.html">ProcessingCollection</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.view.dot2png.html">dot2png</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.view.dot2svg.html">dot2svg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.view.dottext2png.html">dottext2png</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.view.dottext2svg.html">dottext2svg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.view.writePatternGraphView.html">writePatternGraphView</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.DataPump.html">DataPump</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.LocalProcessing.html">LocalProcessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.PK.html">PK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.Pattern.html">Pattern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.PatternExecutor.html">PatternExecutor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.ProcessingCollection.html">ProcessingCollection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.pattern.pattern.Step.html">Step</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.bindingfeature.BindingFeature.html">BindingFeature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.biochemicalpathwaystep.BiochemicalPathwayStep.html">BiochemicalPathwayStep</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.biochemicalreaction.BiochemicalReaction.html">BiochemicalReaction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.biosource.BioSource.html">BioSource</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.catalysis.Catalysis.html">Catalysis</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.cellularlocationvocabulary.CellularLocationVocabulary.html">CellularLocationVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.cellvocabulary.CellVocabulary.html">CellVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.chemicalstructure.ChemicalStructure.html">ChemicalStructure</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.complex.Complex.html">Complex</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.complexassembly.ComplexAssembly.html">ComplexAssembly</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Control</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.controlledvocabulary.ControlledVocabulary.html">ControlledVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.conversion.Conversion.html">Conversion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.covalentbindingfeature.CovalentBindingFeature.html">CovalentBindingFeature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.degradation.Degradation.html">Degradation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.deltag.DeltaG.html">DeltaG</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.dna.Dna.html">Dna</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.dnareference.DnaReference.html">DnaReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.dnaregion.DnaRegion.html">DnaRegion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.dnaregionreference.DnaRegionReference.html">DnaRegionReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.entity.Entity.html">Entity</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.entityfeature.EntityFeature.html">EntityFeature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.entityreference.EntityReference.html">EntityReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.entityreferencetypevocabulary.EntityReferenceTypeVocabulary.html">EntityReferenceTypeVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.evidence.Evidence.html">Evidence</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.evidencecodevocabulary.EvidenceCodeVocabulary.html">EvidenceCodeVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.experimentalform.ExperimentalForm.html">ExperimentalForm</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.experimentalformvocabulary.ExperimentalFormVocabulary.html">ExperimentalFormVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.fragmentfeature.FragmentFeature.html">FragmentFeature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.gene.Gene.html">Gene</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.geneticinteraction.GeneticInteraction.html">GeneticInteraction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.interaction.Interaction.html">Interaction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.interactionvocabulary.InteractionVocabulary.html">InteractionVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.kprime.KPrime.html">KPrime</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.modificationfeature.ModificationFeature.html">ModificationFeature</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.modulation.Modulation.html">Modulation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.molecularinteraction.MolecularInteraction.html">MolecularInteraction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.pathway.Pathway.html">Pathway</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.pathwaystep.PathwayStep.html">PathwayStep</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.phenotypevocabulary.PhenotypeVocabulary.html">PhenotypeVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.physicalentity.PhysicalEntity.html">PhysicalEntity</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.protein.Protein.html">Protein</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.proteinreference.ProteinReference.html">ProteinReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.provenance.Provenance.html">Provenance</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.publicationxref.PublicationXref.html">PublicationXref</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.relationshiptypevocabulary.RelationshipTypeVocabulary.html">RelationshipTypeVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.relationshipxref.RelationshipXref.html">RelationshipXref</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.rna.Rna.html">Rna</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.rnareference.RnaReference.html">RnaReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.rnaregion.RnaRegion.html">RnaRegion</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.rnaregionreference.RnaRegionReference.html">RnaRegionReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.score.Score.html">Score</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.sequenceinterval.SequenceInterval.html">SequenceInterval</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.sequencelocation.SequenceLocation.html">SequenceLocation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.sequencemodificationvocabulary.SequenceModificationVocabulary.html">SequenceModificationVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.sequenceregionvocabulary.SequenceRegionVocabulary.html">SequenceRegionVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.sequencesite.SequenceSite.html">SequenceSite</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.smallmolecule.SmallMolecule.html">SmallMolecule</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.smallmoleculereference.SmallMoleculeReference.html">SmallMoleculeReference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.stoichiometry.Stoichiometry.html">Stoichiometry</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.templatereaction.TemplateReaction.html">TemplateReaction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.templatereactionregulation.TemplateReactionRegulation.html">TemplateReactionRegulation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.tissuevocabulary.TissueVocabulary.html">TissueVocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.transport.Transport.html">Transport</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.html">TransportWithBiochemicalReaction</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.unificationxref.UnificationXref.html">UnificationXref</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utilityclass.UtilityClass.html">UtilityClass</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.xref.Xref.html">Xref</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.class_utils.tojson.html">tojson</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.class_utils.tostring.html">tostring</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.class_utils.CustomEncoder.html">CustomEncoder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.class_utils.CustomEncoderShort.html">CustomEncoderShort</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.class_children.html">class_children</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.classes.html">classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.classesDict.html">classesDict</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.classes_children.html">classes_children</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.shortPrefix.html">shortPrefix</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_bindingfeature.bindingfeature_DocHelper.html">bindingfeature_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_biochemicalpathwaystep.biochemicalpathwaystep_DocHelper.html">biochemicalpathwaystep_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_biochemicalreaction.biochemicalreaction_DocHelper.html">biochemicalreaction_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_biosource.biosource_DocHelper.html">biosource_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_catalysis.catalysis_DocHelper.html">catalysis_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_cellularlocationvocabulary.cellularlocationvocabulary_DocHelper.html">cellularlocationvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_cellvocabulary.cellvocabulary_DocHelper.html">cellvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_chemicalstructure.chemicalstructure_DocHelper.html">chemicalstructure_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_complex.complex_DocHelper.html">complex_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_complexassembly.complexassembly_DocHelper.html">complexassembly_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_control.control_DocHelper.html">control_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_controlledvocabulary.controlledvocabulary_DocHelper.html">controlledvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_conversion.conversion_DocHelper.html">conversion_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_covalentbindingfeature.covalentbindingfeature_DocHelper.html">covalentbindingfeature_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_degradation.degradation_DocHelper.html">degradation_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_deltag.deltag_DocHelper.html">deltag_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_dna.dna_DocHelper.html">dna_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_dnareference.dnareference_DocHelper.html">dnareference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_dnaregion.dnaregion_DocHelper.html">dnaregion_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_dnaregionreference.dnaregionreference_DocHelper.html">dnaregionreference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_entity.entity_DocHelper.html">entity_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_entityfeature.entityfeature_DocHelper.html">entityfeature_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_entityreference.entityreference_DocHelper.html">entityreference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_entityreferencetypevocabulary.entityreferencetypevocabulary_DocHelper.html">entityreferencetypevocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_evidence.evidence_DocHelper.html">evidence_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_evidencecodevocabulary.evidencecodevocabulary_DocHelper.html">evidencecodevocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_experimentalform.experimentalform_DocHelper.html">experimentalform_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_experimentalformvocabulary.experimentalformvocabulary_DocHelper.html">experimentalformvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_fragmentfeature.fragmentfeature_DocHelper.html">fragmentfeature_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_gene.gene_DocHelper.html">gene_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_geneticinteraction.geneticinteraction_DocHelper.html">geneticinteraction_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_interaction.interaction_DocHelper.html">interaction_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_interactionvocabulary.interactionvocabulary_DocHelper.html">interactionvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_kprime.kprime_DocHelper.html">kprime_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_modificationfeature.modificationfeature_DocHelper.html">modificationfeature_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_modulation.modulation_DocHelper.html">modulation_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_molecularinteraction.molecularinteraction_DocHelper.html">molecularinteraction_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_pathway.pathway_DocHelper.html">pathway_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_pathwaystep.pathwaystep_DocHelper.html">pathwaystep_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_phenotypevocabulary.phenotypevocabulary_DocHelper.html">phenotypevocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_physicalentity.physicalentity_DocHelper.html">physicalentity_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_protein.protein_DocHelper.html">protein_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_proteinreference.proteinreference_DocHelper.html">proteinreference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_provenance.provenance_DocHelper.html">provenance_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_publicationxref.publicationxref_DocHelper.html">publicationxref_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_relationshiptypevocabulary.relationshiptypevocabulary_DocHelper.html">relationshiptypevocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_relationshipxref.relationshipxref_DocHelper.html">relationshipxref_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_rna.rna_DocHelper.html">rna_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_rnareference.rnareference_DocHelper.html">rnareference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_rnaregion.rnaregion_DocHelper.html">rnaregion_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_rnaregionreference.rnaregionreference_DocHelper.html">rnaregionreference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_score.score_DocHelper.html">score_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_sequenceinterval.sequenceinterval_DocHelper.html">sequenceinterval_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_sequencelocation.sequencelocation_DocHelper.html">sequencelocation_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_sequencemodificationvocabulary.sequencemodificationvocabulary_DocHelper.html">sequencemodificationvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_sequenceregionvocabulary.sequenceregionvocabulary_DocHelper.html">sequenceregionvocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_sequencesite.sequencesite_DocHelper.html">sequencesite_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_smallmolecule.smallmolecule_DocHelper.html">smallmolecule_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_smallmoleculereference.smallmoleculereference_DocHelper.html">smallmoleculereference_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_stoichiometry.stoichiometry_DocHelper.html">stoichiometry_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_templatereaction.templatereaction_DocHelper.html">templatereaction_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_templatereactionregulation.templatereactionregulation_DocHelper.html">templatereactionregulation_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_tissuevocabulary.tissuevocabulary_DocHelper.html">tissuevocabulary_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_transport.transport_DocHelper.html">transport_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_transportwithbiochemicalreaction.transportwithbiochemicalreaction_DocHelper.html">transportwithbiochemicalreaction_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_unificationxref.unificationxref_DocHelper.html">unificationxref_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_utilityclass.utilityclass_DocHelper.html">utilityclass_DocHelper</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax_explorer.biopax.doc.dh_xref.xref_DocHelper.html">xref_DocHelper</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="control">
+<h1>Control<a class="headerlink" href="#control" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">biopax_explorer.biopax.control.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Interaction</span></code></p>
+<p>Class Control</p>
+<blockquote>
+<div><blockquote>
+<div><p>Definition: An interaction in which one entity regulates, modifies, or otherwise</p>
+</div></blockquote>
+<p>influences a continuant entity, i.e. pathway or interaction.   Usage:
+Conceptually, physical entities are involved in interactions (or events) and the
+events are controlled or modified, not the physical entities themselves. For
+example, a kinase activating a protein is a frequent event in signaling pathways
+and is usually represented as an ‘activation’ arrow from the kinase to the
+substrate in signaling diagrams. This is an abstraction, called “Activity Flow”
+representation,  that can be ambiguous without context. In BioPAX, this
+information should be captured as the kinase catalyzing (via an instance of the
+catalysis class) a Biochemical Reaction in which the substrate is
+phosphorylated.  Subclasses of control define types specific to the biological
+process that is being controlled and should be used instead of the generic
+“control” class when applicable.   A control can potentially have multiple
+controllers. This acts as a logical AND, i.e. both controllers are needed to
+regulate the  controlled event. Alternatively multiple controllers can control
+the same event and this acts as a logical OR, i.e. any one of them is sufficient
+to regulate the controlled event. Using this structure it is possible to
+describe arbitrary control logic using BioPAX.  Rationale: Control can be
+temporally non-atomic, for example a pathway can control another pathway in
+BioPAX.   Synonyms: regulation, mediation  Examples: A small molecule that
+inhibits a pathway by an unknown mechanism.</p>
+</div></blockquote>
+<p>code generator : rdfobj (author F.Moreews 2023).</p>
+<p class="rubric">Methods</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_availability</span></code>()</p></td>
+<td><p>Attribute _availability  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cofactor</span></code>()</p></td>
+<td><p>Attribute _cofactor  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
+<td><p>Attribute _comment  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controlType" title="biopax_explorer.biopax.control.Control.get_controlType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlType</span></code></a>()</p></td>
+<td><p>Attribute _controlType  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controlled" title="biopax_explorer.biopax.control.Control.get_controlled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlled</span></code></a>()</p></td>
+<td><p>Attribute _controlled  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controller" title="biopax_explorer.biopax.control.Control.get_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controller</span></code></a>()</p></td>
+<td><p>Attribute _controller  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
+<td><p>Attribute _dataSource  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
+<td><p>Attribute _displayName  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
+<td><p>Attribute _evidence  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code>()</p></td>
+<td><p>Attribute _interactionType  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_left</span></code>()</p></td>
+<td><p>Attribute _left  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code>()</p></td>
+<td><p>Attribute _name  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participant</span></code>()</p></td>
+<td><p>Attribute _participant  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_product</span></code>()</p></td>
+<td><p>Attribute _product  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_right</span></code>()</p></td>
+<td><p>Attribute _right  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_standardName</span></code>()</p></td>
+<td><p>Attribute _standardName  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_template</span></code>()</p></td>
+<td><p>Attribute _template  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
+<td><p>Attribute _xref  getter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_availability</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_cofactor</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_controlType</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_controlled</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_controller</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_dataSource</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_interactionType</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_left</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_name</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_participant</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_product</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_right</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_standardName</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_template</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_xref</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>to_json</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>type_attributes</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Methods Summary</p>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.attribute_type_by_name" title="biopax_explorer.biopax.control.Control.attribute_type_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attribute_type_by_name</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controlType" title="biopax_explorer.biopax.control.Control.get_controlType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlType</span></code></a>()</p></td>
+<td><p>Attribute _controlType  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controlled" title="biopax_explorer.biopax.control.Control.get_controlled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlled</span></code></a>()</p></td>
+<td><p>Attribute _controlled  getter</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controller" title="biopax_explorer.biopax.control.Control.get_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controller</span></code></a>()</p></td>
+<td><p>Attribute _controller  getter</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_uri_string" title="biopax_explorer.biopax.control.Control.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.object_attributes" title="biopax_explorer.biopax.control.Control.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_controlType" title="biopax_explorer.biopax.control.Control.set_controlType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_controlType</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_controlled" title="biopax_explorer.biopax.control.Control.set_controlled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_controlled</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_controller" title="biopax_explorer.biopax.control.Control.set_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_controller</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_uri_string" title="biopax_explorer.biopax.control.Control.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.to_json" title="biopax_explorer.biopax.control.Control.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax_explorer.biopax.control.Control.type_attributes" title="biopax_explorer.biopax.control.Control.type_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_attributes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.attribute_type_by_name">
+<span class="sig-name descname"><span class="pre">attribute_type_by_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.attribute_type_by_name'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.attribute_type_by_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.get_controlType">
+<span class="sig-name descname"><span class="pre">get_controlType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.get_controlType'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.get_controlType" title="Permalink to this definition">#</a></dt>
+<dd><blockquote>
+<div><dl class="simple">
+<dt>Attribute _controlType  getter</dt><dd><p>Defines the nature of the control relationship between the controller and the</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>controlled entities.  The following terms are possible values:  ACTIVATION:
+General activation. Compounds that activate the specified enzyme activity by an
+unknown mechanism. The mechanism is defined as unknown, because either the
+mechanism has yet to be elucidated in the experimental literature, or the
+paper(s) curated thus far do not define the mechanism, and a full literature
+search has yet to be performed.  The following term can not be used in the
+catalysis class: INHIBITION: General inhibition. Compounds that inhibit the
+specified enzyme activity by an unknown mechanism. The mechanism is defined as
+unknown, because either the mechanism has yet to be elucidated in the
+experimental literature, or the paper(s) curated thus far do not define the
+mechanism, and a full literature search has yet to be performed.  The following
+terms can only be used in the modulation class (these definitions from EcoCyc):
+INHIBITION-ALLOSTERIC Allosteric inhibitors decrease the specified enzyme
+activity by binding reversibly to the enzyme and inducing a conformational
+change that decreases the affinity of the enzyme to its substrates without
+affecting its VMAX. Allosteric inhibitors can be competitive or noncompetitive
+inhibitors, therefore, those inhibition categories can be used in conjunction
+with this category.  INHIBITION-COMPETITIVE Competitive inhibitors are compounds
+that competitively inhibit the specified enzyme activity by binding reversibly
+to the enzyme and preventing the substrate from binding. Binding of the
+inhibitor and substrate are mutually exclusive because it is assumed that the
+inhibitor and substrate can both bind only to the free enzyme. A competitive
+inhibitor can either bind to the active site of the enzyme, directly excluding
+the substrate from binding there, or it can bind to another site on the enzyme,
+altering the conformation of the enzyme such that the substrate can not bind to
+the active site.  INHIBITION-IRREVERSIBLE Irreversible inhibitors are compounds
+that irreversibly inhibit the specified enzyme activity by binding to the enzyme
+and dissociating so slowly that it is considered irreversible. For example,
+alkylating agents, such as iodoacetamide, irreversibly inhibit the catalytic
+activity of some enzymes by modifying cysteine side chains.  INHIBITION-
+NONCOMPETITIVE Noncompetitive inhibitors are compounds that noncompetitively
+inhibit the specified enzyme by binding reversibly to both the free enzyme and
+to the enzyme-substrate complex. The inhibitor and substrate may be bound to the
+enzyme simultaneously and do not exclude each other. However, only the enzyme-
+substrate complex (not the enzyme-substrate-inhibitor complex) is catalytically
+active.  INHIBITION-OTHER Compounds that inhibit the specified enzyme activity
+by a mechanism that has been characterized, but that cannot be clearly
+classified as irreversible, competitive, noncompetitive, uncompetitive, or
+allosteric.  INHIBITION-UNCOMPETITIVE Uncompetitive inhibitors are compounds
+that uncompetitively inhibit the specified enzyme activity by binding reversibly
+to the enzyme-substrate complex but not to the enzyme alone.  ACTIVATION-
+NONALLOSTERIC Nonallosteric activators increase the specified enzyme activity by
+means other than allosteric.  ACTIVATION-ALLOSTERIC Allosteric activators
+increase the specified enzyme activity by binding reversibly to the enzyme and
+inducing a conformational change that increases the affinity of the enzyme to
+its substrates without affecting its VMAX.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.get_controlled">
+<span class="sig-name descname"><span class="pre">get_controlled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.get_controlled'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.get_controlled" title="Permalink to this definition">#</a></dt>
+<dd><blockquote>
+<div><dl class="simple">
+<dt>Attribute _controlled  getter</dt><dd><p>The entity that is controlled, e.g., in a biochemical reaction, the reaction is</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>controlled by an enzyme. Controlled is a sub-property of participants.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.get_controller">
+<span class="sig-name descname"><span class="pre">get_controller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.get_controller'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.get_controller" title="Permalink to this definition">#</a></dt>
+<dd><blockquote>
+<div><dl class="simple">
+<dt>Attribute _controller  getter</dt><dd><p>The controlling entity, e.g., in a biochemical reaction, an enzyme is the</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>controlling entity of the reaction. CONTROLLER is a sub-property of
+PARTICIPANTS.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.object_attributes">
+<span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.object_attributes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.set_controlType">
+<span class="sig-name descname"><span class="pre">set_controlType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.set_controlType'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.set_controlType" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.set_controlled">
+<span class="sig-name descname"><span class="pre">set_controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.set_controlled'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.set_controlled" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.set_controller">
+<span class="sig-name descname"><span class="pre">set_controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.set_controller'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.set_controller" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.set_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.to_json">
+<span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.to_json'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.to_json" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax_explorer.biopax.control.Control.type_attributes">
+<span class="sig-name descname"><span class="pre">type_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax_explorer/biopax/control/control.py#{'module': 'biopax_explorer.biopax.control', 'fullname': 'Control.type_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax_explorer.biopax.control.Control.type_attributes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="biopax_explorer.biopax.controlledvocabulary.ControlledVocabulary.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">ControlledVocabulary</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="biopax_explorer.biopax.complexassembly.ComplexAssembly.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">ComplexAssembly</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Francois Moreews
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Control</a><ul>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a><ul>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">Control.attribute_type_by_name()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controlType"><code class="docutils literal notranslate"><span class="pre">Control.get_controlType()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controlled"><code class="docutils literal notranslate"><span class="pre">Control.get_controlled()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_controller"><code class="docutils literal notranslate"><span class="pre">Control.get_controller()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.get_uri_string"><code class="docutils literal notranslate"><span class="pre">Control.get_uri_string()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.object_attributes"><code class="docutils literal notranslate"><span class="pre">Control.object_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_controlType"><code class="docutils literal notranslate"><span class="pre">Control.set_controlType()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_controlled"><code class="docutils literal notranslate"><span class="pre">Control.set_controlled()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_controller"><code class="docutils literal notranslate"><span class="pre">Control.set_controller()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.set_uri_string"><code class="docutils literal notranslate"><span class="pre">Control.set_uri_string()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.to_json"><code class="docutils literal notranslate"><span class="pre">Control.to_json()</span></code></a></li>
+<li><a class="reference internal" href="#biopax_explorer.biopax.control.Control.type_attributes"><code class="docutils literal notranslate"><span class="pre">Control.type_attributes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    </body>
+</html>

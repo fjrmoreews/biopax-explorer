@@ -1,9 +1,0 @@
-<map id="inheritance1897622e68" name="inheritance1897622e68">
-<area shape="rect" id="node1" href="api/biopax_explorer.pattern.BlackListFilter.html#biopax_explorer.pattern.BlackListFilter" target="_top" title="A class representing a Black List Filter." alt="" coords="27,421,141,447"/>
-<area shape="rect" id="node2" href="api/biopax_explorer.pattern.DataPump.html#biopax_explorer.pattern.DataPump" target="_top" title="DataPump class represents a data pump operation." alt="" coords="39,372,129,397"/>
-<area shape="rect" id="node3" href="api/biopax_explorer.pattern.LocalProcessing.html#biopax_explorer.pattern.LocalProcessing" target="_top" title="LocalProcessing class represents local processing operations." alt="" coords="21,299,147,324"/>
-<area shape="rect" id="node4" href="api/biopax_explorer.pattern.Pattern.html#biopax_explorer.pattern.Pattern" target="_top" title="Pattern class represents a container for processing steps." alt="" coords="48,225,120,251"/>
-<area shape="rect" id="node5" href="api/biopax_explorer.pattern.PatternExecutor.html#biopax_explorer.pattern.PatternExecutor" target="_top" title="PatternExecutor class is responsible for executing patterns." alt="" coords="22,152,146,177"/>
-<area shape="rect" id="node6" href="api/biopax_explorer.pattern.ProcessingCollection.html#biopax_explorer.pattern.ProcessingCollection" target="_top" title="A class representing a processing collection." alt="" coords="5,79,163,104"/>
-<area shape="rect" id="node7" href="api/biopax_explorer.pattern.Step.html#biopax_explorer.pattern.Step" target="_top" title="Step class represents a step in the processing sequence of a Pattern." alt="" coords="48,29,120,55"/>
-</map>
