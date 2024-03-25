@@ -1,0 +1,6 @@
+define_model_instance
+=====================
+
+.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
+
+.. autofunction:: define_model_instance

@@ -1,0 +1,35 @@
+BiochemicalPathwayStep
+======================
+
+.. currentmodule:: biopax_explorer.biopax.biochemicalpathwaystep
+
+.. autoclass:: BiochemicalPathwayStep
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~BiochemicalPathwayStep.attribute_type_by_name
+      ~BiochemicalPathwayStep.get_stepConversion
+      ~BiochemicalPathwayStep.get_stepDirection
+      ~BiochemicalPathwayStep.get_uri_string
+      ~BiochemicalPathwayStep.object_attributes
+      ~BiochemicalPathwayStep.set_stepConversion
+      ~BiochemicalPathwayStep.set_stepDirection
+      ~BiochemicalPathwayStep.set_uri_string
+      ~BiochemicalPathwayStep.to_json
+      ~BiochemicalPathwayStep.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_stepConversion
+   .. automethod:: get_stepDirection
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_stepConversion
+   .. automethod:: set_stepDirection
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

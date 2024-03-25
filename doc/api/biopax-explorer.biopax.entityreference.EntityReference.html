@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -772,31 +778,37 @@ different groups.</p>
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_entityFeature</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_entityReferenceType</strong></p></td>
+<tr class="row-even"><td><p><strong>set_entityFeature</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_entityReferenceType</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_memberEntityReference</strong></p></td>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_name</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_memberEntityReference</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_name</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_standardName</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>set_xref</strong></p></td>
@@ -839,31 +851,37 @@ different groups.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_standardName" title="biopax-explorer.biopax.entityreference.EntityReference.get_standardName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_standardName</span></code></a>()</p></td>
 <td><p>Attribute _standardName  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_xref" title="biopax-explorer.biopax.entityreference.EntityReference.get_xref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_uri_string" title="biopax-explorer.biopax.entityreference.EntityReference.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_xref" title="biopax-explorer.biopax.entityreference.EntityReference.get_xref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code></a>()</p></td>
 <td><p>Attribute _xref  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.object_attributes" title="biopax-explorer.biopax.entityreference.EntityReference.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.object_attributes" title="biopax-explorer.biopax.entityreference.EntityReference.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_displayName" title="biopax-explorer.biopax.entityreference.EntityReference.set_displayName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_displayName</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_displayName" title="biopax-explorer.biopax.entityreference.EntityReference.set_displayName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_displayName</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_entityFeature" title="biopax-explorer.biopax.entityreference.EntityReference.set_entityFeature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_entityFeature</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_entityFeature" title="biopax-explorer.biopax.entityreference.EntityReference.set_entityFeature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_entityFeature</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_entityReferenceType" title="biopax-explorer.biopax.entityreference.EntityReference.set_entityReferenceType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_entityReferenceType</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_entityReferenceType" title="biopax-explorer.biopax.entityreference.EntityReference.set_entityReferenceType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_entityReferenceType</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_evidence" title="biopax-explorer.biopax.entityreference.EntityReference.set_evidence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_evidence</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_evidence" title="biopax-explorer.biopax.entityreference.EntityReference.set_evidence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_evidence</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_memberEntityReference" title="biopax-explorer.biopax.entityreference.EntityReference.set_memberEntityReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_memberEntityReference</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_memberEntityReference" title="biopax-explorer.biopax.entityreference.EntityReference.set_memberEntityReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_memberEntityReference</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_name" title="biopax-explorer.biopax.entityreference.EntityReference.set_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_name</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_name" title="biopax-explorer.biopax.entityreference.EntityReference.set_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_name</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_standardName" title="biopax-explorer.biopax.entityreference.EntityReference.set_standardName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_standardName</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_standardName" title="biopax-explorer.biopax.entityreference.EntityReference.set_standardName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_standardName</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_uri_string" title="biopax-explorer.biopax.entityreference.EntityReference.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_xref" title="biopax-explorer.biopax.entityreference.EntityReference.set_xref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xref</span></code></a>(value)</p></td>
@@ -985,6 +1003,11 @@ from the model too. If the old name should be retained as a synonym a regular
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.entityreference.EntityReference.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/entityreference/entityreference.py#{'module': 'biopax-explorer.biopax.entityreference', 'fullname': 'EntityReference.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.entityreference.EntityReference.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.entityreference.EntityReference.get_xref">
 <span class="sig-name descname"><span class="pre">get_xref</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/entityreference/entityreference.py#{'module': 'biopax-explorer.biopax.entityreference', 'fullname': 'EntityReference.get_xref'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.entityreference.EntityReference.get_xref" title="Permalink to this definition">#</a></dt>
 <dd><blockquote>
@@ -1034,6 +1057,11 @@ from the model too. If the old name should be retained as a synonym a regular
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.entityreference.EntityReference.set_standardName">
 <span class="sig-name descname"><span class="pre">set_standardName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/entityreference/entityreference.py#{'module': 'biopax-explorer.biopax.entityreference', 'fullname': 'EntityReference.set_standardName'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.entityreference.EntityReference.set_standardName" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.entityreference.EntityReference.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/entityreference/entityreference.py#{'module': 'biopax-explorer.biopax.entityreference', 'fullname': 'EntityReference.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.entityreference.EntityReference.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1120,6 +1148,7 @@ from the model too. If the old name should be retained as a synonym a regular
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_memberEntityReference"><code class="docutils literal notranslate"><span class="pre">EntityReference.get_memberEntityReference()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_name"><code class="docutils literal notranslate"><span class="pre">EntityReference.get_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_standardName"><code class="docutils literal notranslate"><span class="pre">EntityReference.get_standardName()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_uri_string"><code class="docutils literal notranslate"><span class="pre">EntityReference.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.get_xref"><code class="docutils literal notranslate"><span class="pre">EntityReference.get_xref()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.object_attributes"><code class="docutils literal notranslate"><span class="pre">EntityReference.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_displayName"><code class="docutils literal notranslate"><span class="pre">EntityReference.set_displayName()</span></code></a></li>
@@ -1129,6 +1158,7 @@ from the model too. If the old name should be retained as a synonym a regular
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_memberEntityReference"><code class="docutils literal notranslate"><span class="pre">EntityReference.set_memberEntityReference()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_name"><code class="docutils literal notranslate"><span class="pre">EntityReference.set_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_standardName"><code class="docutils literal notranslate"><span class="pre">EntityReference.set_standardName()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_uri_string"><code class="docutils literal notranslate"><span class="pre">EntityReference.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.set_xref"><code class="docutils literal notranslate"><span class="pre">EntityReference.set_xref()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.to_json"><code class="docutils literal notranslate"><span class="pre">EntityReference.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.entityreference.EntityReference.type_attributes"><code class="docutils literal notranslate"><span class="pre">EntityReference.type_attributes()</span></code></a></li>

@@ -1,0 +1,27 @@
+SequenceLocation
+================
+
+.. currentmodule:: biopax_explorer.biopax.sequencelocation
+
+.. autoclass:: SequenceLocation
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SequenceLocation.attribute_type_by_name
+      ~SequenceLocation.get_uri_string
+      ~SequenceLocation.object_attributes
+      ~SequenceLocation.set_uri_string
+      ~SequenceLocation.to_json
+      ~SequenceLocation.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

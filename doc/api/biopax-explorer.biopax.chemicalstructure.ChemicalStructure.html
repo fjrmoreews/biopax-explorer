@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -721,16 +727,22 @@ of glucose-6-phosphate: ‘C(OP(=O)(O)O)[CH]1([CH](O)[CH](O)[CH](O)[CH](O)O1)’
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_structureData</strong></p></td>
+<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_structureFormat</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_structureData</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_structureFormat</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>to_json</strong></p></td>
@@ -755,13 +767,19 @@ of glucose-6-phosphate: ‘C(OP(=O)(O)O)[CH]1([CH](O)[CH](O)[CH](O)[CH](O)O1)’
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_structureFormat" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_structureFormat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_structureFormat</span></code></a>()</p></td>
 <td><p>Attribute _structureFormat  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_uri_string" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureData" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_structureData</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_structureFormat</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureData" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_structureData</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_structureFormat</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_uri_string" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.to_json" title="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
@@ -805,6 +823,11 @@ the CML data.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/chemicalstructure/chemicalstructure.py#{'module': 'biopax-explorer.biopax.chemicalstructure', 'fullname': 'ChemicalStructure.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/chemicalstructure/chemicalstructure.py#{'module': 'biopax-explorer.biopax.chemicalstructure', 'fullname': 'ChemicalStructure.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -817,6 +840,11 @@ the CML data.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat">
 <span class="sig-name descname"><span class="pre">set_structureFormat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/chemicalstructure/chemicalstructure.py#{'module': 'biopax-explorer.biopax.chemicalstructure', 'fullname': 'ChemicalStructure.set_structureFormat'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/chemicalstructure/chemicalstructure.py#{'module': 'biopax-explorer.biopax.chemicalstructure', 'fullname': 'ChemicalStructure.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -893,9 +921,11 @@ the CML data.</p>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.attribute_type_by_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_structureData"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.get_structureData()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_structureFormat"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.get_structureFormat()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.get_uri_string"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.object_attributes"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureData"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.set_structureData()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_structureFormat"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.set_structureFormat()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.set_uri_string"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.to_json"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.chemicalstructure.ChemicalStructure.type_attributes"><code class="docutils literal notranslate"><span class="pre">ChemicalStructure.type_attributes()</span></code></a></li>
 </ul>

@@ -1,0 +1,47 @@
+RnaRegionReference
+==================
+
+.. currentmodule:: biopax_explorer.biopax.rnaregionreference
+
+.. autoclass:: RnaRegionReference
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~RnaRegionReference.attribute_type_by_name
+      ~RnaRegionReference.get_absoluteRegion
+      ~RnaRegionReference.get_organism
+      ~RnaRegionReference.get_regionType
+      ~RnaRegionReference.get_sequence
+      ~RnaRegionReference.get_subRegion
+      ~RnaRegionReference.get_uri_string
+      ~RnaRegionReference.object_attributes
+      ~RnaRegionReference.set_absoluteRegion
+      ~RnaRegionReference.set_organism
+      ~RnaRegionReference.set_regionType
+      ~RnaRegionReference.set_sequence
+      ~RnaRegionReference.set_subRegion
+      ~RnaRegionReference.set_uri_string
+      ~RnaRegionReference.to_json
+      ~RnaRegionReference.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_absoluteRegion
+   .. automethod:: get_organism
+   .. automethod:: get_regionType
+   .. automethod:: get_sequence
+   .. automethod:: get_subRegion
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_absoluteRegion
+   .. automethod:: set_organism
+   .. automethod:: set_regionType
+   .. automethod:: set_sequence
+   .. automethod:: set_subRegion
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

@@ -1,0 +1,27 @@
+EvidenceCodeVocabulary
+======================
+
+.. currentmodule:: biopax_explorer.biopax.evidencecodevocabulary
+
+.. autoclass:: EvidenceCodeVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~EvidenceCodeVocabulary.attribute_type_by_name
+      ~EvidenceCodeVocabulary.get_uri_string
+      ~EvidenceCodeVocabulary.object_attributes
+      ~EvidenceCodeVocabulary.set_uri_string
+      ~EvidenceCodeVocabulary.to_json
+      ~EvidenceCodeVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

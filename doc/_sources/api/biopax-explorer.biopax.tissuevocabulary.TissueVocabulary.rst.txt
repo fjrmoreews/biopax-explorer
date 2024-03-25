@@ -1,0 +1,27 @@
+TissueVocabulary
+================
+
+.. currentmodule:: biopax_explorer.biopax.tissuevocabulary
+
+.. autoclass:: TissueVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~TissueVocabulary.attribute_type_by_name
+      ~TissueVocabulary.get_uri_string
+      ~TissueVocabulary.object_attributes
+      ~TissueVocabulary.set_uri_string
+      ~TissueVocabulary.to_json
+      ~TissueVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

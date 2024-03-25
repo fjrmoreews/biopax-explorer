@@ -1,0 +1,31 @@
+RelationshipXref
+================
+
+.. currentmodule:: biopax_explorer.biopax.relationshipxref
+
+.. autoclass:: RelationshipXref
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~RelationshipXref.attribute_type_by_name
+      ~RelationshipXref.get_relationshipType
+      ~RelationshipXref.get_uri_string
+      ~RelationshipXref.object_attributes
+      ~RelationshipXref.set_relationshipType
+      ~RelationshipXref.set_uri_string
+      ~RelationshipXref.to_json
+      ~RelationshipXref.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_relationshipType
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_relationshipType
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

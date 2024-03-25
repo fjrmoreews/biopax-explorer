@@ -1,0 +1,41 @@
+TransportWithBiochemicalReaction
+================================
+
+.. currentmodule:: biopax_explorer.biopax.transportwithbiochemicalreaction
+
+.. autoclass:: TransportWithBiochemicalReaction
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~TransportWithBiochemicalReaction.attribute_type_by_name
+      ~TransportWithBiochemicalReaction.get_deltaG
+      ~TransportWithBiochemicalReaction.get_deltaH
+      ~TransportWithBiochemicalReaction.get_deltaS
+      ~TransportWithBiochemicalReaction.get_eCNumber
+      ~TransportWithBiochemicalReaction.get_kEQ
+      ~TransportWithBiochemicalReaction.object_attributes
+      ~TransportWithBiochemicalReaction.set_deltaG
+      ~TransportWithBiochemicalReaction.set_deltaH
+      ~TransportWithBiochemicalReaction.set_deltaS
+      ~TransportWithBiochemicalReaction.set_eCNumber
+      ~TransportWithBiochemicalReaction.set_kEQ
+      ~TransportWithBiochemicalReaction.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_deltaG
+   .. automethod:: get_deltaH
+   .. automethod:: get_deltaS
+   .. automethod:: get_eCNumber
+   .. automethod:: get_kEQ
+   .. automethod:: object_attributes
+   .. automethod:: set_deltaG
+   .. automethod:: set_deltaH
+   .. automethod:: set_deltaS
+   .. automethod:: set_eCNumber
+   .. automethod:: set_kEQ
+   .. automethod:: type_attributes

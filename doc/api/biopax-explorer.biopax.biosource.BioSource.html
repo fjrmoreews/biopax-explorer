@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -730,25 +736,31 @@ complex, pathway).  Instances: HeLa cells, Homo sapiens, and mouse liver tissue.
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_cellType</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-even"><td><p><strong>set_cellType</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_name</strong></p></td>
+<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_standardName</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_tissue</strong></p></td>
+<tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_tissue</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>set_xref</strong></p></td>
@@ -785,25 +797,31 @@ complex, pathway).  Instances: HeLa cells, Homo sapiens, and mouse liver tissue.
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_tissue" title="biopax-explorer.biopax.biosource.BioSource.get_tissue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tissue</span></code></a>()</p></td>
 <td><p>Attribute _tissue  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_xref" title="biopax-explorer.biopax.biosource.BioSource.get_xref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_uri_string" title="biopax-explorer.biopax.biosource.BioSource.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_xref" title="biopax-explorer.biopax.biosource.BioSource.get_xref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code></a>()</p></td>
 <td><p>Attribute _xref  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.object_attributes" title="biopax-explorer.biopax.biosource.BioSource.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.object_attributes" title="biopax-explorer.biopax.biosource.BioSource.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_cellType" title="biopax-explorer.biopax.biosource.BioSource.set_cellType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cellType</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_cellType" title="biopax-explorer.biopax.biosource.BioSource.set_cellType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cellType</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_displayName" title="biopax-explorer.biopax.biosource.BioSource.set_displayName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_displayName</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_displayName" title="biopax-explorer.biopax.biosource.BioSource.set_displayName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_displayName</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_name" title="biopax-explorer.biopax.biosource.BioSource.set_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_name</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_name" title="biopax-explorer.biopax.biosource.BioSource.set_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_name</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_standardName" title="biopax-explorer.biopax.biosource.BioSource.set_standardName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_standardName</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_standardName" title="biopax-explorer.biopax.biosource.BioSource.set_standardName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_standardName</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_tissue" title="biopax-explorer.biopax.biosource.BioSource.set_tissue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_tissue</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_tissue" title="biopax-explorer.biopax.biosource.BioSource.set_tissue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_tissue</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_uri_string" title="biopax-explorer.biopax.biosource.BioSource.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_xref" title="biopax-explorer.biopax.biosource.BioSource.set_xref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_xref</span></code></a>(value)</p></td>
@@ -900,6 +918,11 @@ from the model too. If the old name should be retained as a synonym a regular
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.biosource.BioSource.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/biosource/biosource.py#{'module': 'biopax-explorer.biopax.biosource', 'fullname': 'BioSource.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.biosource.BioSource.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.biosource.BioSource.get_xref">
 <span class="sig-name descname"><span class="pre">get_xref</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/biosource/biosource.py#{'module': 'biopax-explorer.biopax.biosource', 'fullname': 'BioSource.get_xref'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.biosource.BioSource.get_xref" title="Permalink to this definition">#</a></dt>
 <dd><blockquote>
@@ -939,6 +962,11 @@ from the model too. If the old name should be retained as a synonym a regular
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.biosource.BioSource.set_tissue">
 <span class="sig-name descname"><span class="pre">set_tissue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/biosource/biosource.py#{'module': 'biopax-explorer.biopax.biosource', 'fullname': 'BioSource.set_tissue'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.biosource.BioSource.set_tissue" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.biosource.BioSource.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/biosource/biosource.py#{'module': 'biopax-explorer.biopax.biosource', 'fullname': 'BioSource.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.biosource.BioSource.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1023,6 +1051,7 @@ from the model too. If the old name should be retained as a synonym a regular
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_name"><code class="docutils literal notranslate"><span class="pre">BioSource.get_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_standardName"><code class="docutils literal notranslate"><span class="pre">BioSource.get_standardName()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_tissue"><code class="docutils literal notranslate"><span class="pre">BioSource.get_tissue()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_uri_string"><code class="docutils literal notranslate"><span class="pre">BioSource.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.get_xref"><code class="docutils literal notranslate"><span class="pre">BioSource.get_xref()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.object_attributes"><code class="docutils literal notranslate"><span class="pre">BioSource.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_cellType"><code class="docutils literal notranslate"><span class="pre">BioSource.set_cellType()</span></code></a></li>
@@ -1030,6 +1059,7 @@ from the model too. If the old name should be retained as a synonym a regular
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_name"><code class="docutils literal notranslate"><span class="pre">BioSource.set_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_standardName"><code class="docutils literal notranslate"><span class="pre">BioSource.set_standardName()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_tissue"><code class="docutils literal notranslate"><span class="pre">BioSource.set_tissue()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_uri_string"><code class="docutils literal notranslate"><span class="pre">BioSource.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.set_xref"><code class="docutils literal notranslate"><span class="pre">BioSource.set_xref()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.to_json"><code class="docutils literal notranslate"><span class="pre">BioSource.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.biosource.BioSource.type_attributes"><code class="docutils literal notranslate"><span class="pre">BioSource.type_attributes()</span></code></a></li>

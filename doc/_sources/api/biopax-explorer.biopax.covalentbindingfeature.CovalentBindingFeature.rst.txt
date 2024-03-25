@@ -1,0 +1,33 @@
+CovalentBindingFeature
+======================
+
+.. currentmodule:: biopax_explorer.biopax.covalentbindingfeature
+
+.. autoclass:: CovalentBindingFeature
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~CovalentBindingFeature.attribute_type_by_name
+      ~CovalentBindingFeature.get_bindsTo
+      ~CovalentBindingFeature.get_intraMolecular
+      ~CovalentBindingFeature.get_modificationType
+      ~CovalentBindingFeature.object_attributes
+      ~CovalentBindingFeature.set_bindsTo
+      ~CovalentBindingFeature.set_intraMolecular
+      ~CovalentBindingFeature.set_modificationType
+      ~CovalentBindingFeature.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_bindsTo
+   .. automethod:: get_intraMolecular
+   .. automethod:: get_modificationType
+   .. automethod:: object_attributes
+   .. automethod:: set_bindsTo
+   .. automethod:: set_intraMolecular
+   .. automethod:: set_modificationType
+   .. automethod:: type_attributes

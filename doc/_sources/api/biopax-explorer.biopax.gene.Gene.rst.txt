@@ -1,0 +1,31 @@
+Gene
+====
+
+.. currentmodule:: biopax_explorer.biopax.gene
+
+.. autoclass:: Gene
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Gene.attribute_type_by_name
+      ~Gene.get_organism
+      ~Gene.get_uri_string
+      ~Gene.object_attributes
+      ~Gene.set_organism
+      ~Gene.set_uri_string
+      ~Gene.to_json
+      ~Gene.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_organism
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_organism
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

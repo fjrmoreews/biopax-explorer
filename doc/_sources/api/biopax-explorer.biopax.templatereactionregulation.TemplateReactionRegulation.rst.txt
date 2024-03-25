@@ -1,0 +1,27 @@
+TemplateReactionRegulation
+==========================
+
+.. currentmodule:: biopax_explorer.biopax.templatereactionregulation
+
+.. autoclass:: TemplateReactionRegulation
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~TemplateReactionRegulation.attribute_type_by_name
+      ~TemplateReactionRegulation.get_uri_string
+      ~TemplateReactionRegulation.object_attributes
+      ~TemplateReactionRegulation.set_uri_string
+      ~TemplateReactionRegulation.to_json
+      ~TemplateReactionRegulation.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

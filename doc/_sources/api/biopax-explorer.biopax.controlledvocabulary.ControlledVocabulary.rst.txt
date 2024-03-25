@@ -1,0 +1,35 @@
+ControlledVocabulary
+====================
+
+.. currentmodule:: biopax_explorer.biopax.controlledvocabulary
+
+.. autoclass:: ControlledVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ControlledVocabulary.attribute_type_by_name
+      ~ControlledVocabulary.get_term
+      ~ControlledVocabulary.get_uri_string
+      ~ControlledVocabulary.get_xref
+      ~ControlledVocabulary.object_attributes
+      ~ControlledVocabulary.set_term
+      ~ControlledVocabulary.set_uri_string
+      ~ControlledVocabulary.set_xref
+      ~ControlledVocabulary.to_json
+      ~ControlledVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_term
+   .. automethod:: get_uri_string
+   .. automethod:: get_xref
+   .. automethod:: object_attributes
+   .. automethod:: set_term
+   .. automethod:: set_uri_string
+   .. automethod:: set_xref
+   .. automethod:: to_json
+   .. automethod:: type_attributes

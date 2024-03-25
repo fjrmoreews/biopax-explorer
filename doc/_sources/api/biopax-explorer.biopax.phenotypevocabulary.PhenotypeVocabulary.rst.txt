@@ -1,0 +1,31 @@
+PhenotypeVocabulary
+===================
+
+.. currentmodule:: biopax_explorer.biopax.phenotypevocabulary
+
+.. autoclass:: PhenotypeVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~PhenotypeVocabulary.attribute_type_by_name
+      ~PhenotypeVocabulary.get_patoData
+      ~PhenotypeVocabulary.get_uri_string
+      ~PhenotypeVocabulary.object_attributes
+      ~PhenotypeVocabulary.set_patoData
+      ~PhenotypeVocabulary.set_uri_string
+      ~PhenotypeVocabulary.to_json
+      ~PhenotypeVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_patoData
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_patoData
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

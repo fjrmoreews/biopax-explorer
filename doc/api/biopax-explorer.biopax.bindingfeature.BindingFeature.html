@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -742,28 +748,34 @@ subclass should be used instead of this class.</p>
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_bindsTo</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-even"><td><p><strong>set_bindsTo</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_featureLocation</strong></p></td>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_featureLocationType</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_featureLocation</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_intraMolecular</strong></p></td>
+<tr class="row-even"><td><p><strong>set_featureLocationType</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_memberFeature</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_intraMolecular</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_memberFeature</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>to_json</strong></p></td>
@@ -788,13 +800,19 @@ subclass should be used instead of this class.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.get_intraMolecular" title="biopax-explorer.biopax.bindingfeature.BindingFeature.get_intraMolecular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_intraMolecular</span></code></a>()</p></td>
 <td><p>Attribute _intraMolecular  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes" title="biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.get_uri_string" title="biopax-explorer.biopax.bindingfeature.BindingFeature.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_bindsTo" title="biopax-explorer.biopax.bindingfeature.BindingFeature.set_bindsTo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_bindsTo</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes" title="biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular" title="biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_intraMolecular</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_bindsTo" title="biopax-explorer.biopax.bindingfeature.BindingFeature.set_bindsTo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_bindsTo</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular" title="biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_intraMolecular</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_uri_string" title="biopax-explorer.biopax.bindingfeature.BindingFeature.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.to_json" title="biopax-explorer.biopax.bindingfeature.BindingFeature.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
@@ -839,6 +857,11 @@ binding partner are the same.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.bindingfeature.BindingFeature.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/bindingfeature/bindingfeature.py#{'module': 'biopax-explorer.biopax.bindingfeature', 'fullname': 'BindingFeature.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/bindingfeature/bindingfeature.py#{'module': 'biopax-explorer.biopax.bindingfeature', 'fullname': 'BindingFeature.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -851,6 +874,11 @@ binding partner are the same.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular">
 <span class="sig-name descname"><span class="pre">set_intraMolecular</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/bindingfeature/bindingfeature.py#{'module': 'biopax-explorer.biopax.bindingfeature', 'fullname': 'BindingFeature.set_intraMolecular'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.bindingfeature.BindingFeature.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/bindingfeature/bindingfeature.py#{'module': 'biopax-explorer.biopax.bindingfeature', 'fullname': 'BindingFeature.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -927,9 +955,11 @@ binding partner are the same.</p>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">BindingFeature.attribute_type_by_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.get_bindsTo"><code class="docutils literal notranslate"><span class="pre">BindingFeature.get_bindsTo()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.get_intraMolecular"><code class="docutils literal notranslate"><span class="pre">BindingFeature.get_intraMolecular()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.get_uri_string"><code class="docutils literal notranslate"><span class="pre">BindingFeature.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.object_attributes"><code class="docutils literal notranslate"><span class="pre">BindingFeature.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_bindsTo"><code class="docutils literal notranslate"><span class="pre">BindingFeature.set_bindsTo()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_intraMolecular"><code class="docutils literal notranslate"><span class="pre">BindingFeature.set_intraMolecular()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.set_uri_string"><code class="docutils literal notranslate"><span class="pre">BindingFeature.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.to_json"><code class="docutils literal notranslate"><span class="pre">BindingFeature.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.bindingfeature.BindingFeature.type_attributes"><code class="docutils literal notranslate"><span class="pre">BindingFeature.type_attributes()</span></code></a></li>
 </ul>

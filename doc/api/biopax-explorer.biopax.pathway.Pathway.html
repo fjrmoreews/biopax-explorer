@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -748,37 +754,43 @@ EGFR signaling</p>
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_availability</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-even"><td><p><strong>set_availability</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_dataSource</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_dataSource</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_name</strong></p></td>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_organism</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_pathwayComponent</strong></p></td>
+<tr class="row-even"><td><p><strong>set_organism</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_pathwayOrder</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_pathwayComponent</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_pathwayOrder</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_standardName</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>set_xref</strong></p></td>
@@ -809,16 +821,22 @@ EGFR signaling</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.get_pathwayOrder" title="biopax-explorer.biopax.pathway.Pathway.get_pathwayOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_pathwayOrder</span></code></a>()</p></td>
 <td><p>Attribute _pathwayOrder  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.object_attributes" title="biopax-explorer.biopax.pathway.Pathway.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.get_uri_string" title="biopax-explorer.biopax.pathway.Pathway.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_organism" title="biopax-explorer.biopax.pathway.Pathway.set_organism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_organism</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.object_attributes" title="biopax-explorer.biopax.pathway.Pathway.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayComponent" title="biopax-explorer.biopax.pathway.Pathway.set_pathwayComponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pathwayComponent</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_organism" title="biopax-explorer.biopax.pathway.Pathway.set_organism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_organism</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder" title="biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pathwayOrder</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayComponent" title="biopax-explorer.biopax.pathway.Pathway.set_pathwayComponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pathwayComponent</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder" title="biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pathwayOrder</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_uri_string" title="biopax-explorer.biopax.pathway.Pathway.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.to_json" title="biopax-explorer.biopax.pathway.Pathway.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
@@ -884,6 +902,11 @@ in the context of this pathway.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.pathway.Pathway.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathway/pathway.py#{'module': 'biopax-explorer.biopax.pathway', 'fullname': 'Pathway.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathway.Pathway.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.pathway.Pathway.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathway/pathway.py#{'module': 'biopax-explorer.biopax.pathway', 'fullname': 'Pathway.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathway.Pathway.object_attributes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -901,6 +924,11 @@ in the context of this pathway.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder">
 <span class="sig-name descname"><span class="pre">set_pathwayOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathway/pathway.py#{'module': 'biopax-explorer.biopax.pathway', 'fullname': 'Pathway.set_pathwayOrder'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.pathway.Pathway.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathway/pathway.py#{'module': 'biopax-explorer.biopax.pathway', 'fullname': 'Pathway.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathway.Pathway.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -978,10 +1006,12 @@ in the context of this pathway.</p>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.get_organism"><code class="docutils literal notranslate"><span class="pre">Pathway.get_organism()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.get_pathwayComponent"><code class="docutils literal notranslate"><span class="pre">Pathway.get_pathwayComponent()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.get_pathwayOrder"><code class="docutils literal notranslate"><span class="pre">Pathway.get_pathwayOrder()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.get_uri_string"><code class="docutils literal notranslate"><span class="pre">Pathway.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.object_attributes"><code class="docutils literal notranslate"><span class="pre">Pathway.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_organism"><code class="docutils literal notranslate"><span class="pre">Pathway.set_organism()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayComponent"><code class="docutils literal notranslate"><span class="pre">Pathway.set_pathwayComponent()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_pathwayOrder"><code class="docutils literal notranslate"><span class="pre">Pathway.set_pathwayOrder()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.set_uri_string"><code class="docutils literal notranslate"><span class="pre">Pathway.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.to_json"><code class="docutils literal notranslate"><span class="pre">Pathway.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathway.Pathway.type_attributes"><code class="docutils literal notranslate"><span class="pre">Pathway.type_attributes()</span></code></a></li>
 </ul>

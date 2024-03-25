@@ -1,0 +1,47 @@
+BiochemicalReaction
+===================
+
+.. currentmodule:: biopax_explorer.biopax.biochemicalreaction
+
+.. autoclass:: BiochemicalReaction
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~BiochemicalReaction.attribute_type_by_name
+      ~BiochemicalReaction.get_deltaG
+      ~BiochemicalReaction.get_deltaH
+      ~BiochemicalReaction.get_deltaS
+      ~BiochemicalReaction.get_eCNumber
+      ~BiochemicalReaction.get_kEQ
+      ~BiochemicalReaction.get_uri_string
+      ~BiochemicalReaction.object_attributes
+      ~BiochemicalReaction.set_deltaG
+      ~BiochemicalReaction.set_deltaH
+      ~BiochemicalReaction.set_deltaS
+      ~BiochemicalReaction.set_eCNumber
+      ~BiochemicalReaction.set_kEQ
+      ~BiochemicalReaction.set_uri_string
+      ~BiochemicalReaction.to_json
+      ~BiochemicalReaction.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_deltaG
+   .. automethod:: get_deltaH
+   .. automethod:: get_deltaS
+   .. automethod:: get_eCNumber
+   .. automethod:: get_kEQ
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_deltaG
+   .. automethod:: set_deltaH
+   .. automethod:: set_deltaS
+   .. automethod:: set_eCNumber
+   .. automethod:: set_kEQ
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

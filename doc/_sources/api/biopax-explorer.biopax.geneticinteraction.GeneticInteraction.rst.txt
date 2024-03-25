@@ -1,0 +1,35 @@
+GeneticInteraction
+==================
+
+.. currentmodule:: biopax_explorer.biopax.geneticinteraction
+
+.. autoclass:: GeneticInteraction
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~GeneticInteraction.attribute_type_by_name
+      ~GeneticInteraction.get_interactionScore
+      ~GeneticInteraction.get_phenotype
+      ~GeneticInteraction.get_uri_string
+      ~GeneticInteraction.object_attributes
+      ~GeneticInteraction.set_interactionScore
+      ~GeneticInteraction.set_phenotype
+      ~GeneticInteraction.set_uri_string
+      ~GeneticInteraction.to_json
+      ~GeneticInteraction.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_interactionScore
+   .. automethod:: get_phenotype
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_interactionScore
+   .. automethod:: set_phenotype
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

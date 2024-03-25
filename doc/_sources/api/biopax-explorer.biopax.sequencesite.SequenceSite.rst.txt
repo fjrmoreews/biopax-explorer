@@ -1,0 +1,35 @@
+SequenceSite
+============
+
+.. currentmodule:: biopax_explorer.biopax.sequencesite
+
+.. autoclass:: SequenceSite
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SequenceSite.attribute_type_by_name
+      ~SequenceSite.get_positionStatus
+      ~SequenceSite.get_sequencePosition
+      ~SequenceSite.get_uri_string
+      ~SequenceSite.object_attributes
+      ~SequenceSite.set_positionStatus
+      ~SequenceSite.set_sequencePosition
+      ~SequenceSite.set_uri_string
+      ~SequenceSite.to_json
+      ~SequenceSite.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_positionStatus
+   .. automethod:: get_sequencePosition
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_positionStatus
+   .. automethod:: set_sequencePosition
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

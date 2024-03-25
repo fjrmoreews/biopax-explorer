@@ -1,0 +1,19 @@
+PackageModelPopulator
+=====================
+
+.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
+
+.. autoclass:: PackageModelPopulator
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~PackageModelPopulator.classDictConf
+      ~PackageModelPopulator.config
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: classDictConf
+   .. automethod:: config

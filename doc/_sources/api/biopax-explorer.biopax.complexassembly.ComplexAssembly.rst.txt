@@ -1,0 +1,27 @@
+ComplexAssembly
+===============
+
+.. currentmodule:: biopax_explorer.biopax.complexassembly
+
+.. autoclass:: ComplexAssembly
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ComplexAssembly.attribute_type_by_name
+      ~ComplexAssembly.get_uri_string
+      ~ComplexAssembly.object_attributes
+      ~ComplexAssembly.set_uri_string
+      ~ComplexAssembly.to_json
+      ~ComplexAssembly.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

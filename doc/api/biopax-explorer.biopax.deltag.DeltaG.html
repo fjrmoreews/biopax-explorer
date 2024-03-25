@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -728,25 +734,31 @@ for delta-G’&lt;sup&gt;0&lt;/sup&gt; obtained under the different experimental
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_deltaGPrime0</strong></p></td>
+<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_ionicStrength</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_deltaGPrime0</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_pMg</strong></p></td>
+<tr class="row-even"><td><p><strong>set_ionicStrength</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_ph</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_pMg</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_temperature</strong></p></td>
+<tr class="row-even"><td><p><strong>set_ph</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_temperature</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>to_json</strong></p></td>
@@ -780,22 +792,28 @@ for delta-G’&lt;sup&gt;0&lt;/sup&gt; obtained under the different experimental
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.get_temperature" title="biopax-explorer.biopax.deltag.DeltaG.get_temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_temperature</span></code></a>()</p></td>
 <td><p>Attribute _temperature  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.object_attributes" title="biopax-explorer.biopax.deltag.DeltaG.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.get_uri_string" title="biopax-explorer.biopax.deltag.DeltaG.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_deltaGPrime0" title="biopax-explorer.biopax.deltag.DeltaG.set_deltaGPrime0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaGPrime0</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.object_attributes" title="biopax-explorer.biopax.deltag.DeltaG.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_ionicStrength" title="biopax-explorer.biopax.deltag.DeltaG.set_ionicStrength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ionicStrength</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_deltaGPrime0" title="biopax-explorer.biopax.deltag.DeltaG.set_deltaGPrime0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaGPrime0</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_pMg" title="biopax-explorer.biopax.deltag.DeltaG.set_pMg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pMg</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_ionicStrength" title="biopax-explorer.biopax.deltag.DeltaG.set_ionicStrength"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ionicStrength</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_ph" title="biopax-explorer.biopax.deltag.DeltaG.set_ph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ph</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_pMg" title="biopax-explorer.biopax.deltag.DeltaG.set_pMg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_pMg</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_temperature" title="biopax-explorer.biopax.deltag.DeltaG.set_temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_temperature</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_ph" title="biopax-explorer.biopax.deltag.DeltaG.set_ph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ph</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_temperature" title="biopax-explorer.biopax.deltag.DeltaG.set_temperature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_temperature</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_uri_string" title="biopax-explorer.biopax.deltag.DeltaG.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.to_json" title="biopax-explorer.biopax.deltag.DeltaG.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
@@ -885,6 +903,11 @@ Merriam-Webster Dictionary)</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.deltag.DeltaG.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/deltag/deltag.py#{'module': 'biopax-explorer.biopax.deltag', 'fullname': 'DeltaG.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.deltag.DeltaG.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.deltag.DeltaG.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/deltag/deltag.py#{'module': 'biopax-explorer.biopax.deltag', 'fullname': 'DeltaG.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.deltag.DeltaG.object_attributes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -912,6 +935,11 @@ Merriam-Webster Dictionary)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.deltag.DeltaG.set_temperature">
 <span class="sig-name descname"><span class="pre">set_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/deltag/deltag.py#{'module': 'biopax-explorer.biopax.deltag', 'fullname': 'DeltaG.set_temperature'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.deltag.DeltaG.set_temperature" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.deltag.DeltaG.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/deltag/deltag.py#{'module': 'biopax-explorer.biopax.deltag', 'fullname': 'DeltaG.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.deltag.DeltaG.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -991,12 +1019,14 @@ Merriam-Webster Dictionary)</p>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.get_pMg"><code class="docutils literal notranslate"><span class="pre">DeltaG.get_pMg()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.get_ph"><code class="docutils literal notranslate"><span class="pre">DeltaG.get_ph()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.get_temperature"><code class="docutils literal notranslate"><span class="pre">DeltaG.get_temperature()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.get_uri_string"><code class="docutils literal notranslate"><span class="pre">DeltaG.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.object_attributes"><code class="docutils literal notranslate"><span class="pre">DeltaG.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_deltaGPrime0"><code class="docutils literal notranslate"><span class="pre">DeltaG.set_deltaGPrime0()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_ionicStrength"><code class="docutils literal notranslate"><span class="pre">DeltaG.set_ionicStrength()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_pMg"><code class="docutils literal notranslate"><span class="pre">DeltaG.set_pMg()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_ph"><code class="docutils literal notranslate"><span class="pre">DeltaG.set_ph()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_temperature"><code class="docutils literal notranslate"><span class="pre">DeltaG.set_temperature()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.set_uri_string"><code class="docutils literal notranslate"><span class="pre">DeltaG.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.to_json"><code class="docutils literal notranslate"><span class="pre">DeltaG.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.deltag.DeltaG.type_attributes"><code class="docutils literal notranslate"><span class="pre">DeltaG.type_attributes()</span></code></a></li>
 </ul>

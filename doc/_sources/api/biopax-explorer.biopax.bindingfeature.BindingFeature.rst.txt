@@ -1,0 +1,35 @@
+BindingFeature
+==============
+
+.. currentmodule:: biopax_explorer.biopax.bindingfeature
+
+.. autoclass:: BindingFeature
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~BindingFeature.attribute_type_by_name
+      ~BindingFeature.get_bindsTo
+      ~BindingFeature.get_intraMolecular
+      ~BindingFeature.get_uri_string
+      ~BindingFeature.object_attributes
+      ~BindingFeature.set_bindsTo
+      ~BindingFeature.set_intraMolecular
+      ~BindingFeature.set_uri_string
+      ~BindingFeature.to_json
+      ~BindingFeature.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_bindsTo
+   .. automethod:: get_intraMolecular
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_bindsTo
+   .. automethod:: set_intraMolecular
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

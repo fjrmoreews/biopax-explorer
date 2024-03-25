@@ -1,0 +1,31 @@
+Protein
+=======
+
+.. currentmodule:: biopax_explorer.biopax.protein
+
+.. autoclass:: Protein
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Protein.attribute_type_by_name
+      ~Protein.get_entityReference
+      ~Protein.get_uri_string
+      ~Protein.object_attributes
+      ~Protein.set_entityReference
+      ~Protein.set_uri_string
+      ~Protein.to_json
+      ~Protein.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_entityReference
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_entityReference
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

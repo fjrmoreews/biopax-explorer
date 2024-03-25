@@ -1,0 +1,27 @@
+Modulation
+==========
+
+.. currentmodule:: biopax_explorer.biopax.modulation
+
+.. autoclass:: Modulation
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Modulation.attribute_type_by_name
+      ~Modulation.get_uri_string
+      ~Modulation.object_attributes
+      ~Modulation.set_uri_string
+      ~Modulation.to_json
+      ~Modulation.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -720,16 +726,22 @@ is not supported.</p>
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_physicalEntity</strong></p></td>
+<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_stoichiometricCoefficient</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_physicalEntity</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_stoichiometricCoefficient</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>to_json</strong></p></td>
@@ -754,13 +766,19 @@ is not supported.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.get_stoichiometricCoefficient" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.get_stoichiometricCoefficient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stoichiometricCoefficient</span></code></a>()</p></td>
 <td><p>Attribute _stoichiometricCoefficient  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.get_uri_string" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_physicalEntity" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_physicalEntity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_physicalEntity</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stoichiometricCoefficient</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_physicalEntity" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_physicalEntity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_physicalEntity</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stoichiometricCoefficient</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_uri_string" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.to_json" title="biopax-explorer.biopax.stoichiometry.Stoichiometry.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
@@ -801,6 +819,11 @@ should not be used - polymers are currently not covered.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.stoichiometry.Stoichiometry.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/stoichiometry/stoichiometry.py#{'module': 'biopax-explorer.biopax.stoichiometry', 'fullname': 'Stoichiometry.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/stoichiometry/stoichiometry.py#{'module': 'biopax-explorer.biopax.stoichiometry', 'fullname': 'Stoichiometry.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -813,6 +836,11 @@ should not be used - polymers are currently not covered.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient">
 <span class="sig-name descname"><span class="pre">set_stoichiometricCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/stoichiometry/stoichiometry.py#{'module': 'biopax-explorer.biopax.stoichiometry', 'fullname': 'Stoichiometry.set_stoichiometricCoefficient'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.stoichiometry.Stoichiometry.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/stoichiometry/stoichiometry.py#{'module': 'biopax-explorer.biopax.stoichiometry', 'fullname': 'Stoichiometry.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -889,9 +917,11 @@ should not be used - polymers are currently not covered.</p>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.attribute_type_by_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.get_physicalEntity"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.get_physicalEntity()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.get_stoichiometricCoefficient"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.get_stoichiometricCoefficient()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.get_uri_string"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.object_attributes"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_physicalEntity"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.set_physicalEntity()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_stoichiometricCoefficient"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.set_stoichiometricCoefficient()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.set_uri_string"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.to_json"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.stoichiometry.Stoichiometry.type_attributes"><code class="docutils literal notranslate"><span class="pre">Stoichiometry.type_attributes()</span></code></a></li>
 </ul>

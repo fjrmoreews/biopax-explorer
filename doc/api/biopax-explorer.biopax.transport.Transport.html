@@ -179,6 +179,10 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.query.client.BIOPAXStoreClient.html">BIOPAXStoreClient</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controlled.html">control_by_controlled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.control_by_controller.html">control_by_controller</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.pattern.rack.Rack.html">Rack</a></li>
 </ul>
 <ul>
@@ -425,6 +429,8 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.createInstance.html">createInstance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.define_model_instance.html">define_model_instance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.domain.html">domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.entityToString.html">entityToString</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.get_parent_hierarchy.html">get_parent_hierarchy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.modelPopulator.html">modelPopulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.parentTree.html">parentTree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.prefix.html">prefix</a></li>
@@ -773,64 +779,70 @@ The movement of Na+ into the cell through an open voltage-gated channel.</p>
 <tr class="row-odd"><td><p><strong>attribute_type_by_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_availability</strong></p></td>
+<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_cofactor</strong></p></td>
+<tr class="row-even"><td><p><strong>set_availability</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_cofactor</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_controlled</strong></p></td>
+<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_controller</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_controlled</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_conversionDirection</strong></p></td>
+<tr class="row-even"><td><p><strong>set_controller</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_dataSource</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_conversionDirection</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_dataSource</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_interactionType</strong></p></td>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_left</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_interactionType</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_name</strong></p></td>
+<tr class="row-even"><td><p><strong>set_left</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_participant</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_participantStoichiometry</strong></p></td>
+<tr class="row-even"><td><p><strong>set_participant</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_product</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_participantStoichiometry</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_right</strong></p></td>
+<tr class="row-even"><td><p><strong>set_product</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_spontaneous</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_right</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_spontaneous</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_template</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_standardName</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_template</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>set_xref</strong></p></td>
@@ -852,7 +864,13 @@ The movement of Na+ into the cell through an open voltage-gated channel.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.attribute_type_by_name" title="biopax-explorer.biopax.transport.Transport.attribute_type_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attribute_type_by_name</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.object_attributes" title="biopax-explorer.biopax.transport.Transport.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.get_uri_string" title="biopax-explorer.biopax.transport.Transport.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.object_attributes" title="biopax-explorer.biopax.transport.Transport.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.set_uri_string" title="biopax-explorer.biopax.transport.Transport.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.to_json" title="biopax-explorer.biopax.transport.Transport.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
@@ -871,8 +889,18 @@ The movement of Na+ into the cell through an open voltage-gated channel.</p>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.transport.Transport.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transport/transport.py#{'module': 'biopax-explorer.biopax.transport', 'fullname': 'Transport.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transport.Transport.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.transport.Transport.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transport/transport.py#{'module': 'biopax-explorer.biopax.transport', 'fullname': 'Transport.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transport.Transport.object_attributes" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.transport.Transport.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transport/transport.py#{'module': 'biopax-explorer.biopax.transport', 'fullname': 'Transport.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transport.Transport.set_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -947,7 +975,9 @@ The movement of Na+ into the cell through an open voltage-gated channel.</p>
 <li><a class="reference internal" href="#">Transport</a><ul>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport"><code class="docutils literal notranslate"><span class="pre">Transport</span></code></a><ul>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">Transport.attribute_type_by_name()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.get_uri_string"><code class="docutils literal notranslate"><span class="pre">Transport.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.object_attributes"><code class="docutils literal notranslate"><span class="pre">Transport.object_attributes()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.set_uri_string"><code class="docutils literal notranslate"><span class="pre">Transport.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.to_json"><code class="docutils literal notranslate"><span class="pre">Transport.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transport.Transport.type_attributes"><code class="docutils literal notranslate"><span class="pre">Transport.type_attributes()</span></code></a></li>
 </ul>
