@@ -7331,7 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.1/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7561,7 +7561,7 @@ a.anchor-link {
 
 
 
-<span class="n">img</span><span class="o">=</span><span class="s2">"output/test_pattern_view.png"</span>
+<span class="n">img</span><span class="o">=</span><span class="s2">"data/output/test_pattern_view.png"</span>
 <span class="n">writePatternGraphView</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">img</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
@@ -7601,9 +7601,9 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pe</span><span class="o">=</span><span class="n">PatternExecutor</span><span class="p">()</span>
-<span class="n">pe</span><span class="o">.</span><span class="n">datasetFile</span><span class="p">(</span><span class="s2">"input/export_all_g6p.xml"</span><span class="p">)</span> 
+<span class="n">pe</span><span class="o">.</span><span class="n">datasetFile</span><span class="p">(</span><span class="s2">"data/input/export_all_g6p.xml"</span><span class="p">)</span> 
  
-
+<span class="c1"># executePattern returns minimal information by instance (PK class), for memory and query speed optimization</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">pe</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="n">firstresult</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"""#--------glucokinase related proteins in the dataset----------"""</span><span class="p">)</span>
@@ -7628,8 +7628,8 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>#--------glucokinase related proteins in the dataset----------
 #--------uris (identifiers)----------
-http://www.reactome.org/biopax/56/71387#Protein26
 http://www.reactome.org/biopax/56/71387#Protein186
+http://www.reactome.org/biopax/56/71387#Protein26
 </pre>
 </div>
 </div>
@@ -7734,7 +7734,7 @@ a Pattern that represents all Protein 'P' with an  EntityReference 'E'
 <span class="nb">print</span><span class="p">(</span><span class="s2">"""execution"""</span><span class="p">)</span>
 <span class="n">peN</span><span class="o">.</span><span class="n">maxCount</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># we limit the result maximum number to avoid overload : good practice  during  Pattern testing </span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="n">firstresult</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">firstresult</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"""#------------------"""</span><span class="p">)</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">entity_row</span> <span class="ow">in</span> <span class="n">firstresult</span><span class="p">:</span>
@@ -7747,10 +7747,6 @@ a Pattern that represents all Protein 'P' with an  EntityReference 'E'
        <span class="nb">print</span><span class="p">(</span><span class="s2">"   linked entity: neighbour from a core entity </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">entity</span><span class="p">)))</span> 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"""#------------------"""</span><span class="p">)</span>
  
-<span class="k">for</span> <span class="n">entity_row</span> <span class="ow">in</span> <span class="n">firstresult</span><span class="p">:</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entity_row</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">Protein</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -7790,26 +7786,6 @@ execution
 9 uri:http://pathwaycommons.org/pc12/#Protein_9a3e5843ae01036f2eb2d2f850f576a1
    core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
 10 uri:http://identifiers.org/uniprot/P41134
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-11 uri:http://pathwaycommons.org/pc12/#Protein_9a1ce6dc560191e5b629e75d430105be
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-12 uri:http://identifiers.org/uniprot/O14920
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-13 uri:http://pathwaycommons.org/pc12/#Protein_9af35d29cddeaa233a30e51fa7d239f5
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-14 uri:http://identifiers.org/uniprot/Q9Y6K9
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-15 uri:http://pathwaycommons.org/pc12/#Protein_9a4dfd230af73a681feeedd2699d97ba
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-16 uri:http://identifiers.org/uniprot/O00548
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-17 uri:http://pathwaycommons.org/pc12/#Protein_9a439dcd163c5fc09ff88e9a2d56dd67
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-18 uri:http://identifiers.org/uniprot/P23443
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-19 uri:http://pathwaycommons.org/pc12/#Protein_9a74348e4fb2566b9c5ba6f4dd205f45
-   core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
-20 uri:http://identifiers.org/uniprot/Q12933
    core entity: referenced in Pattern &lt;class 'rdfobj.mapper.PK'&gt;
 #------------------
 </pre>
@@ -7874,7 +7850,7 @@ where {
 ?s2 ?entityReferencen0E ?o2 .
 ?s2 rdf:type ?s2__rdft .
 ?o2 rdf:type ?o2__rdft .
-{ ?o2 a bi:EntityReference }  UNION  { ?o2 a bi:ProteinReference }  UNION  { ?o2 a bi:RnaReference }  UNION  { ?o2 a bi:DnaReference }  UNION  { ?o2 a bi:SmallMoleculeReference }  UNION  { ?o2 a bi:RnaRegionReference }  UNION  { ?o2 a bi:DnaRegionReference }  .
+{ ?o2 a bi:EntityReference }  UNION  { ?o2 a bi:DnaReference }  UNION  { ?o2 a bi:SmallMoleculeReference }  UNION  { ?o2 a bi:RnaReference }  UNION  { ?o2 a bi:DnaRegionReference }  UNION  { ?o2 a bi:RnaRegionReference }  UNION  { ?o2 a bi:ProteinReference }  .
 { ?s2 bi:comment ?comment }.
 { ?s2 a bi:Protein }
 FILTER (  ?entityReferencen0E =  bi:entityReference  ) .
@@ -7885,44 +7861,275 @@ FILTER ( CONTAINS(?comment,'Protein_9a')  ) .
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c4fee8ae-87e9-4bb1-901f-b685191d1380">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ac68686-371f-4fab-89bd-24998240a6ff">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>create a pattern with connected entities, get the fully populated entities</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ed91fe80-e590-4be1-bb3d-50d747ce06b1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="n">Pattern</span><span class="p">()</span>    
+<span class="n">controlled</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"CONTROLLED"</span><span class="p">,</span> <span class="n">Entity</span><span class="p">())</span>
+<span class="n">interaction</span><span class="o">=</span><span class="n">EntityNode</span><span class="p">(</span><span class="s2">"CONTROL"</span><span class="p">,</span> <span class="n">Interaction</span><span class="p">())</span>
+<span class="n">interaction</span><span class="o">.</span><span class="n">connectedWith</span><span class="p">(</span><span class="n">controlled</span><span class="p">,</span> <span class="s2">"controlled"</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">interaction</span><span class="p">,</span><span class="n">controlled</span><span class="p">)</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""execution"""</span><span class="p">)</span>
+ <span class="c1">##  fetchEntities population real BIOPAX model instances with full attributes and relations</span>
+<span class="c1"># with max_count,  we limit the result maximum number to avoid overload </span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+ 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""#------------------"""</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">entity_row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entity_row</span><span class="p">:</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> 
+     <span class="c1"># we filter on meta data label (defined during pattern construction , in all EntityNode constructor</span>
+     <span class="c1"># This feature allow to keep the semanantic , even if there is multiple entities of the same class in the pattern search results</span>
+    <span class="k">if</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'CONTROLLED'</span><span class="p">]:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">  CONTROLLED entity: referenced in Pattern </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">entity</span><span class="p">)))</span> 
+       <span class="nb">print</span><span class="p">(</span><span class="s2">"     uri:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">))</span>
+       <span class="c1">#print("     json: %s" %(entity.to_json())) </span>
+     
+    <span class="k">elif</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'CONTROL'</span><span class="p">]:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2">  CONTROL entity: referenced in Pattern </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">entity</span><span class="p">)))</span> 
+       <span class="nb">print</span><span class="p">(</span><span class="s2">"     uri:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">))</span>
+       <span class="c1">#print("     json: %s" %(entity.to_json()))  </span>
+
+      
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d7c9e393-b2f5-439d-9c93-8832c7b00a2f">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>execution
+#------------------
+1  CONTROL entity: referenced in Pattern &lt;class 'biopax.catalysis.Catalysis'&gt;
+     uri:http://pathwaycommons.org/pc12/#Catalysis_84b80f728dd3f89bea7345778bb4eb94
+2  CONTROLLED entity: referenced in Pattern &lt;class 'biopax.biochemicalreaction.BiochemicalReaction'&gt;
+     uri:http://pathwaycommons.org/pc12/#BiochemicalReaction_b892991189fbca87ef55e70584793cc0
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5b720c4b-b3e9-4265-ae1e-48a5bae234b4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>search an entity by its uri ,   json serialization</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c4fee8ae-87e9-4bb1-901f-b685191d1380">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">uri</span><span class="o">=</span><span class="s2">"http://pathwaycommons.org/pc12/#Catalysis_84b80f728dd3f89bea7345778bb4eb94"</span>
+
+
+<span class="n">p</span><span class="o">=</span><span class="n">Pattern</span><span class="p">()</span>    
+<span class="n">controlled</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"CONTROLLED"</span><span class="p">,</span> <span class="n">Entity</span><span class="p">())</span>
+<span class="n">controller</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"CONTROLLER"</span><span class="p">,</span> <span class="n">Entity</span><span class="p">())</span>
+<span class="n">interaction</span><span class="o">=</span><span class="n">EntityNode</span><span class="p">(</span><span class="s2">"CONTROL"</span><span class="p">,</span> <span class="n">Interaction</span><span class="p">())</span>
+<span class="n">interaction</span><span class="o">.</span><span class="n">has_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="n">interaction</span><span class="o">.</span><span class="n">connectedWith</span><span class="p">(</span><span class="n">controlled</span><span class="p">,</span> <span class="s2">"controlled"</span><span class="p">)</span>
+<span class="n">interaction</span><span class="o">.</span><span class="n">connectedWith</span><span class="p">(</span><span class="n">controller</span><span class="p">,</span> <span class="s2">"controller"</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">interaction</span><span class="p">,</span><span class="n">controlled</span><span class="p">,</span><span class="n">controller</span><span class="p">)</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""execution"""</span><span class="p">)</span>
+ 
+
+<span class="c1">##  fetchEntities population real BIOPAX model instances with full attributes and relations</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+ 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""#------------------"""</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">selected_entity</span><span class="o">=</span><span class="kc">None</span>
+<span class="k">for</span> <span class="n">entity_row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entity_row</span><span class="p">:</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> uri:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">Control</span><span class="p">):</span>
+        <span class="c1">#print(entity.to_json())</span>
+        <span class="n">controller</span><span class="o">=</span><span class="n">entity</span><span class="o">.</span><span class="n">get_controller</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">controller</span><span class="o">!=</span><span class="kc">None</span><span class="p">:</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">controller</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+           <span class="n">selected_entity</span><span class="o">=</span><span class="n">controller</span> 
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f199abdd-9c60-4aba-a87c-b7a30d9c7b97">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>execution
+#------------------
+1 uri:http://pathwaycommons.org/pc12/#Catalysis_84b80f728dd3f89bea7345778bb4eb94
+{
+  "uri": "http://pathwaycommons.org/pc12/#Protein_79856ff790bab5a19b49069093957a14",
+  "dataSource": null,
+  "evidence": null,
+  "xref": null,
+  "availability": null,
+  "comment": null,
+  "displayName": null,
+  "name": null,
+  "standardName": null,
+  "__class__": "Entity"
+}
+2 uri:http://pathwaycommons.org/pc12/#BiochemicalReaction_b892991189fbca87ef55e70584793cc0
+3 uri:http://pathwaycommons.org/pc12/#Protein_79856ff790bab5a19b49069093957a14
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fe72be6e-bba8-4167-8a85-17a675ed08aa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.biopax.doc</span> <span class="kn">import</span> <span class="n">helper</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.biopax.utils</span> <span class="kn">import</span> <span class="n">gen_utils</span> <span class="k">as</span> <span class="n">gu</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d6cf7d89-6376-4e10-bbb6-c17883b9ce35">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>search an entity by its uri , use the entity getter</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d7c9e393-b2f5-439d-9c93-8832c7b00a2f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">=</span><span class="n">Pattern</span><span class="p">()</span>    
+<span class="n">my_entity</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"ENTITY"</span><span class="p">,</span> <span class="n">selected_entity</span><span class="p">)</span>
+<span class="n">my_entity</span><span class="o">.</span><span class="n">has_uri</span><span class="p">(</span><span class="n">selected_entity</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">my_entity</span><span class="p">)</span>   
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""execution"""</span><span class="p">)</span>
+ 
+<span class="n">result</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  
+ 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"""#------------------"""</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+ 
+<span class="k">for</span> <span class="n">entity_row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entity_row</span><span class="p">:</span>
+    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> uri:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"""#--------attributes using helper and getters----------"""</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">get_displayName</span><span class="p">())</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="n">gu</span><span class="o">.</span><span class="n">entityToString</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span><span class="n">helper</span><span class="p">))</span> <span class="c1"># utilitary function to display attributes </span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"""#--------json----------"""</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>
+       
+           
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>execution
+#------------------
+1 uri:http://pathwaycommons.org/pc12/#Protein_79856ff790bab5a19b49069093957a14
+
+#--------attributes using helper and getters----------
+JAK3
+  uri/pk: http://pathwaycommons.org/pc12/#Protein_79856ff790bab5a19b49069093957a14
+  class:Protein
+  dataSource : (Provenance, http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d) 
+  comment : REPLACED http://pathwaycommons.org/pc12/Protein_79856ff790bab5a19b49069093957a14 
+  displayName : JAK3 
+  name : JAK3__10090 
+  entityReference : (EntityReference, http://identifiers.org/uniprot/P52333) 
+
+#--------json----------
+{
+  "uri": "http://pathwaycommons.org/pc12/#Protein_79856ff790bab5a19b49069093957a14",
+  "dataSource": {
+    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
+    "comment": null,
+    "xref": null,
+    "displayName": null,
+    "name": null,
+    "standardName": null
+  },
+  "evidence": null,
+  "xref": null,
+  "availability": null,
+  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_79856ff790bab5a19b49069093957a14",
+  "displayName": "JAK3",
+  "name": "JAK3__10090",
+  "standardName": null,
+  "cellularLocation": null,
+  "feature": null,
+  "memberPhysicalEntity": null,
+  "notFeature": null,
+  "entityReference": {
+    "__class__": "EntityReference",
+    "uri": "http://identifiers.org/uniprot/P52333"
+  },
+  "__class__": "Protein"
+}
+</pre>
 </div>
 </div>
 </div>

@@ -7331,7 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.1/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7491,7 +7491,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#import</span>
@@ -7660,7 +7660,7 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">dh1</span><span class="o">=</span><span class="n">helper</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">'BioSource'</span><span class="p">)</span>
@@ -7728,12 +7728,12 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0bd6274d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0bd6274d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">cl</span><span class="p">,</span> <span class="n">children</span> <span class="ow">in</span> <span class="n">gu</span><span class="o">.</span><span class="n">classes_children</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -7743,16 +7743,121 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4d85cefd">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>PhenotypeVocabulary =&gt; []
+EvidenceCodeVocabulary =&gt; []
+BiochemicalReaction =&gt; ['TransportWithBiochemicalReaction']
+BioSource =&gt; []
+Evidence =&gt; []
+DnaReference =&gt; []
+PublicationXref =&gt; []
+RnaRegion =&gt; []
+SmallMoleculeReference =&gt; []
+Protein =&gt; []
+Score =&gt; []
+PathwayStep =&gt; ['BiochemicalPathwayStep']
+GeneticInteraction =&gt; []
+EntityReference =&gt; ['DnaReference', 'SmallMoleculeReference', 'RnaReference', 'DnaRegionReference', 'RnaRegionReference', 'ProteinReference']
+ComplexAssembly =&gt; []
+Gene =&gt; []
+RnaReference =&gt; []
+ControlledVocabulary =&gt; ['PhenotypeVocabulary', 'EvidenceCodeVocabulary', 'EntityReferenceTypeVocabulary', 'RelationshipTypeVocabulary', 'SequenceModificationVocabulary', 'CellVocabulary', 'TissueVocabulary', 'InteractionVocabulary', 'CellularLocationVocabulary', 'ExperimentalFormVocabulary', 'SequenceRegionVocabulary']
+Xref =&gt; ['PublicationXref', 'RelationshipXref', 'UnificationXref']
+PhysicalEntity =&gt; ['RnaRegion', 'Protein', 'Dna', 'DnaRegion', 'Complex', 'SmallMolecule', 'Rna']
+EntityReferenceTypeVocabulary =&gt; []
+RelationshipXref =&gt; []
+Degradation =&gt; []
+MolecularInteraction =&gt; []
+SequenceSite =&gt; []
+RelationshipTypeVocabulary =&gt; []
+Modulation =&gt; []
+ModificationFeature =&gt; ['CovalentBindingFeature']
+CovalentBindingFeature =&gt; []
+Control =&gt; ['Modulation', 'TemplateReactionRegulation', 'Catalysis']
+TemplateReactionRegulation =&gt; []
+TransportWithBiochemicalReaction =&gt; []
+SequenceModificationVocabulary =&gt; []
+CellVocabulary =&gt; []
+TissueVocabulary =&gt; []
+InteractionVocabulary =&gt; []
+Dna =&gt; []
+DnaRegion =&gt; []
+DnaRegionReference =&gt; []
+KPrime =&gt; []
+TemplateReaction =&gt; []
+ChemicalStructure =&gt; []
+ExperimentalForm =&gt; []
+RnaRegionReference =&gt; []
+Stoichiometry =&gt; []
+CellularLocationVocabulary =&gt; []
+FragmentFeature =&gt; []
+Complex =&gt; []
+ProteinReference =&gt; []
+ExperimentalFormVocabulary =&gt; []
+BindingFeature =&gt; ['CovalentBindingFeature']
+Conversion =&gt; ['BiochemicalReaction', 'TransportWithBiochemicalReaction', 'ComplexAssembly', 'Degradation', 'Transport', 'TransportWithBiochemicalReaction']
+SequenceInterval =&gt; []
+Transport =&gt; ['TransportWithBiochemicalReaction']
+DeltaG =&gt; []
+Interaction =&gt; ['GeneticInteraction', 'MolecularInteraction', 'Control', 'Modulation', 'TemplateReactionRegulation', 'Catalysis', 'TemplateReaction', 'Conversion', 'BiochemicalReaction', 'TransportWithBiochemicalReaction', 'ComplexAssembly', 'Degradation', 'Transport', 'TransportWithBiochemicalReaction']
+SmallMolecule =&gt; []
+BiochemicalPathwayStep =&gt; []
+UnificationXref =&gt; []
+Provenance =&gt; []
+EntityFeature =&gt; ['ModificationFeature', 'CovalentBindingFeature', 'FragmentFeature', 'BindingFeature', 'CovalentBindingFeature']
+SequenceLocation =&gt; ['SequenceSite', 'SequenceInterval']
+Catalysis =&gt; []
+SequenceRegionVocabulary =&gt; []
+Pathway =&gt; []
+Rna =&gt; []
+UtilityClass =&gt; ['BioSource', 'Score', 'PathwayStep', 'BiochemicalPathwayStep', 'EntityReference', 'DnaReference', 'SmallMoleculeReference', 'RnaReference', 'DnaRegionReference', 'RnaRegionReference', 'ProteinReference', 'ControlledVocabulary', 'PhenotypeVocabulary', 'EvidenceCodeVocabulary', 'EntityReferenceTypeVocabulary', 'RelationshipTypeVocabulary', 'SequenceModificationVocabulary', 'CellVocabulary', 'TissueVocabulary', 'InteractionVocabulary', 'CellularLocationVocabulary', 'ExperimentalFormVocabulary', 'SequenceRegionVocabulary', 'Xref', 'PublicationXref', 'RelationshipXref', 'UnificationXref', 'KPrime', 'ChemicalStructure', 'ExperimentalForm', 'Stoichiometry', 'DeltaG', 'Provenance', 'EntityFeature', 'ModificationFeature', 'CovalentBindingFeature', 'FragmentFeature', 'BindingFeature', 'CovalentBindingFeature', 'SequenceLocation', 'SequenceSite', 'SequenceInterval']
+Entity =&gt; ['Gene', 'PhysicalEntity', 'RnaRegion', 'Protein', 'Dna', 'DnaRegion', 'Complex', 'SmallMolecule', 'Rna', 'Interaction', 'GeneticInteraction', 'MolecularInteraction', 'Control', 'Modulation', 'TemplateReactionRegulation', 'Catalysis', 'TemplateReaction', 'Conversion', 'BiochemicalReaction', 'TransportWithBiochemicalReaction', 'ComplexAssembly', 'Degradation', 'Transport', 'TransportWithBiochemicalReaction', 'Pathway']
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4d85cefd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">gu</span><span class="o">.</span><span class="n">class_children</span><span class="p">(</span><span class="s1">'Interaction'</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>['GeneticInteraction',
+ 'MolecularInteraction',
+ 'Control',
+ 'Modulation',
+ 'TemplateReactionRegulation',
+ 'Catalysis',
+ 'TemplateReaction',
+ 'Conversion',
+ 'BiochemicalReaction',
+ 'TransportWithBiochemicalReaction',
+ 'ComplexAssembly',
+ 'Degradation',
+ 'Transport',
+ 'TransportWithBiochemicalReaction']</pre>
 </div>
 </div>
 </div>
@@ -7768,17 +7873,30 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6428fe68-6205-4885-a68f-d4292eb34138">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6428fe68-6205-4885-a68f-d4292eb34138">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">st</span><span class="o">=</span><span class="n">gu</span><span class="o">.</span><span class="n">parentTree</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="p">[</span><span class="s1">'TransportWithBiochemicalReaction'</span><span class="p">])</span>   
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>['BiochemicalReaction', 'Conversion', 'Transport', 'Interaction', 'Entity']
+</pre>
 </div>
 </div>
 </div>
@@ -7794,17 +7912,149 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9cd768a8">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9cd768a8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="n">helper</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="s1">'PhysicalEntity'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>********************
+PhysicalEntity
+
+Definition: A pool of molecules or molecular complexes. 
+
+Comments: Each PhysicalEntity is defined by a  sequence or structure based on an EntityReference AND any set of Features that are given. For example,  ser46 phosphorylated p53 is a physical entity in BioPAX defined by the p53 sequence and the phosphorylation feature on the serine at position 46 in the sequence.  Features are any combination of cellular location, covalent and non-covalent bonds with other molecules and covalent modifications.  
+
+For a specific molecule to be a member of the pool it has to satisfy all of the specified features. Unspecified features are treated as unknowns or unneccesary. Features that are known to not be on the molecules should be explicitly stated with the "not feature" property. 
+A physical entity in BioPAX  never represents a specific molecular instance. 
+
+Physical Entity can be heterogenous and potentially overlap, i.e. a single molecule can be counted as a member of multiple pools. This makes BioPAX semantics different than regular chemical notation but is necessary for dealing with combinatorial complexity. 
+
+Synonyms: part, interactor, object, species
+
+Examples: extracellular calcium, ser 64 phosphorylated p53
+    
+--------------------
+primitive type attributes:
+----------
+availability (str): 
+
+ Describes the availability of this data (e.g. a copyright statement).
+----------
+comment (str): 
+
+ Comment on the data in the container class. This property should be
+used instead of the OWL documentation elements (rdfs:comment) for
+instances because information in 'comment' is data to be exchanged,
+whereas the rdfs:comment field is used for metadata about the
+structure of the BioPAX ontology.
+----------
+displayName (str): 
+
+ An abbreviated name for this entity, preferably a name that is short
+enough to be used in a visualization application to label a graphical
+element that represents this entity. If no short name is available, an
+xref may be used for this purpose by the visualization application.
+Warning:  Subproperties of name are functional, that is we expect to
+have only one standardName and shortName for a given entity. If a user
+decides to assign a different name to standardName or shortName, they
+have to remove the old triplet from the model too. If the old name
+should be retained as a synonym a regular "name" property should also
+be introduced with the old name.
+----------
+name (str): 
+
+ Synonyms for this entity.  standardName and shortName are
+subproperties of this property and if declared they are automatically
+considered as names.   Warning:  Subproperties of name are functional,
+that is we expect to have only one standardName and shortName for a
+given entity. If a user decides to assign a different name to
+standardName or shortName, they have to remove the old triplet from
+the model too. If the old name should be retained as a synonym a
+regular "name" property should also be introduced with the old name.
+----------
+standardName (str): 
+
+ The preferred full name for this entity, if exists assigned by a
+standard nomenclature organization such as HUGO Gene Nomenclature
+Committee.  Warning:  Subproperties of name are functional, that is we
+expect to have only one standardName and shortName for a given entity.
+If a user decides to assign a different name to standardName or
+shortName, they have to remove the old triplet from the model too. If
+the old name should be retained as a synonym a regular "name" property
+should also be introduced with the old name.
+--------------------
+object attributes:
+----------
+cellularLocation (CellularLocationVocabulary): 
+
+ A cellular location, e.g. 'cytoplasm'. This should reference a term
+in the Gene Ontology Cellular Component ontology. The location
+referred to by this property should be as specific as is known. If an
+interaction is known to occur in multiple locations, separate
+interactions (and physicalEntities) must be created for each different
+location.  If the location of a participant in a complex is
+unspecified, it may be assumed to be the same location as that of the
+complex.    A molecule in two different cellular locations are
+considered two different physical entities.
+----------
+feature (EntityFeature): 
+
+ Sequence features of the owner physical entity.
+----------
+memberPhysicalEntity (PhysicalEntity): 
+
+ This property stores the members of a generic physical entity.   For
+representing homology generics a better way is to use generic entity
+references and generic features. However not all generic logic can be
+captured by this, such as complex generics or rare cases where feature
+cardinality is variable. Usages of this property should be limited to
+such cases.
+----------
+notFeature (EntityFeature): 
+
+ Sequence features where the owner physical entity has a feature. If
+not specified, other potential features are not known.
+----------
+dataSource (Provenance): 
+
+ A free text description of the source of this data, e.g. a database
+or person name. This property should be used to describe the source of
+the data. This is meant to be used by databases that export their data
+to the BioPAX format or by systems that are integrating data from
+multiple sources. The granularity of use (specifying the data source
+in many or few instances) is up to the user. It is intended that this
+property report the last data source, not all data sources that the
+data has passed through from creation.
+----------
+evidence (Evidence): 
+
+ Scientific evidence supporting the existence of the entity as
+described.
+----------
+xref (Xref): 
+
+ Values of this property define external cross-references from this
+entity to entities in external databases.
+********************
+
+</pre>
 </div>
 </div>
 </div>
@@ -7820,12 +8070,12 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=105d92c5-3d62-43ae-b0f8-ce3ebe616a71">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=105d92c5-3d62-43ae-b0f8-ce3ebe616a71">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">helper</span><span class="o">.</span><span class="n">entries</span><span class="p">())</span>
@@ -7834,7 +8084,34 @@ A cell type, e.g. 'HeLa'. This should reference a term in a controlled vocabular
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>['PhenotypeVocabulary', 'EvidenceCodeVocabulary', 'BiochemicalReaction', 'BioSource', 'Evidence', 'DnaReference', 'PublicationXref', 'RnaRegion', 'SmallMoleculeReference', 'Protein', 'Score', 'PathwayStep', 'GeneticInteraction', 'EntityReference', 'ComplexAssembly', 'Gene', 'RnaReference', 'ControlledVocabulary', 'Xref', 'PhysicalEntity', 'EntityReferenceTypeVocabulary', 'RelationshipXref', 'Degradation', 'MolecularInteraction', 'SequenceSite', 'RelationshipTypeVocabulary', 'Modulation', 'ModificationFeature', 'CovalentBindingFeature', 'Control', 'TemplateReactionRegulation', 'TransportWithBiochemicalReaction', 'SequenceModificationVocabulary', 'CellVocabulary', 'TissueVocabulary', 'InteractionVocabulary', 'Dna', 'DnaRegion', 'DnaRegionReference', 'KPrime', 'TemplateReaction', 'ChemicalStructure', 'ExperimentalForm', 'RnaRegionReference', 'Stoichiometry', 'CellularLocationVocabulary', 'FragmentFeature', 'Complex', 'ProteinReference', 'ExperimentalFormVocabulary', 'BindingFeature', 'Conversion', 'SequenceInterval', 'Transport', 'DeltaG', 'Interaction', 'SmallMolecule', 'BiochemicalPathwayStep', 'UnificationXref', 'Provenance', 'EntityFeature', 'SequenceLocation', 'Catalysis', 'SequenceRegionVocabulary', 'Pathway', 'Rna', 'UtilityClass', 'Entity']
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=811bb879-fc21-4cc6-85c7-2e6b7b475b23">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5d286426-f2d0-4969-96b1-3d025f474b7e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

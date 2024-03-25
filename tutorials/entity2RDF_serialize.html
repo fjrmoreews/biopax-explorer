@@ -7331,7 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.1/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7507,7 +7507,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#TODO: remove ent without pk from dict at end</span>
@@ -7532,7 +7532,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">entity1</span><span class="o">=</span><span class="n">Entity</span><span class="p">()</span>
@@ -7628,7 +7628,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">userns</span><span class="o">=</span><span class="s2">"http://mynamespace.org/"</span>
@@ -7666,15 +7666,15 @@ a.anchor-link {
 1235 Protein
 None SmallMolecule
 no uri /pk for 2  entities(will not be saved) :
-    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#cofactor, o: http://mynamespace.org/7897987987
+    s: , p: http://www.w3.org/2002/07/owl#imports, o: http://www.biopax.org/release/biopax-level3.owl#
     s: , p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.w3.org/2002/07/owl#Ontology
+    s: http://mynamespace.org/7897987987, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity
     s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#controller, o: http://mynamespace.org/1235
+    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#cofactor, o: http://mynamespace.org/7897987987
+    s: http://mynamespace.org/56464, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#Catalysis
+    s: http://mynamespace.org/1235, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#Protein
     s: http://mynamespace.org/1235, p: http://www.biopax.org/release/biopax-level3.owl#comment, o: my comment
     s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#catalysisDirection, o: LEFT-TO-RIGHT
-    s: http://mynamespace.org/56464, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#Catalysis
-    s: http://mynamespace.org/7897987987, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity
-    s: , p: http://www.w3.org/2002/07/owl#imports, o: http://www.biopax.org/release/biopax-level3.owl#
-    s: http://mynamespace.org/1235, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#Protein
 </pre>
 </div>
 </div>
@@ -7699,7 +7699,7 @@ no uri /pk for 2  entities(will not be saved) :
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">ofile</span><span class="o">=</span><span class="s2">"output/constructed_biopax.xml"</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ofile</span><span class="o">=</span><span class="s2">"data/output/constructed_biopax.xml"</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"writing output to rdf/xml file </span><span class="si">%s</span><span class="s2"> "</span> <span class="o">%</span><span class="p">(</span><span class="n">ofile</span><span class="p">))</span>
 <span class="n">bps</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
@@ -7717,29 +7717,111 @@ no uri /pk for 2  entities(will not be saved) :
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>writing output to rdf/xml file output/constructed_biopax.xml 
+<pre>writing output to rdf/xml file data/output/constructed_biopax.xml 
 #-------------------------
-&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://mynamespace.org/56464"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Catalysis"/&gt; &lt;bp:catalysisDirection&gt;LEFT-TO-RIGHT&lt;/bp:catalysisDirection&gt; &lt;bp:cofactor rdf:resource="http://mynamespace.org/7897987987"/&gt; &lt;bp:controller rdf:resource="http://mynamespace.org/1235"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about=""&gt; &lt;rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/&gt; &lt;owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/1235"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;bp:comment&gt;my comment&lt;/bp:comment&gt; &lt;/rdf:Description&gt; &lt;rdf:Description [...]
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about=""&gt; &lt;rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/&gt; &lt;owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/7897987987"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/56464"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Catalysis"/&gt; &lt;bp:catalysisDirection&gt;LEFT-TO-RIGHT&lt;/bp:catalysisDirection&gt; &lt;bp:cofactor rdf:resource="http://mynamespace.org/7897987987"/&gt; &lt;bp:controller rdf:resource="http://mynamespace.org/1235"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/1235"&gt; &lt;rdf:type [...]
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cd2b98c9-cf27-4faa-8a9e-2821ee3350e5">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00c9316c-8c50-4a1c-986e-d127a3956f0a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Run-a-pattern-query-on-a-triple-store-,-save--the-resulting--entities-collection--to-a-new-biopax-xml-file">Run a pattern query on a triple store , save  the resulting  entities collection  to a new biopax xml file<a class="anchor-link" href="#Run-a-pattern-query-on-a-triple-store-,-save--the-resulting--entities-collection--to-a-new-biopax-xml-file">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b254075e-2494-49ce-a9f8-3a6980f1153a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.graph.serializer</span> <span class="kn">import</span>  <span class="n">BPSerializer</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.pattern.rack</span> <span class="kn">import</span> <span class="n">Rack</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.pattern.pattern</span> <span class="kn">import</span> <span class="n">PatternExecutor</span>
+ 
+ 
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="s2">"netpath"</span>
+<span class="n">db</span> <span class="o">=</span> <span class="s2">"http://db:3030"</span> <span class="c1"># with local triple store deployed with docker-compose </span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">Rack</span><span class="p">()</span>
+<span class="n">exfile</span><span class="o">=</span><span class="s2">"data/output/export_query_from_pattern_</span><span class="si">%s</span><span class="s2">.xml"</span> <span class="o">%</span> <span class="p">(</span><span class="n">dataset</span><span class="p">)</span> 
+
+<span class="n">pe</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">dataset</span><span class="p">)</span> 
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">inComplexWith</span><span class="p">()</span>
+
+<span class="n">resultref</span> <span class="o">=</span> <span class="n">pe</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1">#resultref = pe.executePattern(p)</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-- </span><span class="si">%s</span><span class="s2"> results in this dataset --"</span> <span class="o">%</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resultref</span><span class="p">)))</span>
+<span class="c1">#resultref = peN.executePattern(p,by_reference=True, max_count=3)</span>
+<span class="n">reflist</span><span class="o">=</span><span class="p">[]</span>
+<span class="c1"># first extract entity references only</span>
+<span class="c1"># for quick query and memory optimization</span>
+<span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">resultref</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">eref</span><span class="p">:</span>
+      <span class="n">reflist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eref</span><span class="p">)</span>
+<span class="c1">#print(reflist)      </span>
+<span class="c1"># then populate only the selected entities</span>
+<span class="n">resultfull</span><span class="o">=</span><span class="n">pe</span><span class="o">.</span><span class="n">pump</span><span class="p">(</span><span class="n">reflist</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">collec</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">resultfull</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+      <span class="n">collec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+<span class="c1">#      print(entity)</span>
+
+ 
+<span class="c1">#userns="http://mynamespace.org/"</span>
+<span class="n">userns</span><span class="o">=</span><span class="s2">""</span>
+<span class="n">bps</span><span class="o">=</span><span class="n">BPSerializer</span><span class="p">(</span><span class="n">userns</span><span class="p">,</span><span class="n">collec</span><span class="p">)</span>
+ 
+
+<span class="n">graph</span><span class="o">=</span><span class="n">bps</span><span class="o">.</span><span class="n">toRDFGraph</span><span class="p">()</span>
+<span class="c1">#for subj, pred, obj in graph:</span>
+<span class="c1">#    print(f"    s: {subj}, p: {pred}, o: {obj}")</span>
+
+
+ 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"writing output to rdf/xml file </span><span class="si">%s</span><span class="s2"> "</span> <span class="o">%</span><span class="p">(</span><span class="n">exfile</span><span class="p">))</span>
+<span class="n">bps</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">exfile</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">bps</span><span class="o">.</span><span class="n">rdf_xml</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">2000</span><span class="p">))</span>
+
+ 
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b254075e-2494-49ce-a9f8-3a6980f1153a">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>-- 30 results in this dataset --
+writing output to rdf/xml file data/output/export_query_from_pattern_netpath.xml 
+#-------------------------
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_Q8N5C8"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Xref"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#ModificationFeature_984b3db366eda2b90f918ca7eb94d70c"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#EntityFeature"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Complex_8c6ca2f3b8289f03d85e84201ff1fcc1"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Complex_8c6ca2f3b8289f03d85e84201ff1fcc1&lt;/bp:comment&gt; &lt;bp:displayName&gt;Complex&lt;/bp:displayName&gt; &lt;bp:name&gt;CHUK,IKBKB,IKBKG&lt;/bp:name&gt; &lt;bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d"/&gt; &lt;bp:cellularLocation rdf:resource="http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"/&gt; &lt;bp:component rdf:resource="http://pathwaycommons.org/pc12/#Protein_9611f4ea83e9080927d39eac047f3b4f"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Protein_f0b27b4bc9a902b8804d911c7d77f3a4"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Complex_8f0c93279b2becdc3490d783a7a48eee"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Complex_8f0c93279b2becdc3490d783a7a48eee&lt;/bp:comment&gt; &lt;bp:displayName&gt;Complex&lt;/bp:displayName&gt; &lt;bp:name&gt;TNFAIP3,RIPK1,TRAF2&lt;/bp:name&gt; &lt;bp:dataSource [...]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ddf80008-7571-4429-9b1d-c8384ec30785">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

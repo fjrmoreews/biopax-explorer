@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>query_optimize</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>regulation_network_usecase</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7475,35 +7475,7 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f7a7e5b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Optimize-the-queries-&amp;-The-Object-to-triples-mapper">Optimize the queries &amp; The Object to triples mapper<a class="anchor-link" href="#Optimize-the-queries-&amp;-The-Object-to-triples-mapper">¶</a></h4><p>Differents functions are proposed to query datasets using Patterns.
-You will find here  how to :</p>
-<ul>
-<li>Populate automatically a collection of object oriented model instances.</li>
-<li>Minimize the memory and query time for large datasets</li>
-<li>Work with iterators</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=826661bd-f864-41f7-8575-1129fc223ebe">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="imports">imports<a class="anchor-link" href="#imports">¶</a></h5>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2961e634">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=917a51a5-d312-481d-9207-c2574a859c9c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7512,27 +7484,27 @@ You will find here  how to :</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.pattern.rack</span> <span class="kn">import</span> <span class="n">Rack</span>
-<span class="kn">from</span> <span class="nn">biopax_explorer.pattern.pattern</span> <span class="kn">import</span> <span class="n">PatternExecutor</span><span class="p">,</span> <span class="n">Pattern</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.pattern.pattern</span> <span class="kn">import</span> <span class="n">PatternExecutor</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="kn">from</span> <span class="nn">biopax_explorer.pattern.pattern</span> <span class="kn">import</span> <span class="n">PatternExecutor</span><span class="p">,</span> <span class="n">Pattern</span><span class="p">,</span><span class="n">PK</span>
 <span class="kn">from</span> <span class="nn">biopax_explorer.query</span> <span class="kn">import</span>  <span class="n">EntityNode</span>
 <span class="kn">from</span> <span class="nn">biopax_explorer.biopax</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+
+<span class="kn">from</span> <span class="nn">graph_tool.all</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="kn">from</span> <span class="nn">regulation</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=343bf563">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Constants-for-database-(change-%22localhost%22-for-%22db%22-if-necessary)">Constants for database (change "localhost" for "db" if necessary)<a class="anchor-link" href="#Constants-for-database-(change-%22localhost%22-for-%22db%22-if-necessary)">¶</a></h5>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36a040ae">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=90cd778b-25a0-449c-82bd-8775a2fd42c6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7540,119 +7512,41 @@ You will find here  how to :</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">datasetN</span> <span class="o">=</span> <span class="s2">"netpath"</span>
-<span class="n">datasetP</span> <span class="o">=</span> <span class="s2">"panther"</span>
-<span class="n">db</span> <span class="o">=</span> <span class="s2">"http://db:3030"</span> <span class="c1"># with local triple store deployed with docker-compose</span>
-<span class="c1">#db = "https://rdf-ds.genouest.org" # using an online default triple store</span>
-
-
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">Rack</span><span class="p">()</span>
-<span class="n">peN</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetN</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
-<span class="c1">#peN.verbose() # display logs</span>
-<span class="n">peP</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetP</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
-<span class="c1">#peP.verbose() # display logs</span>
-
-<span class="c1"># Function to print the URI of the 10 first lines of the results.</span>
- 
-
-<span class="k">def</span> <span class="nf">simplePattern</span><span class="p">():</span>
-  <span class="n">p</span><span class="o">=</span><span class="n">Pattern</span><span class="p">()</span>    
-  <span class="n">prot</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"P"</span><span class="p">,</span> <span class="n">Protein</span><span class="p">())</span>
-  <span class="n">entityReference</span><span class="o">=</span><span class="n">EntityNode</span><span class="p">(</span><span class="s2">"E"</span><span class="p">,</span> <span class="n">EntityReference</span><span class="p">())</span>
-  <span class="n">prot</span><span class="o">.</span><span class="n">connectedWith</span><span class="p">(</span><span class="n">entityReference</span><span class="p">,</span> <span class="s2">"entityReference"</span><span class="p">)</span>
-  <span class="n">prot</span><span class="o">.</span><span class="n">whereAttribute</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">,</span> <span class="s2">"Protein_9a"</span><span class="p">,</span><span class="s2">"CONTAINS"</span><span class="p">)</span>
-  <span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">prot</span><span class="p">,</span><span class="n">entityReference</span><span class="p">)</span>
-  
-  <span class="k">return</span> <span class="n">p</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span> <span class="k">as</span> <span class="nn">logger</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a69f4723">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="A-Pattern-can-be-executed-to-extract-only-entity-references-or-the-all-attributes-and-relations-of-each-entity">A Pattern can be executed to extract only entity references or the all attributes and relations of each entity<a class="anchor-link" href="#A-Pattern-can-be-executed-to-extract-only-entity-references-or-the-all-attributes-and-relations-of-each-entity">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2dea0f27">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5132dc91-f932-4a67-8e4a-5b08f6c10066">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
+<span class="c1">#pe=PatternExecutor()</span>
+<span class="c1">#pe.datasetFile("input/export_all_g6p.xml") </span>
+<span class="c1">#datasetN = "netpath"</span>
+<span class="c1">#datasetN = "panther"</span>
+<span class="n">datasetN</span> <span class="o">=</span><span class="s2">"reactome-desease-ex1"</span>
+<span class="n">db</span> <span class="o">=</span> <span class="s2">"http://db:3030"</span> <span class="c1"># with local triple store deployed with docker-compose</span>
+<span class="c1">#db = "https://rdf-ds.genouest.org" # using an online default triple store</span>
+<span class="n">pe</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetN</span><span class="p">)</span>
+<span class="n">blacklist</span><span class="o">=</span><span class="kc">None</span>
+<span class="n">do_process</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">read_cache</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">searchresult</span><span class="o">=</span><span class="n">rawPatternSearch</span><span class="p">(</span><span class="n">pe</span><span class="p">,</span><span class="n">blacklist</span><span class="p">,</span> <span class="n">do_process</span><span class="p">,</span><span class="n">read_cache</span><span class="p">)</span>
 
-<span class="c1">#p = r.inComplexWith() # a pattern from the rack</span>
-<span class="n">p</span><span class="o">=</span><span class="n">simplePattern</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bddb3703-a34f-47a5-bd84-48cde8284d6d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="by_reference=True:-We-force-the-pattern-result-set-to-hold-only-references">by_reference=True: We force the pattern result set to hold only references<a class="anchor-link" href="#by_reference=True:-We-force-the-pattern-result-set-to-hold-only-references">¶</a></h4><p>this is the default mode in the rack
-each pattern as a default mode (by_reference True or False)</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=486424fa-95cd-4742-9dea-0983bd76fbe0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba4e50de-755c-4a1e-bc91-ca329c8d6d43">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="extract-entity-reference-only">extract entity reference only<a class="anchor-link" href="#extract-entity-reference-only">¶</a></h4><p>because of the 'by_reference' mode, the results are not instances of the BIOPAX model classes
-but of the class 'PK', with 2 attributes :pk: primary key (uri) and cls,  the class name
-the parameter 'max_count' is important when you design a new Query Pattern, to have a quick preview of the results, with only the first rows
-The meta_label attribute allows to retrieve an entity labelled within the Pattern</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a60f8dc8-8c44-4421-b232-45634caf0915">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"first  results (uris and class name only: for better memory management and faster results)"</span><span class="p">)</span>
- 
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"uri:</span><span class="si">%s</span><span class="s2">,  cls: </span><span class="si">%s</span><span class="s2">, meta_label :</span><span class="si">%s</span><span class="s2">, __class__:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">cls</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
- 
+<span class="n">g</span><span class="o">=</span><span class="n">searchresult</span><span class="o">.</span><span class="n">graph_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">searchresult</span><span class="o">.</span><span class="n">report</span><span class="p">)</span>
+
+
+<span class="c1"># In[ ]:</span>
 </pre></div>
 </div>
 </div>
@@ -7664,404 +7558,1791 @@ The meta_label attribute allows to retrieve an entity labelled within the Patter
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first  results (uris and class name only: for better memory management and faster results)
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/O15111,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/Q14289,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/P35626,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>2024-03-22 15:34:15,791 - INFO - **************CASE_R1*******************
+2024-03-22 15:34:15,793 - INFO - **************CASE_R1_1*******************
+2024-03-22 15:34:15,795 - DEBUG - pattern-label : CASE_R1_1
+2024-03-22 15:34:15,795 - DEBUG - running query
+2024-03-22 15:34:15,853 - DEBUG - matches count by classes
+2024-03-22 15:34:15,854 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphControlsExpressionWithTemplateReac&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:15,854 - INFO - **************CASE_R1_2*******************
+2024-03-22 15:34:15,854 - DEBUG - pattern-label : CASE_R1_2
+2024-03-22 15:34:15,855 - DEBUG - running query
+2024-03-22 15:34:15,866 - DEBUG - matches count by classes
+2024-03-22 15:34:15,867 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphControlsExpressionWithConversion&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:15,867 - INFO - **************CASE_R1_3*******************
+2024-03-22 15:34:15,869 - DEBUG - pattern-label : CASE_R1_3
+2024-03-22 15:34:15,869 - DEBUG - running query
+2024-03-22 15:34:15,988 - DEBUG - matches count by classes
+2024-03-22 15:34:15,988 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphControlPhospho&lt;&lt;&lt;&lt;&lt;&lt;&lt;R1&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:15,989 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphControl&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:15,989 - INFO - **************CASE_R2*******************
+2024-03-22 15:34:15,989 - INFO - **************CASE_R2_1*******************
+2024-03-22 15:34:15,990 - DEBUG - pattern-label : CASE_R2_1
+2024-03-22 15:34:15,990 - DEBUG - running query
+2024-03-22 15:34:16,052 - DEBUG - matches count by classes
+2024-03-22 15:34:16,053 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphControlsMetabolicCatalysis&lt;&lt;&lt;&lt;&lt;&lt;&lt;R2&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,053 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphControl&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,053 - INFO - **************CASE_R3*******************
+2024-03-22 15:34:16,053 - INFO - **************CASE_R3_1*******************
+2024-03-22 15:34:16,054 - DEBUG - pattern-label : CASE_R3_1
+2024-03-22 15:34:16,054 - DEBUG - running query
+2024-03-22 15:34:16,077 - DEBUG - matches count by classes
+2024-03-22 15:34:16,078 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphReactWith&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,078 - DEBUG -        &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphSp&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,079 - INFO - **************CASE_R3_2*******************
+2024-03-22 15:34:16,079 - DEBUG - pattern-label : CASE_R3_2
+2024-03-22 15:34:16,079 - DEBUG - running query
+2024-03-22 15:34:16,099 - DEBUG - matches count by classes
+2024-03-22 15:34:16,100 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphReactWith&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,100 - DEBUG -        &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphSp&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,100 - INFO - **************CASE_R3_3*******************
+2024-03-22 15:34:16,101 - DEBUG - pattern-label : CASE_R3_3
+2024-03-22 15:34:16,101 - DEBUG - running query
+2024-03-22 15:34:16,173 - DEBUG - matches count by classes
+2024-03-22 15:34:16,174 - DEBUG - Complex=13
+2024-03-22 15:34:16,174 - DEBUG - Protein=36
+2024-03-22 15:34:16,175 - DEBUG - ProteinReference=34
+2024-03-22 15:34:16,175 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphInComplexWithOrInSameComplex&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:16,488 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:16,489 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:16,489 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:16,490 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:16,490 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:16,490 - DEBUG -                --  cat  R3
+2024-03-22 15:34:16,490 - DEBUG -                --  rec False 
+2024-03-22 15:34:16,491 - DEBUG -                --  default_label None
+2024-03-22 15:34:16,491 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:16,492 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:16,492 - DEBUG -   @@@initgraphp2 
+2024-03-22 15:34:16,492 - DEBUG -   @@@property_name,tp : simple_uri &lt;class 'str'&gt; 
+2024-03-22 15:34:16,493 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,501 - DEBUG -   @@@property_name,tp : numid &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,502 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,503 - DEBUG -   @@@property_name,tp : hgnc &lt;class 'str'&gt; 
+2024-03-22 15:34:16,503 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,503 - DEBUG -   @@@property_name,tp : uri &lt;class 'str'&gt; 
+2024-03-22 15:34:16,504 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,504 - DEBUG -   @@@property_name,tp : chebi &lt;class 'str'&gt; 
+2024-03-22 15:34:16,505 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,505 - DEBUG -   @@@property_name,tp : generic &lt;class 'bool'&gt; 
+2024-03-22 15:34:16,505 - DEBUG - type conversion : &lt;class 'bool'&gt; string 
+2024-03-22 15:34:16,506 - DEBUG -   @@@property_name,tp : organism &lt;class 'str'&gt; 
+2024-03-22 15:34:16,506 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,506 - DEBUG -   @@@property_name,tp : uniprot &lt;class 'str'&gt; 
+2024-03-22 15:34:16,507 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,507 - DEBUG -   @@@property_name,tp : alias &lt;class 'str'&gt; 
+2024-03-22 15:34:16,507 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,508 - DEBUG -   @@@property_name,tp : provider &lt;class 'str'&gt; 
+2024-03-22 15:34:16,508 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,508 - DEBUG -   @@@property_name,tp : evidence &lt;class 'str'&gt; 
+2024-03-22 15:34:16,509 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,509 - DEBUG -   @@@property_name,tp : export &lt;class 'bool'&gt; 
+2024-03-22 15:34:16,509 - DEBUG - type conversion : &lt;class 'bool'&gt; string 
+2024-03-22 15:34:16,510 - DEBUG -   @@@property_name,tp : safeLabel &lt;class 'str'&gt; 
+2024-03-22 15:34:16,510 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,510 - DEBUG -   @@@property_name,tp : label &lt;class 'str'&gt; 
+2024-03-22 15:34:16,511 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,511 - DEBUG -   @@@property_name,tp : description &lt;class 'str'&gt; 
+2024-03-22 15:34:16,511 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,512 - DEBUG -   @@@property_name,tp : shape &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,512 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,512 - DEBUG -   @@@property_name,tp : color &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,513 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,513 - DEBUG -   @@@property_name,tp : group &lt;class 'str'&gt; 
+2024-03-22 15:34:16,513 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,514 - DEBUG -   @@@property_name,tp : debug &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,514 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,514 - DEBUG -   @@@property_name,tp : srctype &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,515 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,515 - DEBUG -   @@@property_name,tp : input &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,515 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,516 - DEBUG -   @@@property_name,tp : biopaxType &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,516 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,516 - DEBUG -   @@@property_name,tp : spaimCaseFlat &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,517 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,517 - DEBUG -   @@@property_name,tp : patternTagFlat &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,517 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,518 - DEBUG -   @@@property_name,tp : pk &lt;class 'str'&gt; 
+2024-03-22 15:34:16,518 - DEBUG - type conversion : &lt;class 'str'&gt; string 
+2024-03-22 15:34:16,518 - DEBUG -   @@@property_name,tp : map &lt;class 'dict'&gt; 
+2024-03-22 15:34:16,519 - DEBUG - type conversion : &lt;class 'dict'&gt; string 
+2024-03-22 15:34:16,519 - DEBUG -   @@@property_name,tp : element &lt;class 'biopax.complex.Complex'&gt; 
+2024-03-22 15:34:16,519 - DEBUG - type conversion : &lt;class 'biopax.complex.Complex'&gt; string 
+2024-03-22 15:34:16,520 - DEBUG -   @@@property_name,tp : spaimCase &lt;class 'set'&gt; 
+2024-03-22 15:34:16,520 - DEBUG - type conversion : &lt;class 'set'&gt; string 
+2024-03-22 15:34:16,520 - DEBUG -   @@@property_name,tp : patternTag &lt;class 'set'&gt; 
+2024-03-22 15:34:16,520 - DEBUG - type conversion : &lt;class 'set'&gt; string 
+2024-03-22 15:34:16,521 - DEBUG -   @@@property_name,tp : dbid &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,521 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,521 - DEBUG -   @@@property_name,tp : reversible &lt;class 'NoneType'&gt; 
+2024-03-22 15:34:16,522 - DEBUG - type conversion : &lt;class 'NoneType'&gt; string 
+2024-03-22 15:34:16,540 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:16,541 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:16,541 - DEBUG - meta:P1
+2024-03-22 15:34:16,541 - DEBUG - meta:P2
+2024-03-22 15:34:16,542 - DEBUG - meta:PR1
+2024-03-22 15:34:16,542 - DEBUG - meta:PR2
+2024-03-22 15:34:16,662 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:16,663 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:16,664 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:16,664 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:16,664 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:16,664 - DEBUG -                --  cat  R3
+2024-03-22 15:34:16,665 - DEBUG -                --  rec False 
+2024-03-22 15:34:16,665 - DEBUG -                --  default_label None
+2024-03-22 15:34:16,666 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:16,674 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:16,674 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:16,675 - DEBUG - meta:P1
+2024-03-22 15:34:16,675 - DEBUG - meta:P2
+2024-03-22 15:34:16,675 - DEBUG - meta:PR1
+2024-03-22 15:34:16,675 - DEBUG - meta:PR2
+2024-03-22 15:34:16,777 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:16,778 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:16,778 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:16,779 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:16,779 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:16,779 - DEBUG -                --  cat  R3
+2024-03-22 15:34:16,780 - DEBUG -                --  rec False 
+2024-03-22 15:34:16,780 - DEBUG -                --  default_label None
+2024-03-22 15:34:16,780 - DEBUG - 3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5
+2024-03-22 15:34:16,781 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:16,788 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex13 
+2024-03-22 15:34:16,788 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:16,789 - DEBUG - meta:P1
+2024-03-22 15:34:16,789 - DEBUG - meta:P2
+2024-03-22 15:34:16,789 - DEBUG - meta:PR1
+2024-03-22 15:34:16,789 - DEBUG - meta:PR2
+2024-03-22 15:34:16,922 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:16,923 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:16,923 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:16,924 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:16,924 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:16,924 - DEBUG -                --  cat  R3
+2024-03-22 15:34:16,924 - DEBUG -                --  rec False 
+2024-03-22 15:34:16,924 - DEBUG -                --  default_label None
+2024-03-22 15:34:16,925 - DEBUG - 3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5
+2024-03-22 15:34:16,932 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex13 
+2024-03-22 15:34:16,933 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:16,933 - DEBUG - meta:P2
+2024-03-22 15:34:16,934 - DEBUG - meta:P1
+2024-03-22 15:34:16,934 - DEBUG - meta:PR2
+2024-03-22 15:34:16,934 - DEBUG - meta:PR1
+2024-03-22 15:34:17,030 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,030 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,030 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,031 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,031 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,031 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,031 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,032 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,032 - DEBUG - p-MRN
+2024-03-22 15:34:17,032 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:17,040 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:17,040 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,040 - DEBUG - meta:P1
+2024-03-22 15:34:17,041 - DEBUG - meta:P2
+2024-03-22 15:34:17,041 - DEBUG - meta:PR1
+2024-03-22 15:34:17,041 - DEBUG - meta:PR2
+2024-03-22 15:34:17,142 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,142 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,143 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,143 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,143 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,143 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,144 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,144 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,145 - DEBUG - p-MRN
+2024-03-22 15:34:17,152 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:17,153 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,153 - DEBUG - meta:P1
+2024-03-22 15:34:17,153 - DEBUG - meta:P2
+2024-03-22 15:34:17,153 - DEBUG - meta:PR1
+2024-03-22 15:34:17,154 - DEBUG - meta:PR2
+2024-03-22 15:34:17,253 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,254 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,254 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,254 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,255 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,255 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,255 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,256 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,256 - DEBUG - p-MRN
+2024-03-22 15:34:17,263 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:17,264 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,264 - DEBUG - meta:P2
+2024-03-22 15:34:17,265 - DEBUG - meta:P1
+2024-03-22 15:34:17,265 - DEBUG - meta:PR2
+2024-03-22 15:34:17,265 - DEBUG - meta:PR1
+2024-03-22 15:34:17,356 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,357 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,357 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,358 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,358 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,359 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,359 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,359 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,359 - DEBUG - p-MRN
+2024-03-22 15:34:17,366 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:17,367 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,367 - DEBUG - meta:P2
+2024-03-22 15:34:17,367 - DEBUG - meta:P2
+2024-03-22 15:34:17,368 - DEBUG - meta:PR1
+2024-03-22 15:34:17,368 - DEBUG - meta:PR1
+2024-03-22 15:34:17,467 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,468 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,468 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,469 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,469 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,469 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,470 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,470 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,470 - DEBUG - p-MRN
+2024-03-22 15:34:17,477 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:17,478 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,478 - DEBUG - meta:P2
+2024-03-22 15:34:17,478 - DEBUG - meta:P1
+2024-03-22 15:34:17,479 - DEBUG - meta:PR2
+2024-03-22 15:34:17,479 - DEBUG - meta:PR1
+2024-03-22 15:34:17,584 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,584 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,584 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,585 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,585 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,586 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,586 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,586 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,586 - DEBUG - p-MRN
+2024-03-22 15:34:17,593 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:17,594 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,594 - DEBUG - meta:P2
+2024-03-22 15:34:17,594 - DEBUG - meta:P2
+2024-03-22 15:34:17,594 - DEBUG - meta:PR1
+2024-03-22 15:34:17,595 - DEBUG - meta:PR1
+2024-03-22 15:34:17,687 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,688 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,688 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,689 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,689 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,689 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,689 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,689 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,690 - DEBUG - p-T3387-BRCA2:SEM1
+2024-03-22 15:34:17,691 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:17,698 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex17 
+2024-03-22 15:34:17,698 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,698 - DEBUG - meta:P1
+2024-03-22 15:34:17,699 - DEBUG - meta:P2
+2024-03-22 15:34:17,699 - DEBUG - meta:PR1
+2024-03-22 15:34:17,699 - DEBUG - meta:PR2
+2024-03-22 15:34:17,796 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,797 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,797 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,797 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,798 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,798 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,798 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,799 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,799 - DEBUG - p-T3387-BRCA2:SEM1
+2024-03-22 15:34:17,805 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex17 
+2024-03-22 15:34:17,805 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,806 - DEBUG - meta:P2
+2024-03-22 15:34:17,806 - DEBUG - meta:P1
+2024-03-22 15:34:17,806 - DEBUG - meta:PR2
+2024-03-22 15:34:17,806 - DEBUG - meta:PR1
+2024-03-22 15:34:17,901 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:17,902 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:17,902 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:17,903 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:17,903 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:17,903 - DEBUG -                --  cat  R3
+2024-03-22 15:34:17,903 - DEBUG -                --  rec False 
+2024-03-22 15:34:17,903 - DEBUG -                --  default_label None
+2024-03-22 15:34:17,904 - DEBUG - p-5S-BRCA1:p-2T-BARD1
+2024-03-22 15:34:17,904 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:17,910 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex34 
+2024-03-22 15:34:17,911 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:17,911 - DEBUG - meta:P1
+2024-03-22 15:34:17,912 - DEBUG - meta:P2
+2024-03-22 15:34:17,912 - DEBUG - meta:PR1
+2024-03-22 15:34:17,912 - DEBUG - meta:PR2
+2024-03-22 15:34:18,007 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,007 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,008 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,008 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,008 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,009 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,009 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,010 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,010 - DEBUG - DNA2:WRN
+2024-03-22 15:34:18,010 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:18,017 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex25 
+2024-03-22 15:34:18,018 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,018 - DEBUG - meta:P1
+2024-03-22 15:34:18,018 - DEBUG - meta:P2
+2024-03-22 15:34:18,018 - DEBUG - meta:PR1
+2024-03-22 15:34:18,019 - DEBUG - meta:PR2
+2024-03-22 15:34:18,112 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,112 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,112 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,113 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,113 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,113 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,113 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,114 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,115 - DEBUG - BTRR complex
+2024-03-22 15:34:18,115 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:18,122 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,122 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,123 - DEBUG - meta:P1
+2024-03-22 15:34:18,123 - DEBUG - meta:P2
+2024-03-22 15:34:18,123 - DEBUG - meta:PR1
+2024-03-22 15:34:18,123 - DEBUG - meta:PR2
+2024-03-22 15:34:18,220 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,220 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,221 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,221 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,221 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,221 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,222 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,222 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,222 - DEBUG - BTRR complex
+2024-03-22 15:34:18,229 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,230 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,230 - DEBUG - meta:P1
+2024-03-22 15:34:18,230 - DEBUG - meta:P2
+2024-03-22 15:34:18,231 - DEBUG - meta:PR1
+2024-03-22 15:34:18,231 - DEBUG - meta:PR2
+2024-03-22 15:34:18,331 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,332 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,332 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,333 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,334 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,334 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,334 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,335 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,335 - DEBUG - BTRR complex
+2024-03-22 15:34:18,342 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,342 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,342 - DEBUG - meta:P1
+2024-03-22 15:34:18,343 - DEBUG - meta:P2
+2024-03-22 15:34:18,343 - DEBUG - meta:PR1
+2024-03-22 15:34:18,343 - DEBUG - meta:PR2
+2024-03-22 15:34:18,448 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,449 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,449 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,450 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,450 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,450 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,450 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,451 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,451 - DEBUG - BTRR complex
+2024-03-22 15:34:18,458 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,458 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,459 - DEBUG - meta:P2
+2024-03-22 15:34:18,459 - DEBUG - meta:P1
+2024-03-22 15:34:18,459 - DEBUG - meta:PR2
+2024-03-22 15:34:18,460 - DEBUG - meta:PR1
+2024-03-22 15:34:18,558 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,559 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,559 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,560 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,560 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,560 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,560 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,561 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,561 - DEBUG - BTRR complex
+2024-03-22 15:34:18,568 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,569 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,569 - DEBUG - meta:P2
+2024-03-22 15:34:18,570 - DEBUG - meta:P2
+2024-03-22 15:34:18,570 - DEBUG - meta:PR1
+2024-03-22 15:34:18,570 - DEBUG - meta:PR1
+2024-03-22 15:34:18,660 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,661 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,661 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,662 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,662 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,662 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,663 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,663 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,664 - DEBUG - BTRR complex
+2024-03-22 15:34:18,671 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,671 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,671 - DEBUG - meta:P2
+2024-03-22 15:34:18,672 - DEBUG - meta:P2
+2024-03-22 15:34:18,672 - DEBUG - meta:PR1
+2024-03-22 15:34:18,672 - DEBUG - meta:PR1
+2024-03-22 15:34:18,774 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,774 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,774 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,775 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,775 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,775 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,775 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,776 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,776 - DEBUG - BTRR complex
+2024-03-22 15:34:18,783 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,783 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,783 - DEBUG - meta:P2
+2024-03-22 15:34:18,784 - DEBUG - meta:P1
+2024-03-22 15:34:18,784 - DEBUG - meta:PR2
+2024-03-22 15:34:18,784 - DEBUG - meta:PR1
+2024-03-22 15:34:18,875 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,875 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,876 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,876 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,876 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,877 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,877 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,877 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,877 - DEBUG - BTRR complex
+2024-03-22 15:34:18,883 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,884 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,884 - DEBUG - meta:P2
+2024-03-22 15:34:18,885 - DEBUG - meta:P2
+2024-03-22 15:34:18,885 - DEBUG - meta:PR1
+2024-03-22 15:34:18,885 - DEBUG - meta:PR1
+2024-03-22 15:34:18,979 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:18,979 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:18,980 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:18,980 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:18,981 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:18,981 - DEBUG -                --  cat  R3
+2024-03-22 15:34:18,981 - DEBUG -                --  rec False 
+2024-03-22 15:34:18,982 - DEBUG -                --  default_label None
+2024-03-22 15:34:18,982 - DEBUG - BTRR complex
+2024-03-22 15:34:18,990 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:18,990 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:18,990 - DEBUG - meta:P2
+2024-03-22 15:34:18,991 - DEBUG - meta:P2
+2024-03-22 15:34:18,991 - DEBUG - meta:PR1
+2024-03-22 15:34:18,991 - DEBUG - meta:PR1
+2024-03-22 15:34:19,088 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,089 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,089 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,089 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,089 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,089 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,090 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,090 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,090 - DEBUG - BTRR complex
+2024-03-22 15:34:19,097 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:19,098 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,098 - DEBUG - meta:P2
+2024-03-22 15:34:19,099 - DEBUG - meta:P1
+2024-03-22 15:34:19,099 - DEBUG - meta:PR2
+2024-03-22 15:34:19,099 - DEBUG - meta:PR1
+2024-03-22 15:34:19,196 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,196 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,197 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,197 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,197 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,197 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,198 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,198 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,198 - DEBUG - BTRR complex
+2024-03-22 15:34:19,206 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:19,207 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,207 - DEBUG - meta:P2
+2024-03-22 15:34:19,207 - DEBUG - meta:P2
+2024-03-22 15:34:19,207 - DEBUG - meta:PR1
+2024-03-22 15:34:19,208 - DEBUG - meta:PR1
+2024-03-22 15:34:19,304 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,305 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,305 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,305 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,306 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,306 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,306 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,306 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,307 - DEBUG - BTRR complex
+2024-03-22 15:34:19,312 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:19,313 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,313 - DEBUG - meta:P2
+2024-03-22 15:34:19,313 - DEBUG - meta:P2
+2024-03-22 15:34:19,314 - DEBUG - meta:PR1
+2024-03-22 15:34:19,314 - DEBUG - meta:PR1
+2024-03-22 15:34:19,409 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,410 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,410 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,410 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,411 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,411 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,411 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,412 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,413 - DEBUG - DNA2:WRN
+2024-03-22 15:34:19,420 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex25 
+2024-03-22 15:34:19,420 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,421 - DEBUG - meta:P2
+2024-03-22 15:34:19,421 - DEBUG - meta:P1
+2024-03-22 15:34:19,421 - DEBUG - meta:PR2
+2024-03-22 15:34:19,421 - DEBUG - meta:PR1
+2024-03-22 15:34:19,522 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,523 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,523 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,523 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,523 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,523 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,524 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,524 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,524 - DEBUG - BCDX2 complex
+2024-03-22 15:34:19,525 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:19,531 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:19,532 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,532 - DEBUG - meta:P1
+2024-03-22 15:34:19,532 - DEBUG - meta:P2
+2024-03-22 15:34:19,532 - DEBUG - meta:PR1
+2024-03-22 15:34:19,533 - DEBUG - meta:PR2
+2024-03-22 15:34:19,636 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,637 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,637 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,638 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,638 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,638 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,639 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,639 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,639 - DEBUG - BCDX2 complex
+2024-03-22 15:34:19,646 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:19,647 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,647 - DEBUG - meta:P1
+2024-03-22 15:34:19,647 - DEBUG - meta:P2
+2024-03-22 15:34:19,648 - DEBUG - meta:PR1
+2024-03-22 15:34:19,648 - DEBUG - meta:PR2
+2024-03-22 15:34:19,742 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,742 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,743 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,743 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,743 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,743 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,744 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,744 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,744 - DEBUG - BCDX2 complex
+2024-03-22 15:34:19,751 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:19,751 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,751 - DEBUG - meta:P1
+2024-03-22 15:34:19,752 - DEBUG - meta:P2
+2024-03-22 15:34:19,752 - DEBUG - meta:PR1
+2024-03-22 15:34:19,752 - DEBUG - meta:PR2
+2024-03-22 15:34:19,841 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,842 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,842 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,843 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,843 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,843 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,843 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,844 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,844 - DEBUG - BCDX2 complex
+2024-03-22 15:34:19,850 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:19,850 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,851 - DEBUG - meta:P2
+2024-03-22 15:34:19,851 - DEBUG - meta:P1
+2024-03-22 15:34:19,851 - DEBUG - meta:PR2
+2024-03-22 15:34:19,851 - DEBUG - meta:PR1
+2024-03-22 15:34:19,945 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:19,946 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:19,946 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:19,947 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:19,947 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:19,947 - DEBUG -                --  cat  R3
+2024-03-22 15:34:19,947 - DEBUG -                --  rec False 
+2024-03-22 15:34:19,948 - DEBUG -                --  default_label None
+2024-03-22 15:34:19,948 - DEBUG - BCDX2 complex
+2024-03-22 15:34:19,954 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:19,955 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:19,955 - DEBUG - meta:P2
+2024-03-22 15:34:19,955 - DEBUG - meta:P2
+2024-03-22 15:34:19,956 - DEBUG - meta:PR1
+2024-03-22 15:34:19,956 - DEBUG - meta:PR1
+2024-03-22 15:34:20,047 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,047 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,048 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,048 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,048 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,048 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,049 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,049 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,050 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,056 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,057 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,057 - DEBUG - meta:P2
+2024-03-22 15:34:20,057 - DEBUG - meta:P2
+2024-03-22 15:34:20,058 - DEBUG - meta:PR1
+2024-03-22 15:34:20,058 - DEBUG - meta:PR1
+2024-03-22 15:34:20,147 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,148 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,148 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,148 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,149 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,149 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,150 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,150 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,150 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,156 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,157 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,157 - DEBUG - meta:P2
+2024-03-22 15:34:20,157 - DEBUG - meta:P1
+2024-03-22 15:34:20,157 - DEBUG - meta:PR2
+2024-03-22 15:34:20,157 - DEBUG - meta:PR1
+2024-03-22 15:34:20,245 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,246 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,246 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,247 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,247 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,247 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,247 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,248 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,248 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,254 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,255 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,255 - DEBUG - meta:P2
+2024-03-22 15:34:20,255 - DEBUG - meta:P2
+2024-03-22 15:34:20,256 - DEBUG - meta:PR1
+2024-03-22 15:34:20,256 - DEBUG - meta:PR1
+2024-03-22 15:34:20,343 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,344 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,344 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,344 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,344 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,344 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,345 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,345 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,345 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,351 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,351 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,352 - DEBUG - meta:P2
+2024-03-22 15:34:20,352 - DEBUG - meta:P2
+2024-03-22 15:34:20,352 - DEBUG - meta:PR1
+2024-03-22 15:34:20,352 - DEBUG - meta:PR1
+2024-03-22 15:34:20,439 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,439 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,440 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,440 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,440 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,440 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,440 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,441 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,441 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,447 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,447 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,447 - DEBUG - meta:P2
+2024-03-22 15:34:20,447 - DEBUG - meta:P1
+2024-03-22 15:34:20,448 - DEBUG - meta:PR2
+2024-03-22 15:34:20,448 - DEBUG - meta:PR1
+2024-03-22 15:34:20,538 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,539 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,539 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,539 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,540 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,540 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,540 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,540 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,541 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,546 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,546 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,547 - DEBUG - meta:P2
+2024-03-22 15:34:20,547 - DEBUG - meta:P2
+2024-03-22 15:34:20,547 - DEBUG - meta:PR1
+2024-03-22 15:34:20,547 - DEBUG - meta:PR1
+2024-03-22 15:34:20,639 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,639 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,639 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,640 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,640 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,640 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,640 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,640 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,641 - DEBUG - BCDX2 complex
+2024-03-22 15:34:20,648 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:20,649 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,649 - DEBUG - meta:P2
+2024-03-22 15:34:20,649 - DEBUG - meta:P2
+2024-03-22 15:34:20,650 - DEBUG - meta:PR1
+2024-03-22 15:34:20,650 - DEBUG - meta:PR1
+2024-03-22 15:34:20,740 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,741 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,741 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,741 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,741 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,742 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,742 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,742 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,743 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:20,748 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:20,749 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,749 - DEBUG - meta:P2
+2024-03-22 15:34:20,749 - DEBUG - meta:P1
+2024-03-22 15:34:20,749 - DEBUG - meta:PR2
+2024-03-22 15:34:20,750 - DEBUG - meta:PR1
+2024-03-22 15:34:20,842 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,843 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,843 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,843 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,844 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,844 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,844 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,845 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,846 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:20,851 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:20,852 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,852 - DEBUG - meta:P2
+2024-03-22 15:34:20,852 - DEBUG - meta:P2
+2024-03-22 15:34:20,853 - DEBUG - meta:PR1
+2024-03-22 15:34:20,853 - DEBUG - meta:PR1
+2024-03-22 15:34:20,948 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:20,948 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:20,949 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:20,949 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:20,949 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:20,950 - DEBUG -                --  cat  R3
+2024-03-22 15:34:20,950 - DEBUG -                --  rec False 
+2024-03-22 15:34:20,950 - DEBUG -                --  default_label None
+2024-03-22 15:34:20,951 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:20,957 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:20,957 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:20,958 - DEBUG - meta:P2
+2024-03-22 15:34:20,958 - DEBUG - meta:P1
+2024-03-22 15:34:20,958 - DEBUG - meta:PR2
+2024-03-22 15:34:20,958 - DEBUG - meta:PR1
+2024-03-22 15:34:21,045 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,046 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,046 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,047 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,047 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,047 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,047 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,048 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,048 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:21,053 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:21,054 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,054 - DEBUG - meta:P2
+2024-03-22 15:34:21,054 - DEBUG - meta:P2
+2024-03-22 15:34:21,054 - DEBUG - meta:PR1
+2024-03-22 15:34:21,055 - DEBUG - meta:PR1
+2024-03-22 15:34:21,144 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,145 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,145 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,145 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,146 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,146 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,146 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,147 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,147 - DEBUG - p-RPA heterotrimer
+2024-03-22 15:34:21,147 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:21,153 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex31 
+2024-03-22 15:34:21,153 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,153 - DEBUG - meta:P1
+2024-03-22 15:34:21,154 - DEBUG - meta:P2
+2024-03-22 15:34:21,154 - DEBUG - meta:PR1
+2024-03-22 15:34:21,154 - DEBUG - meta:PR2
+2024-03-22 15:34:21,241 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,242 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,242 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,242 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,243 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,243 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,243 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,243 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,243 - DEBUG - p-RPA heterotrimer
+2024-03-22 15:34:21,249 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex31 
+2024-03-22 15:34:21,249 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,249 - DEBUG - meta:P1
+2024-03-22 15:34:21,250 - DEBUG - meta:P2
+2024-03-22 15:34:21,250 - DEBUG - meta:PR1
+2024-03-22 15:34:21,250 - DEBUG - meta:PR2
+2024-03-22 15:34:21,339 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,339 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,339 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,340 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,340 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,340 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,341 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,341 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,341 - DEBUG - p-RPA heterotrimer
+2024-03-22 15:34:21,346 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex31 
+2024-03-22 15:34:21,347 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,347 - DEBUG - meta:P2
+2024-03-22 15:34:21,347 - DEBUG - meta:P1
+2024-03-22 15:34:21,347 - DEBUG - meta:PR2
+2024-03-22 15:34:21,348 - DEBUG - meta:PR1
+2024-03-22 15:34:21,434 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,435 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,435 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,435 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,436 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,436 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,436 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,436 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,437 - DEBUG - p-RPA heterotrimer
+2024-03-22 15:34:21,442 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex31 
+2024-03-22 15:34:21,442 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,442 - DEBUG - meta:P2
+2024-03-22 15:34:21,442 - DEBUG - meta:P2
+2024-03-22 15:34:21,443 - DEBUG - meta:PR1
+2024-03-22 15:34:21,443 - DEBUG - meta:PR1
+2024-03-22 15:34:21,527 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,528 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,528 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,528 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,528 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,528 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,529 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,529 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,529 - DEBUG - p-RPA heterotrimer
+2024-03-22 15:34:21,536 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex31 
+2024-03-22 15:34:21,536 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,536 - DEBUG - meta:P2
+2024-03-22 15:34:21,537 - DEBUG - meta:P1
+2024-03-22 15:34:21,537 - DEBUG - meta:PR2
+2024-03-22 15:34:21,537 - DEBUG - meta:PR1
+2024-03-22 15:34:21,627 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,627 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,627 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,628 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,628 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,628 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,628 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,628 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,629 - DEBUG - p-RPA heterotrimer
+2024-03-22 15:34:21,635 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex31 
+2024-03-22 15:34:21,635 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,636 - DEBUG - meta:P2
+2024-03-22 15:34:21,636 - DEBUG - meta:P2
+2024-03-22 15:34:21,636 - DEBUG - meta:PR1
+2024-03-22 15:34:21,636 - DEBUG - meta:PR1
+2024-03-22 15:34:21,727 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,728 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,728 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,728 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,729 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,729 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,730 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,730 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,731 - DEBUG - p-5S-BRCA1:p-2T-BARD1
+2024-03-22 15:34:21,736 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex34 
+2024-03-22 15:34:21,737 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,737 - DEBUG - meta:P2
+2024-03-22 15:34:21,737 - DEBUG - meta:P1
+2024-03-22 15:34:21,737 - DEBUG - meta:PR2
+2024-03-22 15:34:21,738 - DEBUG - meta:PR1
+2024-03-22 15:34:21,826 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,826 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,827 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,827 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,827 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,828 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,828 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,828 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,829 - DEBUG - K6PolyUb,p-5S-BRCA1:K6PolyUb,p-2T-BARD1
+2024-03-22 15:34:21,829 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:21,835 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex35 
+2024-03-22 15:34:21,835 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,835 - DEBUG - meta:P1
+2024-03-22 15:34:21,836 - DEBUG - meta:P2
+2024-03-22 15:34:21,836 - DEBUG - meta:PR2
+2024-03-22 15:34:21,836 - DEBUG - meta:PR1
+2024-03-22 15:34:21,923 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:21,923 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:21,923 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:21,924 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:21,924 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:21,924 - DEBUG -                --  cat  R3
+2024-03-22 15:34:21,924 - DEBUG -                --  rec False 
+2024-03-22 15:34:21,925 - DEBUG -                --  default_label None
+2024-03-22 15:34:21,925 - DEBUG - K6PolyUb,p-5S-BRCA1:K6PolyUb,p-2T-BARD1
+2024-03-22 15:34:21,930 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex35 
+2024-03-22 15:34:21,931 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:21,931 - DEBUG - meta:P2
+2024-03-22 15:34:21,931 - DEBUG - meta:P1
+2024-03-22 15:34:21,932 - DEBUG - meta:PR1
+2024-03-22 15:34:21,932 - DEBUG - meta:PR2
+2024-03-22 15:34:22,019 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,020 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,020 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,020 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,021 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,021 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,021 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,021 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,022 - DEBUG - ATR:ATRIP
+2024-03-22 15:34:22,022 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:22,029 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex36 
+2024-03-22 15:34:22,030 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,030 - DEBUG - meta:P1
+2024-03-22 15:34:22,030 - DEBUG - meta:P2
+2024-03-22 15:34:22,030 - DEBUG - meta:PR1
+2024-03-22 15:34:22,031 - DEBUG - meta:PR2
+2024-03-22 15:34:22,120 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,121 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,121 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,121 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,122 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,122 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,122 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,122 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,123 - DEBUG - ATR:ATRIP
+2024-03-22 15:34:22,129 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex36 
+2024-03-22 15:34:22,129 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,129 - DEBUG - meta:P2
+2024-03-22 15:34:22,130 - DEBUG - meta:P1
+2024-03-22 15:34:22,130 - DEBUG - meta:PR2
+2024-03-22 15:34:22,130 - DEBUG - meta:PR1
+2024-03-22 15:34:22,216 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,216 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,217 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,217 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,217 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,218 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,218 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,218 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,219 - DEBUG - 9-1-1 complex
+2024-03-22 15:34:22,219 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:22,225 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex37 
+2024-03-22 15:34:22,226 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,226 - DEBUG - meta:P1
+2024-03-22 15:34:22,226 - DEBUG - meta:P2
+2024-03-22 15:34:22,226 - DEBUG - meta:PR1
+2024-03-22 15:34:22,227 - DEBUG - meta:PR2
+2024-03-22 15:34:22,310 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,311 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,311 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,311 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,311 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,312 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,312 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,312 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,312 - DEBUG - 9-1-1 complex
+2024-03-22 15:34:22,318 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex37 
+2024-03-22 15:34:22,319 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,319 - DEBUG - meta:P2
+2024-03-22 15:34:22,319 - DEBUG - meta:P1
+2024-03-22 15:34:22,320 - DEBUG - meta:PR2
+2024-03-22 15:34:22,320 - DEBUG - meta:PR1
+2024-03-22 15:34:22,404 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,404 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,405 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,405 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,406 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,406 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,406 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,406 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,407 - DEBUG - RAD17:RFC
+2024-03-22 15:34:22,407 - DEBUG -   @@@initgraphp1 
+2024-03-22 15:34:22,412 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:22,413 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,413 - DEBUG - meta:P1
+2024-03-22 15:34:22,413 - DEBUG - meta:P2
+2024-03-22 15:34:22,413 - DEBUG - meta:PR1
+2024-03-22 15:34:22,414 - DEBUG - meta:PR2
+2024-03-22 15:34:22,501 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,501 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,502 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,502 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,502 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,502 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,503 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,503 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,503 - DEBUG - RAD17:RFC
+2024-03-22 15:34:22,509 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:22,509 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,509 - DEBUG - meta:P1
+2024-03-22 15:34:22,510 - DEBUG - meta:P2
+2024-03-22 15:34:22,510 - DEBUG - meta:PR1
+2024-03-22 15:34:22,510 - DEBUG - meta:PR2
+2024-03-22 15:34:22,597 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,598 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,598 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,598 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,598 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,599 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,599 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,599 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,600 - DEBUG - RAD17:RFC
+2024-03-22 15:34:22,605 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:22,605 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,605 - DEBUG - meta:P1
+2024-03-22 15:34:22,606 - DEBUG - meta:P2
+2024-03-22 15:34:22,606 - DEBUG - meta:PR1
+2024-03-22 15:34:22,606 - DEBUG - meta:PR2
+2024-03-22 15:34:22,706 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,707 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,707 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,707 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,707 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,708 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,708 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,708 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,709 - DEBUG - RAD17:RFC
+2024-03-22 15:34:22,714 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:22,714 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,714 - DEBUG - meta:P1
+2024-03-22 15:34:22,715 - DEBUG - meta:P2
+2024-03-22 15:34:22,715 - DEBUG - meta:PR1
+2024-03-22 15:34:22,715 - DEBUG - meta:PR2
+2024-03-22 15:34:22,806 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,807 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,807 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,807 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,808 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,808 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,808 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,808 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,809 - DEBUG - RAD17:RFC
+2024-03-22 15:34:22,814 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:22,814 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,814 - DEBUG - meta:P2
+2024-03-22 15:34:22,814 - DEBUG - meta:P1
+2024-03-22 15:34:22,815 - DEBUG - meta:PR2
+2024-03-22 15:34:22,815 - DEBUG - meta:PR1
+2024-03-22 15:34:22,900 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:22,900 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:22,901 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:22,901 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:22,901 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:22,902 - DEBUG -                --  cat  R3
+2024-03-22 15:34:22,902 - DEBUG -                --  rec False 
+2024-03-22 15:34:22,902 - DEBUG -                --  default_label None
+2024-03-22 15:34:22,903 - DEBUG - RAD17:RFC
+2024-03-22 15:34:22,909 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:22,909 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:22,910 - DEBUG - meta:P2
+2024-03-22 15:34:22,910 - DEBUG - meta:P2
+2024-03-22 15:34:22,910 - DEBUG - meta:PR1
+2024-03-22 15:34:22,910 - DEBUG - meta:PR1
+2024-03-22 15:34:23,003 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,003 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,004 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,004 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,004 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,004 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,005 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,005 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,005 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,011 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,011 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,011 - DEBUG - meta:P2
+2024-03-22 15:34:23,012 - DEBUG - meta:P2
+2024-03-22 15:34:23,012 - DEBUG - meta:PR1
+2024-03-22 15:34:23,012 - DEBUG - meta:PR1
+2024-03-22 15:34:23,098 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,099 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,099 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,099 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,100 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,100 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,100 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,100 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,101 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,107 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,108 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,108 - DEBUG - meta:P2
+2024-03-22 15:34:23,108 - DEBUG - meta:P2
+2024-03-22 15:34:23,108 - DEBUG - meta:PR1
+2024-03-22 15:34:23,109 - DEBUG - meta:PR1
+2024-03-22 15:34:23,206 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,207 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,207 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,207 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,207 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,207 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,208 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,208 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,208 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,214 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,214 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,214 - DEBUG - meta:P2
+2024-03-22 15:34:23,215 - DEBUG - meta:P1
+2024-03-22 15:34:23,215 - DEBUG - meta:PR2
+2024-03-22 15:34:23,215 - DEBUG - meta:PR1
+2024-03-22 15:34:23,316 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,316 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,317 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,317 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,317 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,318 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,318 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,318 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,319 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,324 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,325 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,325 - DEBUG - meta:P2
+2024-03-22 15:34:23,325 - DEBUG - meta:P2
+2024-03-22 15:34:23,326 - DEBUG - meta:PR1
+2024-03-22 15:34:23,326 - DEBUG - meta:PR1
+2024-03-22 15:34:23,428 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,428 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,429 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,429 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,429 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,430 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,430 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,430 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,431 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,436 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,437 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,437 - DEBUG - meta:P2
+2024-03-22 15:34:23,438 - DEBUG - meta:P2
+2024-03-22 15:34:23,438 - DEBUG - meta:PR1
+2024-03-22 15:34:23,438 - DEBUG - meta:PR1
+2024-03-22 15:34:23,528 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,529 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,529 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,529 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,529 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,529 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,530 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,530 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,530 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,537 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,537 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,537 - DEBUG - meta:P2
+2024-03-22 15:34:23,538 - DEBUG - meta:P2
+2024-03-22 15:34:23,538 - DEBUG - meta:PR1
+2024-03-22 15:34:23,538 - DEBUG - meta:PR1
+2024-03-22 15:34:23,624 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,625 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,625 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,626 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,626 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,626 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,627 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,627 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,627 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,633 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,633 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,634 - DEBUG - meta:P2
+2024-03-22 15:34:23,634 - DEBUG - meta:P1
+2024-03-22 15:34:23,634 - DEBUG - meta:PR2
+2024-03-22 15:34:23,634 - DEBUG - meta:PR1
+2024-03-22 15:34:23,722 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,722 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,723 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,723 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,724 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,724 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,724 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,724 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,725 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,730 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,730 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,730 - DEBUG - meta:P2
+2024-03-22 15:34:23,731 - DEBUG - meta:P2
+2024-03-22 15:34:23,731 - DEBUG - meta:PR1
+2024-03-22 15:34:23,731 - DEBUG - meta:PR1
+2024-03-22 15:34:23,816 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,817 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,818 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,818 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,818 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,819 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,819 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,819 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,820 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,825 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,825 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,825 - DEBUG - meta:P2
+2024-03-22 15:34:23,825 - DEBUG - meta:P2
+2024-03-22 15:34:23,826 - DEBUG - meta:PR1
+2024-03-22 15:34:23,826 - DEBUG - meta:PR1
+2024-03-22 15:34:23,911 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:23,912 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:23,912 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:23,912 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:23,912 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:23,912 - DEBUG -                --  cat  R3
+2024-03-22 15:34:23,913 - DEBUG -                --  rec False 
+2024-03-22 15:34:23,913 - DEBUG -                --  default_label None
+2024-03-22 15:34:23,913 - DEBUG - RAD17:RFC
+2024-03-22 15:34:23,919 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:23,919 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:23,920 - DEBUG - meta:P2
+2024-03-22 15:34:23,920 - DEBUG - meta:P2
+2024-03-22 15:34:23,920 - DEBUG - meta:PR1
+2024-03-22 15:34:23,920 - DEBUG - meta:PR1
+2024-03-22 15:34:24,005 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,006 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,006 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,006 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,006 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,007 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,007 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,007 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,007 - DEBUG - RAD17:RFC
+2024-03-22 15:34:24,012 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:24,013 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,013 - DEBUG - meta:P2
+2024-03-22 15:34:24,013 - DEBUG - meta:P1
+2024-03-22 15:34:24,013 - DEBUG - meta:PR2
+2024-03-22 15:34:24,013 - DEBUG - meta:PR1
+2024-03-22 15:34:24,096 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,097 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,097 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,097 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,098 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,098 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,098 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,098 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,099 - DEBUG - RAD17:RFC
+2024-03-22 15:34:24,105 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:24,105 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,105 - DEBUG - meta:P2
+2024-03-22 15:34:24,106 - DEBUG - meta:P2
+2024-03-22 15:34:24,106 - DEBUG - meta:PR1
+2024-03-22 15:34:24,106 - DEBUG - meta:PR1
+2024-03-22 15:34:24,191 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,191 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,192 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,192 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,192 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,192 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,193 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,193 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,193 - DEBUG - RAD17:RFC
+2024-03-22 15:34:24,198 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:24,199 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,199 - DEBUG - meta:P2
+2024-03-22 15:34:24,199 - DEBUG - meta:P2
+2024-03-22 15:34:24,199 - DEBUG - meta:PR1
+2024-03-22 15:34:24,199 - DEBUG - meta:PR1
+2024-03-22 15:34:24,282 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,283 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,283 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,283 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,284 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,284 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,284 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,284 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,285 - DEBUG - RAD17:RFC
+2024-03-22 15:34:24,290 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex38 
+2024-03-22 15:34:24,290 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,290 - DEBUG - meta:P2
+2024-03-22 15:34:24,291 - DEBUG - meta:P2
+2024-03-22 15:34:24,291 - DEBUG - meta:PR1
+2024-03-22 15:34:24,291 - DEBUG - meta:PR1
+2024-03-22 15:34:24,291 - INFO - **************CASE_R3_4*******************
+2024-03-22 15:34:24,292 - DEBUG - pattern-label : CASE_R3_4
+2024-03-22 15:34:24,292 - DEBUG - running query
+2024-03-22 15:34:24,334 - DEBUG - matches count by classes
+2024-03-22 15:34:24,335 - DEBUG - Complex=13
+2024-03-22 15:34:24,336 - DEBUG - Protein=36
+2024-03-22 15:34:24,336 - DEBUG - ProteinReference=34
+2024-03-22 15:34:24,336 - DEBUG - &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphInComplexWithOrInSameComplex&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+2024-03-22 15:34:24,423 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,424 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,424 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,424 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,425 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,425 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,425 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,425 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,426 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:24,431 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:24,432 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,432 - DEBUG - meta:PE1
+2024-03-22 15:34:24,432 - DEBUG - meta:PE2
+2024-03-22 15:34:24,432 - DEBUG - meta:ER1
+2024-03-22 15:34:24,433 - DEBUG - meta:ER2
+2024-03-22 15:34:24,539 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,540 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,540 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,541 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,541 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,541 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,542 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,542 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,543 - DEBUG - ATR:ATRIP:p-RPA:3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5:BRCA1-C complex:EXO1,DNA2:BLM,WRN:p-S990,Ac-K1249-BRIP1:RAD17:RFC:RAD9:HUS1:RAD1:RHNO1:TOPBP1
+2024-03-22 15:34:24,548 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex28 
+2024-03-22 15:34:24,549 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,549 - DEBUG - meta:PE1
+2024-03-22 15:34:24,549 - DEBUG - meta:PE2
+2024-03-22 15:34:24,550 - DEBUG - meta:ER1
+2024-03-22 15:34:24,550 - DEBUG - meta:ER2
+2024-03-22 15:34:24,641 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,642 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,642 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,642 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,643 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,643 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,643 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,644 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,644 - DEBUG - 3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5
+2024-03-22 15:34:24,650 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex13 
+2024-03-22 15:34:24,650 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,650 - DEBUG - meta:PE1
+2024-03-22 15:34:24,650 - DEBUG - meta:PE2
+2024-03-22 15:34:24,651 - DEBUG - meta:ER1
+2024-03-22 15:34:24,651 - DEBUG - meta:ER2
+2024-03-22 15:34:24,746 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,746 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,747 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,747 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,747 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,747 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,748 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,748 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,748 - DEBUG - 3' overhanging ssDNA-DSBs:p-MRN:p-S1981,Ac-K3016-ATM:KAT5
+2024-03-22 15:34:24,754 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex13 
+2024-03-22 15:34:24,754 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,754 - DEBUG - meta:PE2
+2024-03-22 15:34:24,755 - DEBUG - meta:PE1
+2024-03-22 15:34:24,755 - DEBUG - meta:ER2
+2024-03-22 15:34:24,755 - DEBUG - meta:ER1
+2024-03-22 15:34:24,849 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,850 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,850 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,851 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,851 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,851 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,851 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,852 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,852 - DEBUG - p-MRN
+2024-03-22 15:34:24,859 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:24,859 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,860 - DEBUG - meta:PE1
+2024-03-22 15:34:24,860 - DEBUG - meta:PE2
+2024-03-22 15:34:24,860 - DEBUG - meta:ER1
+2024-03-22 15:34:24,860 - DEBUG - meta:ER2
+2024-03-22 15:34:24,957 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:24,958 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:24,958 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:24,959 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:24,959 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:24,959 - DEBUG -                --  cat  R3
+2024-03-22 15:34:24,960 - DEBUG -                --  rec False 
+2024-03-22 15:34:24,960 - DEBUG -                --  default_label None
+2024-03-22 15:34:24,960 - DEBUG - p-MRN
+2024-03-22 15:34:24,965 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:24,966 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:24,966 - DEBUG - meta:PE1
+2024-03-22 15:34:24,966 - DEBUG - meta:PE2
+2024-03-22 15:34:24,966 - DEBUG - meta:ER1
+2024-03-22 15:34:24,967 - DEBUG - meta:ER2
+2024-03-22 15:34:25,055 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,056 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,056 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,056 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,056 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,057 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,057 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,057 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,057 - DEBUG - p-MRN
+2024-03-22 15:34:25,062 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:25,063 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,063 - DEBUG - meta:PE2
+2024-03-22 15:34:25,063 - DEBUG - meta:PE1
+2024-03-22 15:34:25,063 - DEBUG - meta:ER2
+2024-03-22 15:34:25,064 - DEBUG - meta:ER1
+2024-03-22 15:34:25,147 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,148 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,148 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,149 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,149 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,149 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,149 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,150 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,150 - DEBUG - p-MRN
+2024-03-22 15:34:25,155 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:25,155 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,156 - DEBUG - meta:PE2
+2024-03-22 15:34:25,156 - DEBUG - meta:PE2
+2024-03-22 15:34:25,156 - DEBUG - meta:ER2
+2024-03-22 15:34:25,156 - DEBUG - meta:ER2
+2024-03-22 15:34:25,251 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,251 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,251 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,252 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,252 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,252 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,252 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,252 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,253 - DEBUG - p-MRN
+2024-03-22 15:34:25,258 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:25,258 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,258 - DEBUG - meta:PE2
+2024-03-22 15:34:25,259 - DEBUG - meta:PE1
+2024-03-22 15:34:25,259 - DEBUG - meta:ER2
+2024-03-22 15:34:25,259 - DEBUG - meta:ER1
+2024-03-22 15:34:25,344 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,344 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,344 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,345 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,345 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,345 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,345 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,346 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,346 - DEBUG - p-MRN
+2024-03-22 15:34:25,351 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex15 
+2024-03-22 15:34:25,351 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,352 - DEBUG - meta:PE2
+2024-03-22 15:34:25,352 - DEBUG - meta:PE2
+2024-03-22 15:34:25,352 - DEBUG - meta:ER2
+2024-03-22 15:34:25,352 - DEBUG - meta:ER2
+2024-03-22 15:34:25,437 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,438 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,438 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,438 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,439 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,439 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,439 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,439 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,440 - DEBUG - p-T3387-BRCA2:SEM1
+2024-03-22 15:34:25,445 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex17 
+2024-03-22 15:34:25,446 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,446 - DEBUG - meta:PE1
+2024-03-22 15:34:25,446 - DEBUG - meta:PE2
+2024-03-22 15:34:25,446 - DEBUG - meta:ER1
+2024-03-22 15:34:25,447 - DEBUG - meta:ER2
+2024-03-22 15:34:25,532 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,532 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,532 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,533 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,533 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,534 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,534 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,534 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,534 - DEBUG - p-T3387-BRCA2:SEM1
+2024-03-22 15:34:25,540 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex17 
+2024-03-22 15:34:25,540 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,540 - DEBUG - meta:PE2
+2024-03-22 15:34:25,541 - DEBUG - meta:PE1
+2024-03-22 15:34:25,541 - DEBUG - meta:ER2
+2024-03-22 15:34:25,541 - DEBUG - meta:ER1
+2024-03-22 15:34:25,624 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,625 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,625 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,625 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,625 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,626 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,626 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,626 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,626 - DEBUG - p-5S-BRCA1:p-2T-BARD1
+2024-03-22 15:34:25,631 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex34 
+2024-03-22 15:34:25,632 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,632 - DEBUG - meta:PE1
+2024-03-22 15:34:25,632 - DEBUG - meta:PE2
+2024-03-22 15:34:25,632 - DEBUG - meta:ER1
+2024-03-22 15:34:25,633 - DEBUG - meta:ER2
+2024-03-22 15:34:25,716 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,717 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,718 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,718 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,718 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,718 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,719 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,719 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,720 - DEBUG - DNA2:WRN
+2024-03-22 15:34:25,725 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex25 
+2024-03-22 15:34:25,725 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,725 - DEBUG - meta:PE1
+2024-03-22 15:34:25,726 - DEBUG - meta:PE2
+2024-03-22 15:34:25,726 - DEBUG - meta:ER1
+2024-03-22 15:34:25,726 - DEBUG - meta:ER2
+2024-03-22 15:34:25,811 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,811 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,812 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,812 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,812 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,812 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,812 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,813 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,813 - DEBUG - BTRR complex
+2024-03-22 15:34:25,818 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:25,818 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,819 - DEBUG - meta:PE1
+2024-03-22 15:34:25,819 - DEBUG - meta:PE2
+2024-03-22 15:34:25,819 - DEBUG - meta:ER1
+2024-03-22 15:34:25,819 - DEBUG - meta:ER2
+2024-03-22 15:34:25,904 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:25,904 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:25,905 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:25,905 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:25,905 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:25,906 - DEBUG -                --  cat  R3
+2024-03-22 15:34:25,906 - DEBUG -                --  rec False 
+2024-03-22 15:34:25,906 - DEBUG -                --  default_label None
+2024-03-22 15:34:25,906 - DEBUG - BTRR complex
+2024-03-22 15:34:25,911 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:25,911 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:25,912 - DEBUG - meta:PE1
+2024-03-22 15:34:25,912 - DEBUG - meta:PE2
+2024-03-22 15:34:25,912 - DEBUG - meta:ER1
+2024-03-22 15:34:25,912 - DEBUG - meta:ER2
+2024-03-22 15:34:26,003 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,004 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,004 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,004 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,004 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,005 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,005 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,005 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,006 - DEBUG - BTRR complex
+2024-03-22 15:34:26,011 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,011 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,011 - DEBUG - meta:PE1
+2024-03-22 15:34:26,012 - DEBUG - meta:PE2
+2024-03-22 15:34:26,012 - DEBUG - meta:ER1
+2024-03-22 15:34:26,012 - DEBUG - meta:ER2
+2024-03-22 15:34:26,094 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,095 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,095 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,095 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,095 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,096 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,096 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,096 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,097 - DEBUG - BTRR complex
+2024-03-22 15:34:26,101 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,102 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,102 - DEBUG - meta:PE2
+2024-03-22 15:34:26,102 - DEBUG - meta:PE1
+2024-03-22 15:34:26,102 - DEBUG - meta:ER2
+2024-03-22 15:34:26,103 - DEBUG - meta:ER1
+2024-03-22 15:34:26,188 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,188 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,189 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,189 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,190 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,190 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,190 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,191 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,191 - DEBUG - BTRR complex
+2024-03-22 15:34:26,197 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,197 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,198 - DEBUG - meta:PE2
+2024-03-22 15:34:26,198 - DEBUG - meta:PE2
+2024-03-22 15:34:26,198 - DEBUG - meta:ER2
+2024-03-22 15:34:26,198 - DEBUG - meta:ER2
+2024-03-22 15:34:26,287 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,287 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,288 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,288 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,288 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,288 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,289 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,289 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,290 - DEBUG - BTRR complex
+2024-03-22 15:34:26,295 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,296 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,296 - DEBUG - meta:PE2
+2024-03-22 15:34:26,296 - DEBUG - meta:PE2
+2024-03-22 15:34:26,297 - DEBUG - meta:ER2
+2024-03-22 15:34:26,297 - DEBUG - meta:ER2
+2024-03-22 15:34:26,381 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,382 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,382 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,382 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,383 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,383 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,384 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,384 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,384 - DEBUG - BTRR complex
+2024-03-22 15:34:26,389 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,390 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,390 - DEBUG - meta:PE2
+2024-03-22 15:34:26,391 - DEBUG - meta:PE1
+2024-03-22 15:34:26,391 - DEBUG - meta:ER2
+2024-03-22 15:34:26,391 - DEBUG - meta:ER1
+2024-03-22 15:34:26,475 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,476 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,476 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,476 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,477 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,477 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,477 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,478 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,478 - DEBUG - BTRR complex
+2024-03-22 15:34:26,483 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,483 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,483 - DEBUG - meta:PE2
+2024-03-22 15:34:26,484 - DEBUG - meta:PE2
+2024-03-22 15:34:26,484 - DEBUG - meta:ER2
+2024-03-22 15:34:26,484 - DEBUG - meta:ER2
+2024-03-22 15:34:26,570 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,571 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,571 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,572 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,572 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,572 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,572 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,572 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,573 - DEBUG - BTRR complex
+2024-03-22 15:34:26,578 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,578 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,578 - DEBUG - meta:PE2
+2024-03-22 15:34:26,578 - DEBUG - meta:PE2
+2024-03-22 15:34:26,578 - DEBUG - meta:ER2
+2024-03-22 15:34:26,579 - DEBUG - meta:ER2
+2024-03-22 15:34:26,662 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,663 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,663 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,663 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,664 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,664 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,664 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,665 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,665 - DEBUG - BTRR complex
+2024-03-22 15:34:26,670 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,670 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,671 - DEBUG - meta:PE2
+2024-03-22 15:34:26,671 - DEBUG - meta:PE1
+2024-03-22 15:34:26,671 - DEBUG - meta:ER2
+2024-03-22 15:34:26,671 - DEBUG - meta:ER1
+2024-03-22 15:34:26,757 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,757 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,758 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,758 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,758 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,758 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,759 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,759 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,759 - DEBUG - BTRR complex
+2024-03-22 15:34:26,764 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,764 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,765 - DEBUG - meta:PE2
+2024-03-22 15:34:26,765 - DEBUG - meta:PE2
+2024-03-22 15:34:26,765 - DEBUG - meta:ER2
+2024-03-22 15:34:26,765 - DEBUG - meta:ER2
+2024-03-22 15:34:26,861 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,861 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,861 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,862 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,862 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,862 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,862 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,863 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,863 - DEBUG - BTRR complex
+2024-03-22 15:34:26,868 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex23 
+2024-03-22 15:34:26,869 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,869 - DEBUG - meta:PE2
+2024-03-22 15:34:26,869 - DEBUG - meta:PE2
+2024-03-22 15:34:26,870 - DEBUG - meta:ER2
+2024-03-22 15:34:26,870 - DEBUG - meta:ER2
+2024-03-22 15:34:26,958 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:26,958 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:26,959 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:26,959 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:26,959 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:26,960 - DEBUG -                --  cat  R3
+2024-03-22 15:34:26,960 - DEBUG -                --  rec False 
+2024-03-22 15:34:26,960 - DEBUG -                --  default_label None
+2024-03-22 15:34:26,961 - DEBUG - DNA2:WRN
+2024-03-22 15:34:26,966 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex25 
+2024-03-22 15:34:26,966 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:26,967 - DEBUG - meta:PE2
+2024-03-22 15:34:26,967 - DEBUG - meta:PE1
+2024-03-22 15:34:26,967 - DEBUG - meta:ER2
+2024-03-22 15:34:26,967 - DEBUG - meta:ER1
+2024-03-22 15:34:27,067 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:27,067 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:27,067 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:27,068 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:27,068 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:27,068 - DEBUG -                --  cat  R3
+2024-03-22 15:34:27,068 - DEBUG -                --  rec False 
+2024-03-22 15:34:27,069 - DEBUG -                --  default_label None
+2024-03-22 15:34:27,069 - DEBUG - BCDX2 complex
+2024-03-22 15:34:27,075 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:27,076 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:27,076 - DEBUG - meta:PE1
+2024-03-22 15:34:27,076 - DEBUG - meta:PE2
+2024-03-22 15:34:27,077 - DEBUG - meta:ER1
+2024-03-22 15:34:27,077 - DEBUG - meta:ER2
+2024-03-22 15:34:27,165 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:27,166 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:27,166 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:27,167 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:27,167 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:27,167 - DEBUG -                --  cat  R3
+2024-03-22 15:34:27,168 - DEBUG -                --  rec False 
+2024-03-22 15:34:27,168 - DEBUG -                --  default_label None
+2024-03-22 15:34:27,168 - DEBUG - BCDX2 complex
+2024-03-22 15:34:27,173 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:27,174 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:27,174 - DEBUG - meta:PE1
+2024-03-22 15:34:27,174 - DEBUG - meta:PE2
+2024-03-22 15:34:27,174 - DEBUG - meta:ER1
+2024-03-22 15:34:27,175 - DEBUG - meta:ER2
+2024-03-22 15:34:27,261 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:27,262 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:27,262 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:27,263 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:27,263 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:27,263 - DEBUG -                --  cat  R3
+2024-03-22 15:34:27,264 - DEBUG -                --  rec False 
+2024-03-22 15:34:27,264 - DEBUG -                --  default_label None
+2024-03-22 15:34:27,264 - DEBUG - BCDX2 complex
+2024-03-22 15:34:27,272 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:27,272 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:27,273 - DEBUG - meta:PE1
+2024-03-22 15:34:27,273 - DEBUG - meta:PE2
+2024-03-22 15:34:27,273 - DEBUG - meta:ER1
+2024-03-22 15:34:27,274 - DEBUG - meta:ER2
+2024-03-22 15:34:27,363 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:27,363 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:27,364 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:27,364 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:27,364 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:27,364 - DEBUG -                --  cat  R3
+2024-03-22 15:34:27,364 - DEBUG -                --  rec False 
+2024-03-22 15:34:27,365 - DEBUG -                --  default_label None
+2024-03-22 15:34:27,365 - DEBUG - BCDX2 complex
+2024-03-22 15:34:27,371 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:27,371 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:27,371 - DEBUG - meta:PE2
+2024-03-22 15:34:27,371 - DEBUG - meta:PE1
+2024-03-22 15:34:27,372 - DEBUG - meta:ER2
+2024-03-22 15:34:27,372 - DEBUG - meta:ER1
+2024-03-22 15:34:27,459 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:27,459 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:27,459 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:27,460 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:27,460 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:27,460 - DEBUG -                --  cat  R3
+2024-03-22 15:34:27,460 - DEBUG -                --  rec False 
+2024-03-22 15:34:27,461 - DEBUG -                --  default_label None
+2024-03-22 15:34:27,461 - DEBUG - BCDX2 complex
+2024-03-22 15:34:27,467 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:27,467 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:27,468 - DEBUG - meta:PE2
+2024-03-22 15:34:27,468 - DEBUG - meta:PE2
+2024-03-22 15:34:27,468 - DEBUG - meta:ER2
+2024-03-22 15:34:27,469 - DEBUG - meta:ER2
+2024-03-22 15:34:27,562 - DEBUG - meta:COMPLEX
+2024-03-22 15:34:27,563 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;subGraphComplex
+2024-03-22 15:34:27,563 - DEBUG -       &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;      Complex 
+2024-03-22 15:34:27,563 - DEBUG -               subGraphComplex  --  cat  R3
+2024-03-22 15:34:27,563 - DEBUG -     --addSpaimNode be   Complex
+2024-03-22 15:34:27,564 - DEBUG -                --  cat  R3
+2024-03-22 15:34:27,564 - DEBUG -                --  rec False 
+2024-03-22 15:34:27,564 - DEBUG -                --  default_label None
+2024-03-22 15:34:27,565 - DEBUG - BCDX2 complex
+2024-03-22 15:34:27,570 - DEBUG - =&gt;&gt;fetch_control 0  &lt;class 'biopax.complex.Complex'&gt; http://www.reactome.org/biopax/84/9675135#Complex26 
+2024-03-22 15:34:27,571 - DEBUG - &lt;&lt;&lt;subGraphComplex:END
+2024-03-22 15:34:27,571 - DEBUG - meta:PE2
+2024-03-22 15:34:27,571 - DEBUG - meta:PE2
+2024-03-22 15:34:27,571 - DEBUG - meta:ER2
+2024-03-22 15:34:27,571 - DEBUG - meta:ER2
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8920719b-3283-442d-b322-e7f7503c879d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=015c7751-2f75-4429-bfd9-520cd8c07e89">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">##executePattern most often returns a list of list of PK()  instance taht only hold uiris (pk) and classe name</span>
-<span class="c1">### to obtains a full object oriented entities</span>
-<span class="c1">## we use fill([PK])</span>
-<span class="c1">####we define the selected entities with attributes values</span>
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b9230a99-fb97-45fb-8650-5499c8c3e44f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Extract-The-full-populatd-entities">Extract The full populatd entities<a class="anchor-link" href="#Extract-The-full-populatd-entities">¶</a></h4><p>the level parameter defines extended neighbourhood</p>
-<ul>
-<li>level=1 only selected entities</li>
-<li>level=2 : we populate the entities in direct relation with the selected entities</li>
-<li>level=3: we add the entities at one more level (costly)
-using fetchEntities,in the result  all entities defined in the Pattern are returned in he same row</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d728b2bc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
-<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"first  results  (object oriented ). instances from the BIOPAX model"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------------------------------------------"</span><span class="p">)</span> 
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"#------------------------"</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"pk(uri):</span><span class="si">%s</span><span class="s2">, class: </span><span class="si">%s</span><span class="s2">, meta_label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------------------------------------------"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__json"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"#------------------------"</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  <span class="c1"># a method to display the entity details using json serialization</span>
-
-
-<span class="c1">###############################################################</span>
-
-<span class="n">resultref</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">reflist</span><span class="o">=</span><span class="p">[]</span>
-<span class="c1"># first extract entity references only</span>
-<span class="c1"># for quick query and memory optimization</span>
-<span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">resultref</span><span class="p">:</span>
-  <span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">reflist</span><span class="p">:</span>
-   <span class="k">if</span> <span class="n">eref</span><span class="o">.</span><span class="n">cls</span><span class="o">==</span><span class="s2">"Protein"</span> <span class="ow">and</span> <span class="n">eref</span><span class="o">.</span><span class="n">meta_label</span><span class="o">==</span><span class="s2">"P"</span><span class="p">:</span>
-      <span class="n">reflist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eref</span><span class="p">)</span>
-<span class="c1"># then populate only the selected entities</span>
-<span class="n">result</span><span class="o">=</span><span class="n">peN</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">reflist</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first  results  (object oriented ). instances from the BIOPAX model
-#-------------------------------------------------------------
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/O15111, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/Q14289, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/P35626, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-#-------------------------------------------------------------
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/O15111",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_461",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_79cdbae93881386b293a3156d62824cc",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_O15111"
-  },
-  "displayName": "IKKA_HUMAN",
-  "name": "Transcription factor 16",
-  "standardName": "Inhibitor of nuclear factor kappa-B kinase subunit alpha",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "displayName": "PTK2B",
-  "name": "PTK2B__MI__0217",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/Q14289"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/Q14289",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_652",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_f7dacb816ac4162a42864d9719018866",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_Q14289"
-  },
-  "displayName": "FAK2_HUMAN",
-  "name": "Related adhesion focal tyrosine kinase",
-  "standardName": "Protein-tyrosine kinase 2-beta",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": null,
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a93d5072607ce98364874f1816a57c6",
-  "displayName": "ADRBK2",
-  "name": "ADRBK2__9606",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": null,
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/P35626"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/P35626",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_2152",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_b964abf9ab11c16d578cf211a74297f4",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P35626"
-  },
-  "displayName": "ARBK2_HUMAN",
-  "name": "GRK3",
-  "standardName": "Beta-adrenergic receptor kinase 2",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb2e3c1e-0bf7-47b5-8542-73805463143e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="using-meta_label-to-select-the-desired-entities">using meta_label to select the desired entities<a class="anchor-link" href="#using-meta_label-to-select-the-desired-entities">¶</a></h3><p>This is particulary usefull when you have diffrent entities of teh same class returned in the result row  a Pattern query</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=20a89b1b-0bf8-4dbd-81a2-c7238e060763">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
-
-
-<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#----we can now process the related Protein 'P' selected within each row not only by is class name but as well by is meta_label--------------------"</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>  
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__json"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-      <span class="k">if</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"P"</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>#----we can now process the related Protein 'P' selected within each row not only by is class name but as well by is meta_label--------------------
-__row__json
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ef077a05-a6dc-4a1d-ab41-893466ba1dfb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=866010f7-072c-452c-a179-6fae5c0c1c28">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

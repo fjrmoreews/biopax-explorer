@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>query_optimize</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>cytoscape_js_viz</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7475,35 +7475,7 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f7a7e5b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Optimize-the-queries-&amp;-The-Object-to-triples-mapper">Optimize the queries &amp; The Object to triples mapper<a class="anchor-link" href="#Optimize-the-queries-&amp;-The-Object-to-triples-mapper">¶</a></h4><p>Differents functions are proposed to query datasets using Patterns.
-You will find here  how to :</p>
-<ul>
-<li>Populate automatically a collection of object oriented model instances.</li>
-<li>Minimize the memory and query time for large datasets</li>
-<li>Work with iterators</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=826661bd-f864-41f7-8575-1129fc223ebe">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="imports">imports<a class="anchor-link" href="#imports">¶</a></h5>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2961e634">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=221c875b-94eb-4b12-95ec-0ab79ba05131">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7511,28 +7483,39 @@ You will find here  how to :</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.pattern.rack</span> <span class="kn">import</span> <span class="n">Rack</span>
-<span class="kn">from</span> <span class="nn">biopax_explorer.pattern.pattern</span> <span class="kn">import</span> <span class="n">PatternExecutor</span><span class="p">,</span> <span class="n">Pattern</span>
-<span class="kn">from</span> <span class="nn">biopax_explorer.query</span> <span class="kn">import</span>  <span class="n">EntityNode</span>
-<span class="kn">from</span> <span class="nn">biopax_explorer.biopax</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+ 
+<span class="kn">from</span> <span class="nn">biopax_explorer.biopax.doc</span> <span class="kn">import</span> <span class="n">helper</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.biopax.utils</span> <span class="kn">import</span> <span class="n">gen_utils</span> <span class="k">as</span> <span class="n">gu</span>
+ 
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">RuntimeWarning</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.graph</span> <span class="kn">import</span> <span class="n">view</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">config</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=343bf563">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>networkx backend installed
+graph.tool backend installed
+cytoscape.js jupyter viewer installed
+
+</pre>
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Constants-for-database-(change-%22localhost%22-for-%22db%22-if-necessary)">Constants for database (change "localhost" for "db" if necessary)<a class="anchor-link" href="#Constants-for-database-(change-%22localhost%22-for-%22db%22-if-necessary)">¶</a></h5>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36a040ae">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=281d5912-c617-425f-8cec-bcd1cb645a15">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7540,48 +7523,67 @@ You will find here  how to :</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">datasetN</span> <span class="o">=</span> <span class="s2">"netpath"</span>
-<span class="n">datasetP</span> <span class="o">=</span> <span class="s2">"panther"</span>
-<span class="n">db</span> <span class="o">=</span> <span class="s2">"http://db:3030"</span> <span class="c1"># with local triple store deployed with docker-compose</span>
-<span class="c1">#db = "https://rdf-ds.genouest.org" # using an online default triple store</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">gl</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="n">Factory</span><span class="p">(</span><span class="n">back</span><span class="o">=</span><span class="s2">"NX"</span><span class="p">)</span><span class="o">.</span><span class="n">graphDatasetLayer</span><span class="p">()</span>
 
+<span class="n">dataset</span><span class="o">=</span><span class="s2">"g6p"</span>
+<span class="n">db</span><span class="o">=</span><span class="s2">"http://db:3030"</span>
+<span class="n">dburl</span><span class="o">=</span><span class="n">db</span><span class="o">+</span><span class="s2">"/</span><span class="si">%s</span><span class="s2">/query"</span>
 
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">Rack</span><span class="p">()</span>
-<span class="n">peN</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetN</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
-<span class="c1">#peN.verbose() # display logs</span>
-<span class="n">peP</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetP</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
-<span class="c1">#peP.verbose() # display logs</span>
-
-<span class="c1"># Function to print the URI of the 10 first lines of the results.</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">populate_dataset</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">dataset</span><span class="p">)</span>
+<span class="c1">#from biopax_explorer.biopax.utils import gen_utils as gu</span>
+<span class="c1">#gl.model_instance_dict=gl.mpop.populate_domain_instance(dburl,dataset,gu.prefix(),gu.domain())</span>
  
 
-<span class="k">def</span> <span class="nf">simplePattern</span><span class="p">():</span>
-  <span class="n">p</span><span class="o">=</span><span class="n">Pattern</span><span class="p">()</span>    
-  <span class="n">prot</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"P"</span><span class="p">,</span> <span class="n">Protein</span><span class="p">())</span>
-  <span class="n">entityReference</span><span class="o">=</span><span class="n">EntityNode</span><span class="p">(</span><span class="s2">"E"</span><span class="p">,</span> <span class="n">EntityReference</span><span class="p">())</span>
-  <span class="n">prot</span><span class="o">.</span><span class="n">connectedWith</span><span class="p">(</span><span class="n">entityReference</span><span class="p">,</span> <span class="s2">"entityReference"</span><span class="p">)</span>
-  <span class="n">prot</span><span class="o">.</span><span class="n">whereAttribute</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">,</span> <span class="s2">"Protein_9a"</span><span class="p">,</span><span class="s2">"CONTAINS"</span><span class="p">)</span>
-  <span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">prot</span><span class="p">,</span><span class="n">entityReference</span><span class="p">)</span>
-  
-  <span class="k">return</span> <span class="n">p</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-----"</span><span class="p">)</span>
+<span class="n">ct</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">collec</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">maxct</span><span class="o">=</span><span class="mi">10</span> 
+<span class="n">st</span><span class="o">=</span><span class="p">[</span><span class="s1">'Protein'</span><span class="p">,</span><span class="s1">'SmallMolecule'</span><span class="p">]</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">newGraph</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">pk</span> <span class="ow">in</span> <span class="n">gl</span><span class="o">.</span><span class="n">model_instance_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        
+   <span class="c1">#print(pk) </span>
+   <span class="n">inst</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">model_instance_dict</span><span class="p">[</span><span class="n">pk</span><span class="p">]</span> 
+   
+   <span class="k">if</span> <span class="n">inst</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span>  <span class="n">st</span><span class="p">:</span>
+         
+     <span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="o">+</span><span class="mi">1</span>
+     <span class="k">if</span> <span class="n">ct</span><span class="o">&lt;=</span><span class="n">maxct</span><span class="p">:</span>
+       <span class="n">collec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span> 
+       <span class="nb">print</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>   
+ 
+<span class="c1">##########################</span>
+ 
+<span class="n">gl</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">collec</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a69f4723">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>-----
+http://www.reactome.org/biopax/56/71387#SmallMolecule87
+http://www.reactome.org/biopax/56/71387#SmallMolecule27
+http://www.reactome.org/biopax/56/71387#SmallMolecule98
+http://www.reactome.org/biopax/56/71387#SmallMolecule99
+http://www.reactome.org/biopax/56/71387#SmallMolecule47
+http://www.reactome.org/biopax/56/71387#SmallMolecule25
+http://www.reactome.org/biopax/56/71387#SmallMolecule28
+http://www.reactome.org/biopax/56/71387#SmallMolecule33
+http://www.reactome.org/biopax/56/71387#SmallMolecule35
+http://www.reactome.org/biopax/56/71387#SmallMolecule36
+</pre>
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="A-Pattern-can-be-executed-to-extract-only-entity-references-or-the-all-attributes-and-relations-of-each-entity">A Pattern can be executed to extract only entity references or the all attributes and relations of each entity<a class="anchor-link" href="#A-Pattern-can-be-executed-to-extract-only-entity-references-or-the-all-attributes-and-relations-of-each-entity">¶</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2dea0f27">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=338517ef-f885-4ba5-9fa7-027cdbcf8ab6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7591,26 +7593,21 @@ You will find here  how to :</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
 
-<span class="c1">#p = r.inComplexWith() # a pattern from the rack</span>
-<span class="n">p</span><span class="o">=</span><span class="n">simplePattern</span><span class="p">()</span>
+<span class="n">g</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="n">bt</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">edge_betweenness_centrality</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">set_edge_attributes</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">bt</span><span class="p">,</span> <span class="s2">"betweenness"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">attv</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">][</span><span class="s1">'elabel'</span><span class="p">]</span><span class="o">=</span>  <span class="s2">"</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span><span class="n">attv</span><span class="p">[</span><span class="s1">'betweenness'</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">n1</span><span class="p">,</span><span class="n">attv</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n1</span><span class="p">][</span><span class="s1">'tooltip'</span><span class="p">]</span><span class="o">=</span>  <span class="s2">"</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">) </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">attv</span><span class="p">[</span><span class="s1">'pk'</span><span class="p">],</span><span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span><span class="n">attv</span><span class="p">[</span><span class="s1">'ctype'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bddb3703-a34f-47a5-bd84-48cde8284d6d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="by_reference=True:-We-force-the-pattern-result-set-to-hold-only-references">by_reference=True: We force the pattern result set to hold only references<a class="anchor-link" href="#by_reference=True:-We-force-the-pattern-result-set-to-hold-only-references">¶</a></h4><p>this is the default mode in the rack
-each pattern as a default mode (by_reference True or False)</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=486424fa-95cd-4742-9dea-0983bd76fbe0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2e18742-d8f2-4e57-8d31-e8c5e9ea6b82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7618,27 +7615,13 @@ each pattern as a default mode (by_reference True or False)</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">##print(view.graphString(g))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba4e50de-755c-4a1e-bc91-ca329c8d6d43">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="extract-entity-reference-only">extract entity reference only<a class="anchor-link" href="#extract-entity-reference-only">¶</a></h4><p>because of the 'by_reference' mode, the results are not instances of the BIOPAX model classes
-but of the class 'PK', with 2 attributes :pk: primary key (uri) and cls,  the class name
-the parameter 'max_count' is important when you design a new Query Pattern, to have a quick preview of the results, with only the first rows
-The meta_label attribute allows to retrieve an entity labelled within the Pattern</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a60f8dc8-8c44-4421-b232-45634caf0915">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fdf1e7c8-8fc7-4958-a52c-a488ae77bfa9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7646,13 +7629,19 @@ The meta_label attribute allows to retrieve an entity labelled within the Patter
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"first  results (uris and class name only: for better memory management and faster results)"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">g</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cviewer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">CytoViewer</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cstyle</span><span class="o">=</span><span class="p">[</span>
+  <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype]'</span><span class="p">,</span><span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'label'</span><span class="p">:</span> <span class="s1">'data(ctype)'</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'edge[name]'</span><span class="p">,</span><span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'label'</span><span class="p">:</span> <span class="s1">'data(elabel)'</span><span class="p">}},</span>
+       <span class="p">]</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">added_style</span><span class="o">=</span><span class="n">cstyle</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"HK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
  
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"uri:</span><span class="si">%s</span><span class="s2">,  cls: </span><span class="si">%s</span><span class="s2">, meta_label :</span><span class="si">%s</span><span class="s2">, __class__:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">cls</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
- 
+<span class="n">cviewer</span><span class="o">.</span><span class="n">tooltip</span><span class="p">(</span><span class="s1">'tooltip'</span><span class="p">)</span>
+
+
+<span class="n">cviewer</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -7662,25 +7651,15 @@ The meta_label attribute allows to retrieve an entity labelled within the Patter
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first  results (uris and class name only: for better memory management and faster results)
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/O15111,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/Q14289,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/P35626,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-</pre>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>CytoscapeWidget(cytoscape_layout={'name': 'cola'}, cytoscape_style=[{'selector': 'node', 'css': {'background-c…</pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8920719b-3283-442d-b322-e7f7503c879d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7074e027-610f-43c8-88dc-e2a0c0092663">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7688,33 +7667,56 @@ uri:http://identifiers.org/uniprot/P35626,  cls: ProteinReference, meta_label :E
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">##executePattern most often returns a list of list of PK()  instance taht only hold uiris (pk) and classe name</span>
-<span class="c1">### to obtains a full object oriented entities</span>
-<span class="c1">## we use fill([PK])</span>
-<span class="c1">####we define the selected entities with attributes values</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">g</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cviewer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">CytoViewer</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cstyle</span><span class="o">=</span><span class="p">[</span>
+ 
+ <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'#11409e'</span><span class="p">}},</span>
+ <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node:parent'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'background-opacity'</span><span class="p">:</span> <span class="mf">0.333</span><span class="p">}},</span>
+ <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'edge'</span><span class="p">,</span> <span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'width'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'line-color'</span><span class="p">:</span> <span class="s1">'green'</span><span class="p">}},</span>
+ <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'edge.directed'</span><span class="p">,</span>
+  <span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'curve-style'</span><span class="p">:</span> <span class="s1">'bezier'</span><span class="p">,</span>
+   <span class="s1">'target-arrow-shape'</span><span class="p">:</span> <span class="s1">'triangle'</span><span class="p">,</span>
+   <span class="s1">'target-arrow-color'</span><span class="p">:</span> <span class="s1">'#9dbaea'</span><span class="p">}},</span>
+ <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'edge.multiple_edges'</span><span class="p">,</span> <span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'curve-style'</span><span class="p">:</span> <span class="s1">'bezier'</span><span class="p">}},</span>
+
+    
+  <span class="p">{</span> <span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype="Protein"]'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'orange'</span> <span class="p">,</span> <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'triangle'</span>  <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype="ProteinReference"]'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'darkblue'</span> <span class="p">,</span> <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'triangle'</span>  <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype="Complex"]'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'darkblue'</span> <span class="p">,</span> <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'square'</span>  <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype="CellularLocationVocabulary"]'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'grey'</span> <span class="p">,</span> <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'ellipse'</span>  <span class="p">}</span> <span class="p">},</span>  
+  <span class="p">{</span> <span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype="ModificationFeature"]'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'grey'</span> <span class="p">,</span> <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'ellipse'</span>  <span class="p">}</span> <span class="p">},</span>  
+  <span class="p">{</span> <span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype="UnificationXref"]'</span><span class="p">,</span> <span class="s1">'css'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'background-color'</span><span class="p">:</span> <span class="s1">'grey'</span> <span class="p">,</span> <span class="s1">'shape'</span><span class="p">:</span> <span class="s1">'ellipse'</span>  <span class="p">}</span> <span class="p">},</span>  
+
+    
+ 
+  <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'node[ctype]'</span><span class="p">,</span><span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'label'</span><span class="p">:</span> <span class="s1">'data(name)'</span><span class="p">}},</span>
+  <span class="p">{</span><span class="s1">'selector'</span><span class="p">:</span> <span class="s1">'edge[name]'</span><span class="p">,</span><span class="s1">'style'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'label'</span><span class="p">:</span> <span class="s1">'data(name)'</span><span class="p">}},</span>
+       <span class="p">]</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="n">cstyle</span><span class="p">)</span>
+ 
+<span class="n">cviewer</span><span class="o">.</span><span class="n">tooltip</span><span class="p">(</span><span class="s1">'tooltip'</span><span class="p">)</span>
+
+<span class="c1">#display(cviewer.viewer)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b9230a99-fb97-45fb-8650-5499c8c3e44f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Extract-The-full-populatd-entities">Extract The full populatd entities<a class="anchor-link" href="#Extract-The-full-populatd-entities">¶</a></h4><p>the level parameter defines extended neighbourhood</p>
-<ul>
-<li>level=1 only selected entities</li>
-<li>level=2 : we populate the entities in direct relation with the selected entities</li>
-<li>level=3: we add the entities at one more level (costly)
-using fetchEntities,in the result  all entities defined in the Pattern are returned in he same row</li>
-</ul>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>CytoscapeWidget(cytoscape_layout={'name': 'cola'}, cytoscape_style=[{'selector': 'node', 'css': {'background-c…</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d728b2bc">
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fed8a34e-f139-4aa2-8eb3-9b96e83bd6f3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7722,36 +7724,18 @@ using fetchEntities,in the result  all entities defined in the Pattern are retur
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
-<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.graph</span> <span class="kn">import</span> <span class="n">view</span>
+<span class="n">g</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cviewer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">CytoViewer</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"ctype"</span><span class="p">,</span><span class="s2">"Protein"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"EQ"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#3087dd"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"HK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"GCK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span><span class="s2">"22"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"EQ"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"yellow"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="s1">'circle'</span><span class="p">)</span> <span class="c1"># grid, circle # breadthfirst # concentric # klay</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">from_networkx</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> 
+<span class="n">cviewer</span><span class="o">.</span><span class="n">tooltip</span><span class="p">(</span><span class="s1">'tooltip'</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"first  results  (object oriented ). instances from the BIOPAX model"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------------------------------------------"</span><span class="p">)</span> 
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"#------------------------"</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"pk(uri):</span><span class="si">%s</span><span class="s2">, class: </span><span class="si">%s</span><span class="s2">, meta_label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------------------------------------------"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__json"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"#------------------------"</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  <span class="c1"># a method to display the entity details using json serialization</span>
-
-
-<span class="c1">###############################################################</span>
-
-<span class="n">resultref</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">reflist</span><span class="o">=</span><span class="p">[]</span>
-<span class="c1"># first extract entity references only</span>
-<span class="c1"># for quick query and memory optimization</span>
-<span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">resultref</span><span class="p">:</span>
-  <span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">reflist</span><span class="p">:</span>
-   <span class="k">if</span> <span class="n">eref</span><span class="o">.</span><span class="n">cls</span><span class="o">==</span><span class="s2">"Protein"</span> <span class="ow">and</span> <span class="n">eref</span><span class="o">.</span><span class="n">meta_label</span><span class="o">==</span><span class="s2">"P"</span><span class="p">:</span>
-      <span class="n">reflist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eref</span><span class="p">)</span>
-<span class="c1"># then populate only the selected entities</span>
-<span class="n">result</span><span class="o">=</span><span class="n">peN</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">reflist</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">cviewer</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">nodeLabel</span><span class="o">=</span><span class="s2">"name"</span><span class="p">,</span><span class="n">edgeLabel</span><span class="o">=</span><span class="s2">"name"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -7764,230 +7748,12 @@ using fetchEntities,in the result  all entities defined in the Pattern are retur
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first  results  (object oriented ). instances from the BIOPAX model
-#-------------------------------------------------------------
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/O15111, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/Q14289, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/P35626, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-#-------------------------------------------------------------
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/O15111",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_461",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_79cdbae93881386b293a3156d62824cc",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_O15111"
-  },
-  "displayName": "IKKA_HUMAN",
-  "name": "Transcription factor 16",
-  "standardName": "Inhibitor of nuclear factor kappa-B kinase subunit alpha",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "displayName": "PTK2B",
-  "name": "PTK2B__MI__0217",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/Q14289"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/Q14289",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_652",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_f7dacb816ac4162a42864d9719018866",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_Q14289"
-  },
-  "displayName": "FAK2_HUMAN",
-  "name": "Related adhesion focal tyrosine kinase",
-  "standardName": "Protein-tyrosine kinase 2-beta",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": null,
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a93d5072607ce98364874f1816a57c6",
-  "displayName": "ADRBK2",
-  "name": "ADRBK2__9606",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": null,
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/P35626"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/P35626",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_2152",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_b964abf9ab11c16d578cf211a74297f4",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P35626"
-  },
-  "displayName": "ARBK2_HUMAN",
-  "name": "GRK3",
-  "standardName": "Beta-adrenergic receptor kinase 2",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-</pre>
+<pre>CytoscapeWidget(cytoscape_layout={'name': 'circle'}, cytoscape_style=[{'selector': 'node', 'css': {'background…</pre>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb2e3c1e-0bf7-47b5-8542-73805463143e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="using-meta_label-to-select-the-desired-entities">using meta_label to select the desired entities<a class="anchor-link" href="#using-meta_label-to-select-the-desired-entities">¶</a></h3><p>This is particulary usefull when you have diffrent entities of teh same class returned in the result row  a Pattern query</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=20a89b1b-0bf8-4dbd-81a2-c7238e060763">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e28588f6-7ee6-4130-8052-6d6e08a1bf92">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7995,17 +7761,125 @@ __row__json
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">classes_options</span><span class="o">=</span><span class="p">[</span><span class="s1">'TemplateReactionRegulation'</span><span class="p">,</span>
+ <span class="s1">'EntityReference'</span><span class="p">,</span>
+ <span class="s1">'EvidenceCodeVocabulary'</span><span class="p">,</span>
+ <span class="s1">'ProteinReference'</span><span class="p">,</span>
+ <span class="s1">'CovalentBindingFeature'</span><span class="p">,</span>
+ <span class="s1">'SequenceRegionVocabulary'</span><span class="p">,</span>
+<span class="c1"># 'RelationshipXref',</span>
+ <span class="s1">'Protein'</span><span class="p">,</span>
+ <span class="s1">'TransportWithBiochemicalReaction'</span><span class="p">,</span>
+ <span class="s1">'Rna'</span><span class="p">,</span>
+ <span class="s1">'RnaReference'</span><span class="p">,</span>
+ <span class="s1">'CellVocabulary'</span><span class="p">,</span>
+ <span class="s1">'Provenance'</span><span class="p">,</span>
+ <span class="s1">'Evidence'</span><span class="p">,</span>
+ <span class="s1">'Conversion'</span><span class="p">,</span>
+ <span class="s1">'PhysicalEntity'</span><span class="p">,</span>
+ <span class="s1">'DeltaG'</span><span class="p">,</span>
+ <span class="s1">'Interaction'</span><span class="p">,</span>
+ <span class="s1">'DnaReference'</span><span class="p">,</span>
+<span class="c1"># 'BioSource',</span>
+<span class="c1"># 'EntityReferenceTypeVocabulary',</span>
+<span class="c1"># 'Xref',</span>
+<span class="c1"># 'FragmentFeature',</span>
+<span class="c1"># 'RelationshipTypeVocabulary',</span>
+ <span class="s1">'ChemicalStructure'</span><span class="p">,</span>
+<span class="c1"># 'ExperimentalFormVocabulary',</span>
+<span class="c1"># 'InteractionVocabulary',</span>
+ <span class="s1">'Degradation'</span><span class="p">,</span>
+<span class="c1"># 'SequenceModificationVocabulary',</span>
+ <span class="s1">'TemplateReaction'</span><span class="p">,</span>
+ <span class="s1">'BindingFeature'</span><span class="p">,</span>
+ <span class="s1">'Pathway'</span><span class="p">,</span>
+<span class="c1"># 'PublicationXref',</span>
+ <span class="s1">'Modulation'</span><span class="p">,</span>
+ <span class="s1">'ControlledVocabulary'</span><span class="p">,</span>
+<span class="c1"># 'SequenceInterval',</span>
+ <span class="s1">'DnaRegion'</span><span class="p">,</span>
+ <span class="s1">'SequenceLocation'</span><span class="p">,</span>
+<span class="c1"># 'KPrime',</span>
+ <span class="s1">'BiochemicalPathwayStep'</span><span class="p">,</span>
+ <span class="s1">'EntityFeature'</span><span class="p">,</span>
+ <span class="s1">'SmallMoleculeReference'</span><span class="p">,</span>
+ <span class="s1">'ExperimentalForm'</span><span class="p">,</span>
+ <span class="s1">'PathwayStep'</span><span class="p">,</span>
+ <span class="s1">'RnaRegion'</span><span class="p">,</span>
+ <span class="s1">'RnaRegionReference'</span><span class="p">,</span>
+ <span class="s1">'MolecularInteraction'</span><span class="p">,</span>
+<span class="c1"># 'TissueVocabulary',</span>
+ <span class="s1">'BiochemicalReaction'</span><span class="p">,</span>
+ <span class="s1">'ComplexAssembly'</span><span class="p">,</span>
+<span class="c1"># 'Catalysis',</span>
+<span class="c1"># 'Control',</span>
+<span class="c1"># 'Transport',</span>
+<span class="c1"># 'ModificationFeature',</span>
+ <span class="s1">'Complex'</span><span class="p">,</span>
+<span class="c1"># 'CellularLocationVocabulary',</span>
+<span class="c1"># 'PhenotypeVocabulary',</span>
+<span class="c1"># 'Score',</span>
+<span class="c1"># 'Gene',</span>
+<span class="c1"># 'Stoichiometry',</span>
+ <span class="s1">'SmallMolecule'</span><span class="p">,</span>
+<span class="c1"># 'Dna',</span>
+<span class="c1"># 'GeneticInteraction',</span>
+<span class="c1"># 'UnificationXref',</span>
+<span class="c1"># 'SequenceSite',</span>
+<span class="c1"># 'DnaRegionReference',</span>
+<span class="c1"># 'UtilityClass',</span>
+ <span class="s1">'Entity'</span><span class="p">]</span>
+
+<span class="n">attribute_not_options</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">'UnificationXref'</span><span class="p">,</span>
+    <span class="s1">'ModificationFeature'</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ef031dda-9fd7-4540-b602-d0ad4ef3f7cc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">gl</span><span class="o">=</span><span class="n">view</span><span class="o">.</span><span class="n">Factory</span><span class="p">(</span><span class="n">back</span><span class="o">=</span><span class="s2">"NX"</span><span class="p">)</span><span class="o">.</span><span class="n">graphDatasetLayer</span><span class="p">()</span>
+
+<span class="n">dataset</span><span class="o">=</span><span class="s2">"g6p"</span>
+<span class="n">db</span><span class="o">=</span><span class="s2">"http://db:3030"</span>
 
 
-<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#----we can now process the related Protein 'P' selected within each row not only by is class name but as well by is meta_label--------------------"</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>  
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__json"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-      <span class="k">if</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"P"</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  
+<span class="n">dburl</span><span class="o">=</span><span class="n">db</span><span class="o">+</span><span class="s2">"/</span><span class="si">%s</span><span class="s2">/query"</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">model_instance_dict</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">mpop</span><span class="o">.</span><span class="n">populate_domain_instance</span><span class="p">(</span><span class="n">dburl</span><span class="p">,</span><span class="n">dataset</span><span class="p">,</span><span class="n">gu</span><span class="o">.</span><span class="n">prefix</span><span class="p">(),</span><span class="n">gu</span><span class="o">.</span><span class="n">domain</span><span class="p">())</span>
+ 
+<span class="c1">#gl.populate_dataset(db,dataset)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-----"</span><span class="p">)</span>
+<span class="n">ct</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">collec</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">maxct</span><span class="o">=</span><span class="mi">20</span> 
+ 
+<span class="n">gl</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">newGraph</span><span class="p">()</span>
+<span class="c1">## we filter the initial set of extracted entity type using classes_options</span>
+<span class="c1">## A part of the excluded classes instances will remained connected as relations ,</span>
+<span class="c1">## but are not selected as initial 'core' instances</span>
+<span class="k">for</span> <span class="n">pk</span> <span class="ow">in</span> <span class="n">gl</span><span class="o">.</span><span class="n">model_instance_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>        
+   
+   <span class="n">inst</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">model_instance_dict</span><span class="p">[</span><span class="n">pk</span><span class="p">]</span> 
+   
+   <span class="k">if</span> <span class="n">inst</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span>  <span class="n">classes_options</span><span class="p">:</span>
+         
+     <span class="n">ct</span><span class="o">=</span><span class="n">ct</span><span class="o">+</span><span class="mi">1</span>
+     <span class="k">if</span> <span class="n">ct</span><span class="o">&lt;=</span><span class="n">maxct</span><span class="p">:</span>
+       <span class="n">collec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span> 
+       <span class="nb">print</span><span class="p">(</span><span class="n">inst</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">"  "</span><span class="p">,</span><span class="n">inst</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>   
+ 
+<span class="c1">##########################</span>
+ 
+<span class="n">gl</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">collec</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8018,50 +7892,285 @@ __row__json
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>#----we can now process the related Protein 'P' selected within each row not only by is class name but as well by is meta_label--------------------
-__row__json
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
+<pre>-----
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction101
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule87
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule27
+Provenance    http://www.reactome.org/biopax/56/71387#Provenance1
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction104
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule98
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule99
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction120
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule47
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction22
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule25
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule28
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction28
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule33
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule35
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction29
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule36
+SmallMolecule    http://www.reactome.org/biopax/56/71387#SmallMolecule37
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction30
+BiochemicalReaction    http://www.reactome.org/biopax/56/71387#BiochemicalReaction31
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ef077a05-a6dc-4a1d-ab41-893466ba1dfb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=be519768-2fad-46a0-bd55-b9c93b0704aa">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+<span class="n">gAll</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="c1">#print(gAll)</span>
+<span class="c1">#print(view.graphString(gAll))</span>
+<span class="c1">#keep only the largest connected component of the graph</span>
+<span class="n">connected_components</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="n">gAll</span><span class="p">))</span>
+<span class="n">largest_component</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">connected_components</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+<span class="n">G_view</span> <span class="o">=</span> <span class="n">gAll</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">largest_component</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">G_view</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="c1">####################</span>
+<span class="n">remove_other_classes_nodes</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">remove_not_other_classes_nodes</span><span class="o">=</span><span class="kc">True</span>
+
+<span class="n">attribute_key</span><span class="o">=</span><span class="s2">"ctype"</span>
+<span class="k">if</span> <span class="n">remove_other_classes_nodes</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+  
+  <span class="n">attribute_options</span><span class="o">=</span><span class="n">classes_options</span>
+  <span class="n">filtered_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span>  <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attribute_key</span><span class="p">)</span> <span class="ow">in</span> <span class="n">attribute_options</span> <span class="p">]</span>
+  <span class="n">G_view</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">filtered_nodes</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">G_view</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  
+<span class="k">if</span> <span class="n">remove_not_other_classes_nodes</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+  <span class="n">filtered_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span>  <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attribute_key</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">attribute_not_options</span> <span class="p">]</span>
+  <span class="n">G_view</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">filtered_nodes</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">G_view</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="c1">################</span>
+<span class="n">bt</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">edge_betweenness_centrality</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">set_edge_attributes</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">bt</span><span class="p">,</span> <span class="s2">"betweenness"</span><span class="p">)</span>
+<span class="c1"># Get the degree of each node</span>
+<span class="n">node_degrees</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span>
+<span class="c1"># Print the degree of each node</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">degree</span> <span class="ow">in</span> <span class="n">node_degrees</span><span class="p">:</span>
+    <span class="n">des</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
+    <span class="c1">#print(f"Node {node} has degree {degree}  {des}.")</span>
+    
+
+<span class="k">for</span> <span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">attv</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">][</span><span class="s1">'elabel'</span><span class="p">]</span><span class="o">=</span>  <span class="s2">"</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span><span class="n">attv</span><span class="p">[</span><span class="s1">'betweenness'</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">n1</span><span class="p">,</span><span class="n">attv</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n1</span><span class="p">][</span><span class="s1">'tooltip'</span><span class="p">]</span><span class="o">=</span>  <span class="s2">"</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">) </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">attv</span><span class="p">[</span><span class="s1">'pk'</span><span class="p">],</span><span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span><span class="n">attv</span><span class="p">[</span><span class="s1">'ctype'</span><span class="p">])</span>
+            <span class="n">nlabel</span><span class="o">=</span><span class="s2">""</span>
+            <span class="k">if</span> <span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span>  <span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+                <span class="n">nlabel</span><span class="o">=</span><span class="n">attv</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nlabel</span><span class="o">=</span><span class="n">attv</span><span class="p">[</span><span class="s1">'pk'</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">nlabel</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"http"</span><span class="p">):</span>    
+                <span class="n">nlabel</span><span class="o">=</span><span class="n">urlparse</span><span class="p">(</span><span class="n">nlabel</span><span class="p">)</span><span class="o">.</span><span class="n">fragment</span>
+                
+            <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n1</span><span class="p">][</span><span class="s1">'nlabel'</span><span class="p">]</span><span class="o">=</span>  <span class="s2">"</span><span class="si">%s</span><span class="s2"> id:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nlabel</span><span class="p">,</span><span class="n">n1</span><span class="p">)</span>
+            <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n1</span><span class="p">][</span><span class="s1">'id'</span><span class="p">]</span><span class="o">=</span>  <span class="s2">"</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="c1">############</span>
+ 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Graph with 28 nodes and 32 edges
+Graph with 20 nodes and 24 edges
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=985b124f-2e12-489d-b782-cf5908f3bc1d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>  <span class="n">attribute_value</span> <span class="o">=</span> <span class="s1">'HK'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e99c0e77-8255-4d7c-bb97-5b04c5f897c6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#fixing jupyter style issue form tooltype</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">body {</span>
+<span class="s2">  color: rgba(255, 212, 83, 0.87);</span>
+<span class="s2">  font-size: var(--jp-ui-font-size1);</span>
+<span class="s2">}</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">"""</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>
+body {
+  color: rgba(255, 212, 83, 0.87);
+  font-size: var(--jp-ui-font-size1);
+}
+</style>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e596b0c6-8410-4957-a25a-cee820a3859b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.graph</span> <span class="kn">import</span> <span class="n">view</span>
+<span class="n">g</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cviewer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">CytoViewer</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"HK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"GCK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="s1">'breadthfirst'</span><span class="p">)</span> <span class="c1"># grid, circle # breadthfirst # concentric # klay</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">defineNodeLabel</span><span class="p">([</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"ctype"</span><span class="p">],</span> <span class="n">separator</span><span class="o">=</span><span class="s2">"-"</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">cviewer</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">nodeLabel</span><span class="o">=</span><span class="s2">"nlabel"</span><span class="p">,</span><span class="n">edgeLabel</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>CytoscapeWidget(cytoscape_layout={'name': 'breadthfirst'}, cytoscape_style=[{'selector': 'node', 'css': {'back…</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=293a414a-da06-411d-8c26-c67ab80c7cbe">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.graph</span> <span class="kn">import</span> <span class="n">view</span>
+<span class="n">cviewer</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">CytoViewer</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="c1">#cviewer.nodeSelector("ctype","Protein", operator="EQ", color="#3087dd")</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"HK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"GCK"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"IN"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">nodeSelector</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span><span class="s2">"22"</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="s2">"EQ"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"yellow"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="s1">'breadthfirst'</span><span class="p">)</span> <span class="c1"># grid, circle # breadthfirst # concentric # klay</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">tooltip</span><span class="p">(</span><span class="s1">'tooltip'</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">defineNodeLabel</span><span class="p">([</span><span class="s2">"name"</span><span class="p">,</span><span class="s2">"ctype"</span><span class="p">],</span> <span class="n">separator</span><span class="o">=</span><span class="s2">"-"</span><span class="p">)</span>
+<span class="n">cviewer</span><span class="o">.</span><span class="n">defineEdgeLabel</span><span class="p">([</span><span class="s2">"name"</span><span class="p">])</span>
+<span class="c1">#print(cviewer.elabel)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">cviewer</span><span class="o">.</span><span class="n">display</span><span class="p">())</span>
+<span class="c1">#print(cviewer.final_style)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>CytoscapeWidget(cytoscape_layout={'name': 'breadthfirst'}, cytoscape_style=[{'selector': 'node', 'css': {'back…</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e98ea9cd-8cfa-46a7-8e42-89b0df5c790a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#cc=cviewer.viewer.get_style()</span>
+<span class="c1">#print(cc)</span>
+<span class="c1">#cviewer.style(cc) </span>
+ 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d1cd883e-828b-4cc6-8580-c865045e4dbc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=58f1e1a6-b5f7-4905-997f-2adfb3a453e1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=47c5fbb6-7d50-45f6-9b55-17dd7b22df4a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

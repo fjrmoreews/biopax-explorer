@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>query_optimize</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>validation</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7476,34 +7476,17 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f7a7e5b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=218c6223-f598-4ff7-9112-0eac87d7e343">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Optimize-the-queries-&amp;-The-Object-to-triples-mapper">Optimize the queries &amp; The Object to triples mapper<a class="anchor-link" href="#Optimize-the-queries-&amp;-The-Object-to-triples-mapper">¶</a></h4><p>Differents functions are proposed to query datasets using Patterns.
-You will find here  how to :</p>
-<ul>
-<li>Populate automatically a collection of object oriented model instances.</li>
-<li>Minimize the memory and query time for large datasets</li>
-<li>Work with iterators</li>
-</ul>
+<h3 id="BIOPAX-dataset-Validation">BIOPAX dataset Validation<a class="anchor-link" href="#BIOPAX-dataset-Validation">¶</a></h3>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=826661bd-f864-41f7-8575-1129fc223ebe">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="imports">imports<a class="anchor-link" href="#imports">¶</a></h5>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2961e634">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=12455983-2415-4aab-a136-236b1c5dd21f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7511,28 +7494,27 @@ You will find here  how to :</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.pattern.rack</span> <span class="kn">import</span> <span class="n">Rack</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.biopax</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">biopax_explorer.validation</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">biopax_explorer.pattern.pattern</span> <span class="kn">import</span> <span class="n">PatternExecutor</span><span class="p">,</span> <span class="n">Pattern</span>
 <span class="kn">from</span> <span class="nn">biopax_explorer.query</span> <span class="kn">import</span>  <span class="n">EntityNode</span>
-<span class="kn">from</span> <span class="nn">biopax_explorer.biopax</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=343bf563">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7bdf0b1-c266-4bda-8f7e-0d5b443e0faa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Constants-for-database-(change-%22localhost%22-for-%22db%22-if-necessary)">Constants for database (change "localhost" for "db" if necessary)<a class="anchor-link" href="#Constants-for-database-(change-%22localhost%22-for-%22db%22-if-necessary)">¶</a></h5>
+<h4 id="Using-a--generic-Validator-to-validate-a-BIOPAX-dataset">Using a  generic Validator to validate a BIOPAX dataset<a class="anchor-link" href="#Using-a--generic-Validator-to-validate-a-BIOPAX-dataset">¶</a></h4>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36a040ae">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0e749231-7dbf-43c1-91ee-4cbdda65efa8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7540,21 +7522,180 @@ You will find here  how to :</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">datasetN</span> <span class="o">=</span> <span class="s2">"netpath"</span>
-<span class="n">datasetP</span> <span class="o">=</span> <span class="s2">"panther"</span>
-<span class="n">db</span> <span class="o">=</span> <span class="s2">"http://db:3030"</span> <span class="c1"># with local triple store deployed with docker-compose</span>
-<span class="c1">#db = "https://rdf-ds.genouest.org" # using an online default triple store</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create instances of EntityModel</span>
+<span class="n">entity1</span> <span class="o">=</span> <span class="n">Protein</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s1">'http://uri1'</span><span class="p">)</span>
+<span class="n">entity1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'p1'</span>
+<span class="n">entity2</span> <span class="o">=</span> <span class="n">Protein</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s1">'http://uri1'</span><span class="p">)</span>
+<span class="n">entity2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'p2'</span>
+<span class="c1">#print(dir(entity1))</span>
+<span class="c1">#print( entity1.pk) </span>
+<span class="c1"># Create a list of entities</span>
+<span class="n">ent_collection</span> <span class="o">=</span> <span class="p">[</span><span class="n">entity1</span><span class="p">,</span> <span class="n">entity2</span><span class="p">]</span>
+
+<span class="c1"># Configuration</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Protein'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'pk'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'notNull'</span><span class="p">,</span> <span class="s1">'unique'</span><span class="p">,</span><span class="s1">'string'</span><span class="p">],</span>
+        <span class="s1">'name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'notNull'</span><span class="p">,</span> <span class="s1">'unique'</span><span class="p">],</span>
+        <span class="s1">'class'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'PhysicalEntity'</span><span class="p">],</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Create a validator instance</span>
+<span class="n">va</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 
 
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">Rack</span><span class="p">()</span>
-<span class="n">peN</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetN</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
-<span class="c1">#peN.verbose() # display logs</span>
-<span class="n">peP</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetP</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
-<span class="c1">#peP.verbose() # display logs</span>
+<span class="c1"># Validate the entity collection</span>
+<span class="p">[</span><span class="n">errors</span><span class="p">,</span><span class="n">err_d</span><span class="p">]</span> <span class="o">=</span> <span class="n">va</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">ent_collection</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"validation results:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">err_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>validation results:
+{'http://uri1': ['Protein.pk must be unique.']}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9df86410-10de-4520-94b1-048920d09434">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Using-a-customized-Validator-to-validate-a-BIOPAX-dataset">Using a customized Validator to validate a BIOPAX dataset<a class="anchor-link" href="#Using-a-customized-Validator-to-validate-a-BIOPAX-dataset">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d1b5d4cd-647c-46f9-bdef-35fc9dd93a85">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#we create a custom validatordataset</span>
 
-<span class="c1"># Function to print the URI of the 10 first lines of the results.</span>
+<span class="k">class</span> <span class="nc">CustomValidator</span><span class="p">(</span><span class="n">Validator</span><span class="p">):</span>
+    
+  <span class="k">def</span> <span class="nf">custom_url_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>  
+      <span class="c1"># Custom validation function example </span>
+      <span class="c1">#print("--&gt;",CustomValidator)</span>
+      <span class="n">msg</span><span class="o">=</span><span class="kc">None</span>
+      <span class="n">attl</span><span class="o">=</span><span class="nb">dir</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span> 
+      <span class="n">attribute</span><span class="o">=</span><span class="s2">"pk"</span> 
+      <span class="k">if</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">attl</span><span class="p">:</span> 
+          <span class="n">attv</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">getattr</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span> 
+          <span class="k">if</span> <span class="n">attv</span> <span class="ow">is</span>  <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">uri_validator</span><span class="p">(</span><span class="n">attv</span><span class="p">)</span> <span class="o">==</span><span class="kc">False</span> <span class="ow">or</span> <span class="s2">"localhost"</span> <span class="ow">in</span> <span class="n">attv</span> <span class="p">:</span> 
+             <span class="n">msg</span><span class="o">=</span> <span class="sa">f</span><span class="s2">"Custom validation failed for </span><span class="si">{</span><span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> attribute:</span><span class="si">{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">, value:</span><span class="si">{</span><span class="n">attv</span><span class="si">}</span><span class="s2"> not allowed."</span> 
+             <span class="k">return</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="n">msg</span><span class="p">]</span>
+      <span class="k">return</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="n">msg</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f734154a-61a0-440a-9c8d-88a9f7da36af">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">entity1</span> <span class="o">=</span> <span class="n">Protein</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s1">'http://domain1/p1'</span><span class="p">)</span>
+<span class="n">entity1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'p1'</span>
+<span class="n">entity2</span> <span class="o">=</span> <span class="n">Protein</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s1">'http://localhost/protein123'</span><span class="p">)</span>
+<span class="n">entity2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'p2'</span>
+
+<span class="n">ent_collection</span> <span class="o">=</span> <span class="p">[</span><span class="n">entity1</span><span class="p">,</span> <span class="n">entity2</span><span class="p">]</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Entity'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'pk'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'custom_url_validation'</span><span class="p">]</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">cva</span> <span class="o">=</span> <span class="n">CustomValidator</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+
+
+
+<span class="c1"># Validate the entity collection</span>
+<span class="p">[</span><span class="n">errors</span><span class="p">,</span><span class="n">err_d</span><span class="p">]</span> <span class="o">=</span> <span class="n">cva</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">ent_collection</span><span class="p">)</span>
  
+<span class="nb">print</span><span class="p">(</span><span class="n">err_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>{'http://localhost/protein123': ['Custom validation failed for Protein attribute:pk, value:http://localhost/protein123 not allowed.']}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c2cfb7f-de64-4622-92d1-79119ab106e6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Using-a-Validator-to-validate-a-Pattern-quey-result">Using a Validator to validate a Pattern quey result<a class="anchor-link" href="#Using-a-Validator-to-validate-a-Pattern-quey-result">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=88ab0c34-77a5-49fd-8c63-a7243720d082">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Entity'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'pk'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'notNull'</span><span class="p">,</span> <span class="s1">'unique'</span><span class="p">,</span><span class="s1">'string'</span><span class="p">],</span>
+        <span class="s1">'xref'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'notNull'</span><span class="p">],</span>
+        <span class="s1">'cellularLocation'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'notNull'</span><span class="p">],</span>
+        <span class="s1">'evidence'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'notNull'</span><span class="p">],</span>
+         
+    <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="c1"># Create a validator instance</span>
+<span class="n">va</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+
+<span class="n">datasetN</span> <span class="o">=</span> <span class="s2">"netpath"</span>
+ 
+<span class="n">db</span> <span class="o">=</span> <span class="s2">"http://db:3030"</span> <span class="c1"># with local triple store deployed with docker-compose</span>
+ 
+ 
+<span class="n">peN</span> <span class="o">=</span> <span class="n">PatternExecutor</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">datasetN</span><span class="p">)</span> <span class="c1"># create a Pattern executor for a dataset</span>
 
 <span class="k">def</span> <span class="nf">simplePattern</span><span class="p">():</span>
   <span class="n">p</span><span class="o">=</span><span class="n">Pattern</span><span class="p">()</span>    
@@ -7565,503 +7706,74 @@ You will find here  how to :</p>
   <span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">prot</span><span class="p">,</span><span class="n">entityReference</span><span class="p">)</span>
   
   <span class="k">return</span> <span class="n">p</span>
+    
+<span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
+
+<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"validating an pattern query result subset using meta_label</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>  
+  <span class="n">tobevalidated</span><span class="o">=</span><span class="p">[]</span>
+  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"P"</span><span class="p">]:</span>  
+      
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"uri: "</span><span class="p">,</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"  cellular location: "</span><span class="p">,</span><span class="n">entity</span><span class="o">.</span><span class="n">get_cellularLocation</span><span class="p">())</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"  xref:"</span><span class="p">,</span><span class="n">entity</span><span class="o">.</span><span class="n">get_xref</span><span class="p">())</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"  evidence:"</span><span class="p">,</span><span class="n">entity</span><span class="o">.</span><span class="n">get_evidence</span><span class="p">())</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span> 
+      <span class="c1">#print( entity.to_json()) </span>
+ 
+      <span class="n">tobevalidated</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span>
+      
+  <span class="p">[</span><span class="n">errors</span><span class="p">,</span><span class="n">err_d</span><span class="p">]</span> <span class="o">=</span> <span class="n">va</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">tobevalidated</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">err_d</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s2">"================"</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s2">"VALIDATION ERROR"</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="n">err_d</span><span class="p">)</span>
+         <span class="nb">print</span><span class="p">(</span><span class="s2">"================"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a69f4723">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>validating an pattern query result subset using meta_label
+
+uri:  http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e
+  cellular location:  CellularLocationVocabulary(pk=http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067, pop_state=1, exhausted=None, meta_label=None, rdf_type=http://www.biopax.org/release/biopax-level3.owl#CellularLocationVocabulary, _comment=None, _xref=None, _term=None)
+  xref: Xref(pk=http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217, pop_state=1, exhausted=None, meta_label=None, rdf_type=http://www.biopax.org/release/biopax-level3.owl#Xref, _comment=None, _db=None, _dbVersion=None, _id=None, _idVersion=None)
+  evidence: None
+
+================
+VALIDATION ERROR
+{'http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e': ['Protein.evidence cannot be null.']}
+================
+</pre>
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="A-Pattern-can-be-executed-to-extract-only-entity-references-or-the-all-attributes-and-relations-of-each-entity">A Pattern can be executed to extract only entity references or the all attributes and relations of each entity<a class="anchor-link" href="#A-Pattern-can-be-executed-to-extract-only-entity-references-or-the-all-attributes-and-relations-of-each-entity">¶</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2dea0f27">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0f09fb31-1fe9-4775-b974-4732cf7c0c2f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span> 
-
-<span class="c1">#p = r.inComplexWith() # a pattern from the rack</span>
-<span class="n">p</span><span class="o">=</span><span class="n">simplePattern</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bddb3703-a34f-47a5-bd84-48cde8284d6d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="by_reference=True:-We-force-the-pattern-result-set-to-hold-only-references">by_reference=True: We force the pattern result set to hold only references<a class="anchor-link" href="#by_reference=True:-We-force-the-pattern-result-set-to-hold-only-references">¶</a></h4><p>this is the default mode in the rack
-each pattern as a default mode (by_reference True or False)</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=486424fa-95cd-4742-9dea-0983bd76fbe0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba4e50de-755c-4a1e-bc91-ca329c8d6d43">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="extract-entity-reference-only">extract entity reference only<a class="anchor-link" href="#extract-entity-reference-only">¶</a></h4><p>because of the 'by_reference' mode, the results are not instances of the BIOPAX model classes
-but of the class 'PK', with 2 attributes :pk: primary key (uri) and cls,  the class name
-the parameter 'max_count' is important when you design a new Query Pattern, to have a quick preview of the results, with only the first rows
-The meta_label attribute allows to retrieve an entity labelled within the Pattern</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a60f8dc8-8c44-4421-b232-45634caf0915">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"first  results (uris and class name only: for better memory management and faster results)"</span><span class="p">)</span>
- 
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"uri:</span><span class="si">%s</span><span class="s2">,  cls: </span><span class="si">%s</span><span class="s2">, meta_label :</span><span class="si">%s</span><span class="s2">, __class__:</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">cls</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="p">))</span>
- 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first  results (uris and class name only: for better memory management and faster results)
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/O15111,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/Q14289,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/P35626,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8920719b-3283-442d-b322-e7f7503c879d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">##executePattern most often returns a list of list of PK()  instance taht only hold uiris (pk) and classe name</span>
-<span class="c1">### to obtains a full object oriented entities</span>
-<span class="c1">## we use fill([PK])</span>
-<span class="c1">####we define the selected entities with attributes values</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b9230a99-fb97-45fb-8650-5499c8c3e44f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Extract-The-full-populatd-entities">Extract The full populatd entities<a class="anchor-link" href="#Extract-The-full-populatd-entities">¶</a></h4><p>the level parameter defines extended neighbourhood</p>
-<ul>
-<li>level=1 only selected entities</li>
-<li>level=2 : we populate the entities in direct relation with the selected entities</li>
-<li>level=3: we add the entities at one more level (costly)
-using fetchEntities,in the result  all entities defined in the Pattern are returned in he same row</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d728b2bc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
-<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"first  results  (object oriented ). instances from the BIOPAX model"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------------------------------------------"</span><span class="p">)</span> 
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"#------------------------"</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"pk(uri):</span><span class="si">%s</span><span class="s2">, class: </span><span class="si">%s</span><span class="s2">, meta_label: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">pk</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#-------------------------------------------------------------"</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__json"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"#------------------------"</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  <span class="c1"># a method to display the entity details using json serialization</span>
-
-
-<span class="c1">###############################################################</span>
-
-<span class="n">resultref</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">by_reference</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">reflist</span><span class="o">=</span><span class="p">[]</span>
-<span class="c1"># first extract entity references only</span>
-<span class="c1"># for quick query and memory optimization</span>
-<span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">resultref</span><span class="p">:</span>
-  <span class="k">for</span> <span class="n">eref</span> <span class="ow">in</span> <span class="n">reflist</span><span class="p">:</span>
-   <span class="k">if</span> <span class="n">eref</span><span class="o">.</span><span class="n">cls</span><span class="o">==</span><span class="s2">"Protein"</span> <span class="ow">and</span> <span class="n">eref</span><span class="o">.</span><span class="n">meta_label</span><span class="o">==</span><span class="s2">"P"</span><span class="p">:</span>
-      <span class="n">reflist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eref</span><span class="p">)</span>
-<span class="c1"># then populate only the selected entities</span>
-<span class="n">result</span><span class="o">=</span><span class="n">peN</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">reflist</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>first  results  (object oriented ). instances from the BIOPAX model
-#-------------------------------------------------------------
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/O15111, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/Q14289, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/P35626, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-#-------------------------------------------------------------
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/O15111",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_461",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_79cdbae93881386b293a3156d62824cc",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_O15111"
-  },
-  "displayName": "IKKA_HUMAN",
-  "name": "Transcription factor 16",
-  "standardName": "Inhibitor of nuclear factor kappa-B kinase subunit alpha",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "displayName": "PTK2B",
-  "name": "PTK2B__MI__0217",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/Q14289"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/Q14289",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_652",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_f7dacb816ac4162a42864d9719018866",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_Q14289"
-  },
-  "displayName": "FAK2_HUMAN",
-  "name": "Related adhesion focal tyrosine kinase",
-  "standardName": "Protein-tyrosine kinase 2-beta",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": null,
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a93d5072607ce98364874f1816a57c6",
-  "displayName": "ADRBK2",
-  "name": "ADRBK2__9606",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": null,
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/P35626"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/P35626",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_2152",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_b964abf9ab11c16d578cf211a74297f4",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P35626"
-  },
-  "displayName": "ARBK2_HUMAN",
-  "name": "GRK3",
-  "standardName": "Beta-adrenergic receptor kinase 2",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb2e3c1e-0bf7-47b5-8542-73805463143e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="using-meta_label-to-select-the-desired-entities">using meta_label to select the desired entities<a class="anchor-link" href="#using-meta_label-to-select-the-desired-entities">¶</a></h3><p>This is particulary usefull when you have diffrent entities of teh same class returned in the result row  a Pattern query</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=20a89b1b-0bf8-4dbd-81a2-c7238e060763">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">simplePattern</span><span class="p">()</span>
-
-
-<span class="n">res_P2</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">fetchEntities</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"#----we can now process the related Protein 'P' selected within each row not only by is class name but as well by is meta_label--------------------"</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">entitylist</span> <span class="ow">in</span> <span class="n">res_P2</span><span class="p">:</span>  
-  <span class="nb">print</span><span class="p">(</span><span class="s2">"__row__json"</span><span class="p">)</span>
-  <span class="k">for</span> <span class="n">entity</span> <span class="ow">in</span> <span class="n">entitylist</span><span class="p">:</span>
-      <span class="k">if</span> <span class="n">entity</span><span class="o">.</span><span class="n">meta_label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"P"</span><span class="p">]:</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="n">entity</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span>  
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>#----we can now process the related Protein 'P' selected within each row not only by is class name but as well by is meta_label--------------------
-__row__json
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ef077a05-a6dc-4a1d-ab41-893466ba1dfb">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8d00efbf-9bce-4232-8efa-bf0a60dc52fc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

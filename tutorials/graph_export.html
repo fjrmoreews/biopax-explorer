@@ -7331,7 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.1/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7486,35 +7486,15 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=86435fde-d3ea-4e16-8761-f0678687c3db">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## TODO: insert pattern result in a new graph --&gt;  rdf/xml export</span>
-<span class="c1">## using 1/ sparql (limited to s,p,o)  2/ entities....</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7fa5e489">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">pathlib</span>
-
-<span class="kn">from</span> <span class="nn">SPARQLWrapper</span> <span class="kn">import</span> <span class="n">SPARQLWrapper</span><span class="p">,</span> <span class="n">JSON</span><span class="p">,</span> <span class="n">POST</span><span class="p">,</span> <span class="n">DIGEST</span>
-<span class="kn">from</span> <span class="nn">rdflib</span> <span class="kn">import</span> <span class="n">Namespace</span><span class="p">,</span> <span class="n">Graph</span><span class="p">,</span> <span class="n">URIRef</span><span class="p">,</span><span class="n">Literal</span>
-<span class="kn">from</span> <span class="nn">rdflib.namespace</span> <span class="kn">import</span> <span class="n">RDF</span><span class="p">,</span> <span class="n">FOAF</span><span class="p">,</span><span class="n">XSD</span>
-
 <span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 </pre></div>
@@ -7527,12 +7507,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">rdfobj</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">rdfobj</span>
-<span class="kn">from</span> <span class="nn">biopax_explorer.biopax.utils</span> <span class="kn">import</span> <span class="n">gen_utils</span> <span class="k">as</span> <span class="n">gu</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">biopax_explorer.biopax.utils</span> <span class="kn">import</span> <span class="n">gen_utils</span> <span class="k">as</span> <span class="n">gu</span>
 <span class="kn">from</span> <span class="nn">biopax_explorer.biopax</span>  <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">biopax_explorer.query</span> <span class="kn">import</span> <span class="n">client</span> <span class="k">as</span> <span class="n">cl</span>
 </pre></div>
@@ -7545,12 +7523,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-<span class="c1">#export rdf_xml from triples store</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"export rdf_xml from triples store"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"export rdf_xml from triples store"</span><span class="p">)</span>
 
 
 <span class="n">dataset</span><span class="o">=</span><span class="s2">"g6p"</span>
@@ -7589,9 +7565,9 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>export rdf_xml from triples store
-http://db:3030/g6p/query biopax3 http://www.biopax.org/release/biopax-level3.owl# http://localhost:3030/g6p/data 1000
+http://db:3030/g6p/query biopax http://www.biopax.org/release/biopax-level3.owl# http://localhost:3030/g6p/data 1000
 #############RDF XML #########################
-&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#BiochemicalReaction29"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction"/&gt; &lt;bp:xref rdf:resource="http://identifiers.org/pubmed/7573034"/&gt; &lt;bp:xref rdf:resource="http://identifiers.org/pubmed/18449899"/&gt; &lt;bp:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_R-HSA-71825"/&gt; &lt;bp:xref rdf:resource="http://identifiers.org/pubmed/12093795"/&gt; &lt;bp:xref rdf:resource="http://identifiers.org/pubmed/11879177"/&gt; &lt;bp:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_database_id_release_56_71825"/&gt; &lt;bp:xref rdf:resource="http://identifiers.org/pubmed/8211187"/&gt; &lt;bp:displayName [...]
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:ns1="http://www.biopax.org/release/biopax-level3.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#BiochemicalReaction28"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#BiochemicalReaction"/&gt; &lt;ns1:xref rdf:resource="http://identifiers.org/pubmed/9758626"/&gt; &lt;ns1:xref rdf:resource="http://identifiers.org/pubmed/9428641"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_database_id_release_56_198513"/&gt; &lt;ns1:xref rdf:resource="http://identifiers.org/pubmed/18337460"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_R-HSA-198513"/&gt; &lt;ns1:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;Cytosolic glucose 6-phosphate is exchanged for orthophosphate from the endoplasmic reticulum lumen by SLC37A4&lt;/ns1:displayName&gt; &lt;ns1:name [...]
 ##############################################
 all triples exported to /work/input/export_all_g6p.xml
 ##############################################
@@ -7605,7 +7581,7 @@ all triples exported to /work/input/export_all_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">exfile2b</span><span class="o">=</span><span class="s2">"</span><span class="si">%s</span><span class="s2">/input/export_query_</span><span class="si">%s</span><span class="s2">.xml"</span> <span class="o">%</span> <span class="p">(</span><span class="n">expath</span><span class="p">,</span><span class="n">dataset</span><span class="p">)</span> 
@@ -7692,7 +7668,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#########################</span>
@@ -7722,7 +7698,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="w"> </span>
@@ -7774,7 +7750,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rel</span><span class="o">.</span><span class="n">set_db</span><span class="p">(</span><span class="s2">"database2"</span><span class="p">)</span>
@@ -7815,7 +7791,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -7837,7 +7813,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">query</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">select_all_query</span><span class="p">()</span>
@@ -7860,7 +7836,7 @@ PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-PREFIX biopax3: &lt;http://www.biopax.org/release/biopax-level3.owl#&gt;
+PREFIX biopax: &lt;http://www.biopax.org/release/biopax-level3.owl#&gt;
 
 SELECT ?s ?p ?o
 WHERE {
@@ -7881,7 +7857,7 @@ OFFSET 0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#store_to_graph( sc.wrapper,query)</span>
@@ -7933,7 +7909,7 @@ OFFSET 0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rdfxmlfile</span><span class="o">=</span><span class="s2">"/work/input/export_query_g6p.xml"</span>
@@ -7953,7 +7929,7 @@ OFFSET 0
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>#############RDF XML #########################
-&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#Catalysis89"&gt; &lt;bp:controller rdf:resource="http://www.reactome.org/biopax/56/71387#Complex122"/&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Catalysis"/&gt; &lt;bp:xref rdf:resource="http://www.reactome.org/biopax/56/71387#RelationshipXref128"/&gt; &lt;bp:xref rdf:resource="http://www.reactome.org/biopax/56/71387#RelationshipXref127"/&gt; &lt;bp:controlled rdf:resource="http://www.reactome.org/biopax/56/71387#BiochemicalReaction104"/&gt; &lt;bp:controlType rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;ACTIVATION&lt;/bp:controlType&gt; &lt;bp:dataSource rdf:resource="http://www.reactome.org/biopax/56/71387#Provenance1"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description [...]
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:ns1="http://www.biopax.org/release/biopax-level3.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#SmallMolecule27"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_R-ALL-30537"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_database_id_release_56_30537"/&gt; &lt;ns1:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;G6P&lt;/ns1:displayName&gt; &lt;ns1:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;alpha-D-glucose 6-phosphate&lt;/ns1:name&gt; &lt;ns1:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;http://www.reactome.org/biopax/56/71387#SmallMolecule27@Layout@http://chibecreated#1467726883224-1696734689@346@246&lt;/ns1:comment&gt; &lt;ns1:comment [...]
 </pre>
 </div>
 </div>
@@ -7964,7 +7940,7 @@ OFFSET 0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"generate the related  graph data structure using networkx"</span><span class="p">)</span>
@@ -7992,12 +7968,23 @@ OFFSET 0
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>generate the related  graph data structure using networkx
 ######################################
-Number of nodes: 114
-Number of edges: 136
+Number of nodes: 111
+Number of edges: 134
 Is directed: False
-Is connected: False
+Is connected: True
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6ef67c0-3cc0-416d-8872-d5007624928a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>--</p>
 </div>
 </div>
 </div>
@@ -8009,7 +7996,7 @@ Is connected: False
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span>
 </pre></div>
 </div>
 </div>
