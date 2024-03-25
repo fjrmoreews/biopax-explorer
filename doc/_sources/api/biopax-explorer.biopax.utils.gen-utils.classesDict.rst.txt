@@ -1,0 +1,6 @@
+classesDict
+===========
+
+.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
+
+.. autofunction:: classesDict

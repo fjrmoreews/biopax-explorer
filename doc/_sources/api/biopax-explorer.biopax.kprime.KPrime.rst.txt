@@ -1,0 +1,47 @@
+KPrime
+======
+
+.. currentmodule:: biopax_explorer.biopax.kprime
+
+.. autoclass:: KPrime
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~KPrime.attribute_type_by_name
+      ~KPrime.get_ionicStrength
+      ~KPrime.get_kPrime
+      ~KPrime.get_pMg
+      ~KPrime.get_ph
+      ~KPrime.get_temperature
+      ~KPrime.get_uri_string
+      ~KPrime.object_attributes
+      ~KPrime.set_ionicStrength
+      ~KPrime.set_kPrime
+      ~KPrime.set_pMg
+      ~KPrime.set_ph
+      ~KPrime.set_temperature
+      ~KPrime.set_uri_string
+      ~KPrime.to_json
+      ~KPrime.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_ionicStrength
+   .. automethod:: get_kPrime
+   .. automethod:: get_pMg
+   .. automethod:: get_ph
+   .. automethod:: get_temperature
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_ionicStrength
+   .. automethod:: set_kPrime
+   .. automethod:: set_pMg
+   .. automethod:: set_ph
+   .. automethod:: set_temperature
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

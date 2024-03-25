@@ -1,0 +1,17 @@
+ProcessingCollection
+====================
+
+.. currentmodule:: biopax_explorer.pattern.processing
+
+.. autoclass:: ProcessingCollection
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ProcessingCollection.defineLocalProcessingCollection
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: defineLocalProcessingCollection

@@ -1,0 +1,35 @@
+Stoichiometry
+=============
+
+.. currentmodule:: biopax_explorer.biopax.stoichiometry
+
+.. autoclass:: Stoichiometry
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Stoichiometry.attribute_type_by_name
+      ~Stoichiometry.get_physicalEntity
+      ~Stoichiometry.get_stoichiometricCoefficient
+      ~Stoichiometry.get_uri_string
+      ~Stoichiometry.object_attributes
+      ~Stoichiometry.set_physicalEntity
+      ~Stoichiometry.set_stoichiometricCoefficient
+      ~Stoichiometry.set_uri_string
+      ~Stoichiometry.to_json
+      ~Stoichiometry.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_physicalEntity
+   .. automethod:: get_stoichiometricCoefficient
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_physicalEntity
+   .. automethod:: set_stoichiometricCoefficient
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

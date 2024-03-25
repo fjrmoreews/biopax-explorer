@@ -1,0 +1,39 @@
+DnaReference
+============
+
+.. currentmodule:: biopax_explorer.biopax.dnareference
+
+.. autoclass:: DnaReference
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~DnaReference.attribute_type_by_name
+      ~DnaReference.get_organism
+      ~DnaReference.get_sequence
+      ~DnaReference.get_subRegion
+      ~DnaReference.get_uri_string
+      ~DnaReference.object_attributes
+      ~DnaReference.set_organism
+      ~DnaReference.set_sequence
+      ~DnaReference.set_subRegion
+      ~DnaReference.set_uri_string
+      ~DnaReference.to_json
+      ~DnaReference.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_organism
+   .. automethod:: get_sequence
+   .. automethod:: get_subRegion
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_organism
+   .. automethod:: set_sequence
+   .. automethod:: set_subRegion
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

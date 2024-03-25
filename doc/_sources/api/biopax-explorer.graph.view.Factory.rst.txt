@@ -1,0 +1,17 @@
+Factory
+=======
+
+.. currentmodule:: biopax_explorer.graph.view
+
+.. autoclass:: Factory
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Factory.graphDatasetLayer
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: graphDatasetLayer

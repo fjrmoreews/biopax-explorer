@@ -1,0 +1,35 @@
+cellvocabulary_DocHelper
+========================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_cellvocabulary
+
+.. autoclass:: cellvocabulary_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~cellvocabulary_DocHelper.attr_type_def
+      ~cellvocabulary_DocHelper.attributeInfo
+      ~cellvocabulary_DocHelper.attributeNameString
+      ~cellvocabulary_DocHelper.attributeNames
+      ~cellvocabulary_DocHelper.attributeType
+      ~cellvocabulary_DocHelper.attributesInfo
+      ~cellvocabulary_DocHelper.classInfo
+      ~cellvocabulary_DocHelper.definitions
+      ~cellvocabulary_DocHelper.objectAttributeNames
+      ~cellvocabulary_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

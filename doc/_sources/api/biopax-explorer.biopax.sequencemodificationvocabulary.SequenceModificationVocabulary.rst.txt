@@ -1,0 +1,27 @@
+SequenceModificationVocabulary
+==============================
+
+.. currentmodule:: biopax_explorer.biopax.sequencemodificationvocabulary
+
+.. autoclass:: SequenceModificationVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SequenceModificationVocabulary.attribute_type_by_name
+      ~SequenceModificationVocabulary.get_uri_string
+      ~SequenceModificationVocabulary.object_attributes
+      ~SequenceModificationVocabulary.set_uri_string
+      ~SequenceModificationVocabulary.to_json
+      ~SequenceModificationVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

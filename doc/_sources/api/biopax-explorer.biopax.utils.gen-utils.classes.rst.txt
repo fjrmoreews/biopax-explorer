@@ -1,0 +1,6 @@
+classes
+=======
+
+.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
+
+.. autofunction:: classes

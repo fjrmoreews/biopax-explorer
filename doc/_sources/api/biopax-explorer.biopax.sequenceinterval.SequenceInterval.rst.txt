@@ -1,0 +1,35 @@
+SequenceInterval
+================
+
+.. currentmodule:: biopax_explorer.biopax.sequenceinterval
+
+.. autoclass:: SequenceInterval
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SequenceInterval.attribute_type_by_name
+      ~SequenceInterval.get_sequenceIntervalBegin
+      ~SequenceInterval.get_sequenceIntervalEnd
+      ~SequenceInterval.get_uri_string
+      ~SequenceInterval.object_attributes
+      ~SequenceInterval.set_sequenceIntervalBegin
+      ~SequenceInterval.set_sequenceIntervalEnd
+      ~SequenceInterval.set_uri_string
+      ~SequenceInterval.to_json
+      ~SequenceInterval.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_sequenceIntervalBegin
+   .. automethod:: get_sequenceIntervalEnd
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_sequenceIntervalBegin
+   .. automethod:: set_sequenceIntervalEnd
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

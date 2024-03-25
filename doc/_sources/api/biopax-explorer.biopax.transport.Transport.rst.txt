@@ -1,0 +1,27 @@
+Transport
+=========
+
+.. currentmodule:: biopax_explorer.biopax.transport
+
+.. autoclass:: Transport
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Transport.attribute_type_by_name
+      ~Transport.get_uri_string
+      ~Transport.object_attributes
+      ~Transport.set_uri_string
+      ~Transport.to_json
+      ~Transport.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

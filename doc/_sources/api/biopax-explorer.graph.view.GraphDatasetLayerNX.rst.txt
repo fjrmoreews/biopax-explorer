@@ -1,0 +1,17 @@
+GraphDatasetLayerNX
+===================
+
+.. currentmodule:: biopax_explorer.graph.view
+
+.. autoclass:: GraphDatasetLayerNX
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~GraphDatasetLayerNX.populate_dataset
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: populate_dataset

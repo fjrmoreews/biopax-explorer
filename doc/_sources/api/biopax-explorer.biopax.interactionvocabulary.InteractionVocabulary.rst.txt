@@ -1,0 +1,27 @@
+InteractionVocabulary
+=====================
+
+.. currentmodule:: biopax_explorer.biopax.interactionvocabulary
+
+.. autoclass:: InteractionVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~InteractionVocabulary.attribute_type_by_name
+      ~InteractionVocabulary.get_uri_string
+      ~InteractionVocabulary.object_attributes
+      ~InteractionVocabulary.set_uri_string
+      ~InteractionVocabulary.to_json
+      ~InteractionVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

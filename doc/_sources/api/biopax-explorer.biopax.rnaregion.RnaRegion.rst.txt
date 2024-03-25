@@ -1,0 +1,31 @@
+RnaRegion
+=========
+
+.. currentmodule:: biopax_explorer.biopax.rnaregion
+
+.. autoclass:: RnaRegion
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~RnaRegion.attribute_type_by_name
+      ~RnaRegion.get_entityReference
+      ~RnaRegion.get_uri_string
+      ~RnaRegion.object_attributes
+      ~RnaRegion.set_entityReference
+      ~RnaRegion.set_uri_string
+      ~RnaRegion.to_json
+      ~RnaRegion.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_entityReference
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_entityReference
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

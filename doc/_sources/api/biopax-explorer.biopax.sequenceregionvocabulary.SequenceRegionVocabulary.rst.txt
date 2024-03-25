@@ -1,0 +1,27 @@
+SequenceRegionVocabulary
+========================
+
+.. currentmodule:: biopax_explorer.biopax.sequenceregionvocabulary
+
+.. autoclass:: SequenceRegionVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SequenceRegionVocabulary.attribute_type_by_name
+      ~SequenceRegionVocabulary.get_uri_string
+      ~SequenceRegionVocabulary.object_attributes
+      ~SequenceRegionVocabulary.set_uri_string
+      ~SequenceRegionVocabulary.to_json
+      ~SequenceRegionVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

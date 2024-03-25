@@ -1,0 +1,27 @@
+EntityReferenceTypeVocabulary
+=============================
+
+.. currentmodule:: biopax_explorer.biopax.entityreferencetypevocabulary
+
+.. autoclass:: EntityReferenceTypeVocabulary
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~EntityReferenceTypeVocabulary.attribute_type_by_name
+      ~EntityReferenceTypeVocabulary.get_uri_string
+      ~EntityReferenceTypeVocabulary.object_attributes
+      ~EntityReferenceTypeVocabulary.set_uri_string
+      ~EntityReferenceTypeVocabulary.to_json
+      ~EntityReferenceTypeVocabulary.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

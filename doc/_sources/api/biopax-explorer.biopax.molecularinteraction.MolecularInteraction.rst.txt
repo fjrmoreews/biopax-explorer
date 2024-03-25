@@ -1,0 +1,27 @@
+MolecularInteraction
+====================
+
+.. currentmodule:: biopax_explorer.biopax.molecularinteraction
+
+.. autoclass:: MolecularInteraction
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~MolecularInteraction.attribute_type_by_name
+      ~MolecularInteraction.get_uri_string
+      ~MolecularInteraction.object_attributes
+      ~MolecularInteraction.set_uri_string
+      ~MolecularInteraction.to_json
+      ~MolecularInteraction.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

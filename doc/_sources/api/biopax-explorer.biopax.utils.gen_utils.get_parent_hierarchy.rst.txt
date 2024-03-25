@@ -1,0 +1,6 @@
+get_parent_hierarchy
+====================
+
+.. currentmodule:: biopax_explorer.biopax.utils.gen_utils
+
+.. autofunction:: get_parent_hierarchy

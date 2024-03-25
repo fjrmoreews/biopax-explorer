@@ -1,0 +1,7 @@
+DataPump
+========
+
+.. currentmodule:: biopax_explorer.pattern.pattern
+
+.. autoclass:: DataPump
+   :show-inheritance:

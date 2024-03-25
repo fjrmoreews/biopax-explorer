@@ -1,0 +1,6 @@
+tostring
+========
+
+.. currentmodule:: biopax_explorer.biopax.utils.class_utils
+
+.. autofunction:: tostring

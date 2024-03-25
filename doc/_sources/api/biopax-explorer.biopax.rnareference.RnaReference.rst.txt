@@ -1,0 +1,39 @@
+RnaReference
+============
+
+.. currentmodule:: biopax_explorer.biopax.rnareference
+
+.. autoclass:: RnaReference
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~RnaReference.attribute_type_by_name
+      ~RnaReference.get_organism
+      ~RnaReference.get_sequence
+      ~RnaReference.get_subRegion
+      ~RnaReference.get_uri_string
+      ~RnaReference.object_attributes
+      ~RnaReference.set_organism
+      ~RnaReference.set_sequence
+      ~RnaReference.set_subRegion
+      ~RnaReference.set_uri_string
+      ~RnaReference.to_json
+      ~RnaReference.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_organism
+   .. automethod:: get_sequence
+   .. automethod:: get_subRegion
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_organism
+   .. automethod:: set_sequence
+   .. automethod:: set_subRegion
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

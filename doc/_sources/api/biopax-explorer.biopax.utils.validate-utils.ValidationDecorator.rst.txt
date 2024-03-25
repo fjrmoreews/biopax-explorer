@@ -1,0 +1,17 @@
+ValidationDecorator
+===================
+
+.. currentmodule:: biopax_explorer.biopax.utils.validate_utils
+
+.. autoclass:: ValidationDecorator
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ValidationDecorator.__call__
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: __call__

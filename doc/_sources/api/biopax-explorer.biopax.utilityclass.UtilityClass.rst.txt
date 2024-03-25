@@ -1,0 +1,31 @@
+UtilityClass
+============
+
+.. currentmodule:: biopax_explorer.biopax.utilityclass
+
+.. autoclass:: UtilityClass
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~UtilityClass.attribute_type_by_name
+      ~UtilityClass.get_comment
+      ~UtilityClass.get_uri_string
+      ~UtilityClass.object_attributes
+      ~UtilityClass.set_comment
+      ~UtilityClass.set_uri_string
+      ~UtilityClass.to_json
+      ~UtilityClass.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_comment
+   .. automethod:: get_uri_string
+   .. automethod:: object_attributes
+   .. automethod:: set_comment
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
+   .. automethod:: type_attributes

@@ -1,0 +1,35 @@
+bindingfeature_DocHelper
+========================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_bindingfeature
+
+.. autoclass:: bindingfeature_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~bindingfeature_DocHelper.attr_type_def
+      ~bindingfeature_DocHelper.attributeInfo
+      ~bindingfeature_DocHelper.attributeNameString
+      ~bindingfeature_DocHelper.attributeNames
+      ~bindingfeature_DocHelper.attributeType
+      ~bindingfeature_DocHelper.attributesInfo
+      ~bindingfeature_DocHelper.classInfo
+      ~bindingfeature_DocHelper.definitions
+      ~bindingfeature_DocHelper.objectAttributeNames
+      ~bindingfeature_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

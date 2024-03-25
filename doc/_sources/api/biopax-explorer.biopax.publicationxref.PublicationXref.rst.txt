@@ -1,0 +1,47 @@
+PublicationXref
+===============
+
+.. currentmodule:: biopax_explorer.biopax.publicationxref
+
+.. autoclass:: PublicationXref
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~PublicationXref.attribute_type_by_name
+      ~PublicationXref.get_author
+      ~PublicationXref.get_source
+      ~PublicationXref.get_title
+      ~PublicationXref.get_uri_string
+      ~PublicationXref.get_url
+      ~PublicationXref.get_year
+      ~PublicationXref.object_attributes
+      ~PublicationXref.set_author
+      ~PublicationXref.set_source
+      ~PublicationXref.set_title
+      ~PublicationXref.set_uri_string
+      ~PublicationXref.set_url
+      ~PublicationXref.set_year
+      ~PublicationXref.to_json
+      ~PublicationXref.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_author
+   .. automethod:: get_source
+   .. automethod:: get_title
+   .. automethod:: get_uri_string
+   .. automethod:: get_url
+   .. automethod:: get_year
+   .. automethod:: object_attributes
+   .. automethod:: set_author
+   .. automethod:: set_source
+   .. automethod:: set_title
+   .. automethod:: set_uri_string
+   .. automethod:: set_url
+   .. automethod:: set_year
+   .. automethod:: to_json
+   .. automethod:: type_attributes

@@ -1,0 +1,111 @@
+Rack
+====
+
+.. currentmodule:: biopax_explorer.pattern.rack
+
+.. autoclass:: Rack
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Rack.bindsTo
+      ~Rack.controlsExpressionWithConversion
+      ~Rack.controlsExpressionWithTemplateReac
+      ~Rack.controlsMetabolicCatalysis
+      ~Rack.controlsMetabolicCatalysisBothComplex
+      ~Rack.controlsMetabolicCatalysisBothSimple
+      ~Rack.controlsMetabolicCatalysisControlledComplex
+      ~Rack.controlsMetabolicCatalysisControllerComplex
+      ~Rack.controlsPhosphorylation
+      ~Rack.controlsPhosphorylationBothComplex
+      ~Rack.controlsPhosphorylationBothComplexAndComplexController
+      ~Rack.controlsPhosphorylationControllerAndLeftComplex
+      ~Rack.controlsPhosphorylationControllerAndRightComplex
+      ~Rack.controlsPhosphorylationControllerComplex
+      ~Rack.controlsPhosphorylationLeftComplex
+      ~Rack.controlsPhosphorylationRightComplex
+      ~Rack.controlsPhosphorylationRightSimple
+      ~Rack.controlsStateChange
+      ~Rack.controlsStateChangeBothComplex
+      ~Rack.controlsStateChangeComplexController
+      ~Rack.controlsStateChangeComplexControllerAndBothComplex
+      ~Rack.controlsStateChangeSimple
+      ~Rack.inComplexWith
+      ~Rack.inSameActiveComplex
+      ~Rack.inSameActiveComplexMolecularInteraction
+      ~Rack.inSameActiveComplexOtherInteraction
+      ~Rack.inSameComplex
+      ~Rack.inSameComplexEffectingConversion
+      ~Rack.inspect
+      ~Rack.modifierConv
+      ~Rack.modifierConvComplex
+      ~Rack.modifierConvNoComplex
+      ~Rack.molecularInteraction
+      ~Rack.molecularInteractionComplex
+      ~Rack.molecularInteractionNoComplex
+      ~Rack.notBlackboxComplexInComplex
+      ~Rack.reactsWith
+      ~Rack.reactsWithComplex
+      ~Rack.reactsWithNoComplex
+      ~Rack.stateChange
+      ~Rack.stateChangeComplex
+      ~Rack.stateChangeNoComplex
+      ~Rack.stateChangeSimple
+      ~Rack.usedToProduce
+      ~Rack.usedToProduceBothComplex
+      ~Rack.usedToProduceLeftComplex
+      ~Rack.usedToProduceNoComplex
+      ~Rack.usedToProduceRightComplex
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: bindsTo
+   .. automethod:: controlsExpressionWithConversion
+   .. automethod:: controlsExpressionWithTemplateReac
+   .. automethod:: controlsMetabolicCatalysis
+   .. automethod:: controlsMetabolicCatalysisBothComplex
+   .. automethod:: controlsMetabolicCatalysisBothSimple
+   .. automethod:: controlsMetabolicCatalysisControlledComplex
+   .. automethod:: controlsMetabolicCatalysisControllerComplex
+   .. automethod:: controlsPhosphorylation
+   .. automethod:: controlsPhosphorylationBothComplex
+   .. automethod:: controlsPhosphorylationBothComplexAndComplexController
+   .. automethod:: controlsPhosphorylationControllerAndLeftComplex
+   .. automethod:: controlsPhosphorylationControllerAndRightComplex
+   .. automethod:: controlsPhosphorylationControllerComplex
+   .. automethod:: controlsPhosphorylationLeftComplex
+   .. automethod:: controlsPhosphorylationRightComplex
+   .. automethod:: controlsPhosphorylationRightSimple
+   .. automethod:: controlsStateChange
+   .. automethod:: controlsStateChangeBothComplex
+   .. automethod:: controlsStateChangeComplexController
+   .. automethod:: controlsStateChangeComplexControllerAndBothComplex
+   .. automethod:: controlsStateChangeSimple
+   .. automethod:: inComplexWith
+   .. automethod:: inSameActiveComplex
+   .. automethod:: inSameActiveComplexMolecularInteraction
+   .. automethod:: inSameActiveComplexOtherInteraction
+   .. automethod:: inSameComplex
+   .. automethod:: inSameComplexEffectingConversion
+   .. automethod:: inspect
+   .. automethod:: modifierConv
+   .. automethod:: modifierConvComplex
+   .. automethod:: modifierConvNoComplex
+   .. automethod:: molecularInteraction
+   .. automethod:: molecularInteractionComplex
+   .. automethod:: molecularInteractionNoComplex
+   .. automethod:: notBlackboxComplexInComplex
+   .. automethod:: reactsWith
+   .. automethod:: reactsWithComplex
+   .. automethod:: reactsWithNoComplex
+   .. automethod:: stateChange
+   .. automethod:: stateChangeComplex
+   .. automethod:: stateChangeNoComplex
+   .. automethod:: stateChangeSimple
+   .. automethod:: usedToProduce
+   .. automethod:: usedToProduceBothComplex
+   .. automethod:: usedToProduceLeftComplex
+   .. automethod:: usedToProduceNoComplex
+   .. automethod:: usedToProduceRightComplex

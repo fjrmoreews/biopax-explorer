@@ -1,0 +1,35 @@
+interaction_DocHelper
+=====================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_interaction
+
+.. autoclass:: interaction_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~interaction_DocHelper.attr_type_def
+      ~interaction_DocHelper.attributeInfo
+      ~interaction_DocHelper.attributeNameString
+      ~interaction_DocHelper.attributeNames
+      ~interaction_DocHelper.attributeType
+      ~interaction_DocHelper.attributesInfo
+      ~interaction_DocHelper.classInfo
+      ~interaction_DocHelper.definitions
+      ~interaction_DocHelper.objectAttributeNames
+      ~interaction_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

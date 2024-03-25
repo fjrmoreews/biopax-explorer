@@ -1,0 +1,35 @@
+entityreferencetypevocabulary_DocHelper
+=======================================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_entityreferencetypevocabulary
+
+.. autoclass:: entityreferencetypevocabulary_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~entityreferencetypevocabulary_DocHelper.attr_type_def
+      ~entityreferencetypevocabulary_DocHelper.attributeInfo
+      ~entityreferencetypevocabulary_DocHelper.attributeNameString
+      ~entityreferencetypevocabulary_DocHelper.attributeNames
+      ~entityreferencetypevocabulary_DocHelper.attributeType
+      ~entityreferencetypevocabulary_DocHelper.attributesInfo
+      ~entityreferencetypevocabulary_DocHelper.classInfo
+      ~entityreferencetypevocabulary_DocHelper.definitions
+      ~entityreferencetypevocabulary_DocHelper.objectAttributeNames
+      ~entityreferencetypevocabulary_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

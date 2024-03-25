@@ -1,0 +1,35 @@
+proteinreference_DocHelper
+==========================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_proteinreference
+
+.. autoclass:: proteinreference_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~proteinreference_DocHelper.attr_type_def
+      ~proteinreference_DocHelper.attributeInfo
+      ~proteinreference_DocHelper.attributeNameString
+      ~proteinreference_DocHelper.attributeNames
+      ~proteinreference_DocHelper.attributeType
+      ~proteinreference_DocHelper.attributesInfo
+      ~proteinreference_DocHelper.classInfo
+      ~proteinreference_DocHelper.definitions
+      ~proteinreference_DocHelper.objectAttributeNames
+      ~proteinreference_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames

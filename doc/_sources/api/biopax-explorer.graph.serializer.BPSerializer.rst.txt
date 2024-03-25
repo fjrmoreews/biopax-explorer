@@ -1,0 +1,17 @@
+BPSerializer
+============
+
+.. currentmodule:: biopax_explorer.graph.serializer
+
+.. autoclass:: BPSerializer
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~BPSerializer.set
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: set

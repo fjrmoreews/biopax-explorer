@@ -1,0 +1,59 @@
+EntityReference
+===============
+
+.. currentmodule:: biopax_explorer.biopax.entityreference
+
+.. autoclass:: EntityReference
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~EntityReference.attribute_type_by_name
+      ~EntityReference.get_displayName
+      ~EntityReference.get_entityFeature
+      ~EntityReference.get_entityReferenceType
+      ~EntityReference.get_evidence
+      ~EntityReference.get_memberEntityReference
+      ~EntityReference.get_name
+      ~EntityReference.get_standardName
+      ~EntityReference.get_uri_string
+      ~EntityReference.get_xref
+      ~EntityReference.object_attributes
+      ~EntityReference.set_displayName
+      ~EntityReference.set_entityFeature
+      ~EntityReference.set_entityReferenceType
+      ~EntityReference.set_evidence
+      ~EntityReference.set_memberEntityReference
+      ~EntityReference.set_name
+      ~EntityReference.set_standardName
+      ~EntityReference.set_uri_string
+      ~EntityReference.set_xref
+      ~EntityReference.to_json
+      ~EntityReference.type_attributes
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attribute_type_by_name
+   .. automethod:: get_displayName
+   .. automethod:: get_entityFeature
+   .. automethod:: get_entityReferenceType
+   .. automethod:: get_evidence
+   .. automethod:: get_memberEntityReference
+   .. automethod:: get_name
+   .. automethod:: get_standardName
+   .. automethod:: get_uri_string
+   .. automethod:: get_xref
+   .. automethod:: object_attributes
+   .. automethod:: set_displayName
+   .. automethod:: set_entityFeature
+   .. automethod:: set_entityReferenceType
+   .. automethod:: set_evidence
+   .. automethod:: set_memberEntityReference
+   .. automethod:: set_name
+   .. automethod:: set_standardName
+   .. automethod:: set_uri_string
+   .. automethod:: set_xref
+   .. automethod:: to_json
+   .. automethod:: type_attributes

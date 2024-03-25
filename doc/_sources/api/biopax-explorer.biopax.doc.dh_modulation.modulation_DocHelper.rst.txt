@@ -1,0 +1,35 @@
+modulation_DocHelper
+====================
+
+.. currentmodule:: biopax_explorer.biopax.doc.dh_modulation
+
+.. autoclass:: modulation_DocHelper
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~modulation_DocHelper.attr_type_def
+      ~modulation_DocHelper.attributeInfo
+      ~modulation_DocHelper.attributeNameString
+      ~modulation_DocHelper.attributeNames
+      ~modulation_DocHelper.attributeType
+      ~modulation_DocHelper.attributesInfo
+      ~modulation_DocHelper.classInfo
+      ~modulation_DocHelper.definitions
+      ~modulation_DocHelper.objectAttributeNames
+      ~modulation_DocHelper.typeAttributeNames
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: attr_type_def
+   .. automethod:: attributeInfo
+   .. automethod:: attributeNameString
+   .. automethod:: attributeNames
+   .. automethod:: attributeType
+   .. automethod:: attributesInfo
+   .. automethod:: classInfo
+   .. automethod:: definitions
+   .. automethod:: objectAttributeNames
+   .. automethod:: typeAttributeNames
