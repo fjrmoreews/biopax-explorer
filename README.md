@@ -26,8 +26,7 @@ networks.
 
 [jupyter notebook tutorials](https://fjrmoreews.github.io/biopax-explorer/tutorials/notebooks_main.html)
 
-{::comment}
-{:/comment}
+
  
 ## Code &  Installation
 [git repository](https://forgemia.inra.fr/pegase/biopax-explorer)
