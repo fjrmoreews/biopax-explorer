@@ -4,6 +4,8 @@
 [jupyter notebook tutorials](notebooks_main.html)
 {:/comment}
 
+ - [Mini introduction](introduction.html)
+  
  - [Create your own query patterns](pattern-first-step.html)
 
  - [Pre build Pattern collection](pattern-collection.html)
