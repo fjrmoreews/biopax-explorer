@@ -7571,17 +7571,17 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">entity1</span><span class="o">=</span><span class="n">Entity</span><span class="p">()</span>
 <span class="n">entity1</span><span class="o">.</span><span class="n">xref</span><span class="o">=</span><span class="n">Xref</span><span class="p">()</span>
-
+ 
 <span class="c1">## warning: entities primary keys (pk/uri)</span>
 <span class="c1">## must be unique</span>
 <span class="n">protein1</span><span class="o">=</span><span class="n">Protein</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s2">"1235"</span><span class="p">)</span>
-<span class="n">protein1</span><span class="o">.</span><span class="n">set_comment</span><span class="p">(</span><span class="s2">"my comment"</span><span class="p">)</span>
+ 
 <span class="n">catalysis1</span><span class="o">=</span><span class="n">Catalysis</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s2">"56464"</span><span class="p">)</span>
 <span class="n">catalysis1</span><span class="o">.</span><span class="n">xref</span><span class="o">=</span><span class="n">Xref</span><span class="p">()</span>
 <span class="n">catalysis1</span><span class="o">.</span><span class="n">set_catalysisDirection</span><span class="p">(</span><span class="s1">'LEFT-TO-RIGHT'</span><span class="p">)</span>
 <span class="n">catalysis1</span><span class="o">.</span><span class="n">set_cofactor</span><span class="p">(</span><span class="n">PhysicalEntity</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="s2">"7897987987"</span><span class="p">))</span>
-<span class="n">catalysis1</span><span class="o">.</span><span class="n">set_controller</span><span class="p">(</span><span class="n">protein1</span><span class="p">)</span>
-<span class="n">catalysis1</span><span class="o">.</span><span class="n">set_controlled</span><span class="p">(</span><span class="n">SmallMolecule</span><span class="p">())</span>
+<span class="n">catalysis1</span><span class="o">.</span><span class="n">set_controller</span><span class="p">([</span><span class="n">protein1</span><span class="p">])</span>
+<span class="n">catalysis1</span><span class="o">.</span><span class="n">set_controlled</span><span class="p">([</span><span class="n">SmallMolecule</span><span class="p">()])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">catalysis1</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span> 
 <span class="n">collec</span><span class="o">=</span><span class="p">[]</span>
@@ -7608,36 +7608,37 @@ a.anchor-link {
   "displayName": null,
   "name": null,
   "standardName": null,
-  "cofactor": {
-    "__uri__": "7897987987",
-    "dataSource": null,
-    "evidence": null,
-    "xref": null,
-    "availability": null,
-    "comment": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null,
-    "cellularLocation": null,
-    "feature": null,
-    "memberPhysicalEntity": null,
-    "notFeature": null
-  },
-  "controlled": {
-    "__class__": "SmallMolecule",
-    "uri": null
-  },
-  "controller": {
-    "__class__": "Protein",
-    "uri": "1235"
-  },
   "interactionType": null,
-  "left": null,
   "participant": null,
-  "product": null,
-  "right": null,
-  "template": null,
+  "controlled": [
+    {
+      "__uri__": null,
+      "dataSource": null,
+      "evidence": null,
+      "xref": null,
+      "availability": null,
+      "comment": null,
+      "displayName": null,
+      "name": null,
+      "standardName": null,
+      "cellularLocation": null,
+      "feature": null,
+      "memberPhysicalEntity": null,
+      "notFeature": null,
+      "entityReference": null
+    }
+  ],
+  "controller": [
+    {
+      "__class__": "Protein",
+      "uri": "1235"
+    }
+  ],
   "controlType": null,
+  "cofactor": {
+    "__class__": "PhysicalEntity",
+    "uri": "7897987987"
+  },
   "catalysisDirection": "LEFT-TO-RIGHT",
   "__class__": "Catalysis"
 }
@@ -7696,19 +7697,18 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre> the following entities will  be saved : 
 56464 Catalysis
-7897987987 PhysicalEntity
 1235 Protein
+7897987987 PhysicalEntity
 None SmallMolecule
-no uri /pk for 2  entities(will not be saved) :
-    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#catalysisDirection, o: LEFT-TO-RIGHT
+no uri /pk for 1  entities(will not be saved) :
     s: http://mynamespace.org/1235, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#Protein
-    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#cofactor, o: http://mynamespace.org/7897987987
     s: , p: http://www.w3.org/2002/07/owl#imports, o: http://www.biopax.org/release/biopax-level3.owl#
-    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#controller, o: http://mynamespace.org/1235
     s: http://mynamespace.org/56464, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#Catalysis
-    s: http://mynamespace.org/1235, p: http://www.biopax.org/release/biopax-level3.owl#comment, o: my comment
-    s: , p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.w3.org/2002/07/owl#Ontology
+    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#cofactor, o: http://mynamespace.org/7897987987
     s: http://mynamespace.org/7897987987, p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.biopax.org/release/biopax-level3.owl#PhysicalEntity
+    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#controller, o: http://mynamespace.org/1235
+    s: http://mynamespace.org/56464, p: http://www.biopax.org/release/biopax-level3.owl#catalysisDirection, o: LEFT-TO-RIGHT
+    s: , p: http://www.w3.org/1999/02/22-rdf-syntax-ns#type, o: http://www.w3.org/2002/07/owl#Ontology
 </pre>
 </div>
 </div>
@@ -7753,7 +7753,7 @@ no uri /pk for 2  entities(will not be saved) :
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>writing output to rdf/xml file data/output/constructed_biopax.xml 
 #-------------------------
-&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://mynamespace.org/56464"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Catalysis"/&gt; &lt;bp:catalysisDirection&gt;LEFT-TO-RIGHT&lt;/bp:catalysisDirection&gt; &lt;bp:cofactor rdf:resource="http://mynamespace.org/7897987987"/&gt; &lt;bp:controller rdf:resource="http://mynamespace.org/1235"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/1235"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;bp:comment&gt;my comment&lt;/bp:comment&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about=""&gt; &lt;rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/&gt; &lt;owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description [...]
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://mynamespace.org/1235"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about=""&gt; &lt;rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/&gt; &lt;owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/56464"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Catalysis"/&gt; &lt;bp:catalysisDirection&gt;LEFT-TO-RIGHT&lt;/bp:catalysisDirection&gt; &lt;bp:controller rdf:resource="http://mynamespace.org/1235"/&gt; &lt;bp:cofactor rdf:resource="http://mynamespace.org/7897987987"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://mynamespace.org/7897987987"&gt; &lt;rdf:type [...]
 </pre>
 </div>
 </div>
@@ -7849,7 +7849,7 @@ no uri /pk for 2  entities(will not be saved) :
 <pre>-- 30 results in this dataset --
 writing output to rdf/xml file data/output/export_query_from_pattern_netpath.xml 
 #-------------------------
-&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Complex_8c6ca2f3b8289f03d85e84201ff1fcc1"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Complex_8c6ca2f3b8289f03d85e84201ff1fcc1&lt;/bp:comment&gt; &lt;bp:displayName&gt;Complex&lt;/bp:displayName&gt; &lt;bp:name&gt;CHUK,IKBKB,IKBKG&lt;/bp:name&gt; &lt;bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d"/&gt; &lt;bp:cellularLocation rdf:resource="http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"/&gt; &lt;bp:component rdf:resource="http://pathwaycommons.org/pc12/#Protein_9611f4ea83e9080927d39eac047f3b4f"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Protein_8a874f0ea831516e9c0728fdb76198bb"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Protein_8a874f0ea831516e9c0728fdb76198bb&lt;/bp:comment&gt; &lt;bp:displayName&gt;TRAF6&lt;/bp:displayName&gt; &lt;bp:name&gt;TRAF6__9606&lt;/bp:name&gt; &lt;bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d"/&gt; &lt;bp:entityReference rdf:resource="http://identifiers.org/uniprot/Q9Y4K3"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://identifiers.org/uniprot/Q13158"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#EntityReference"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Complex_151ed4c4ece14ff69a6d51679cb7ead7"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Complex_151ed4c4ece14ff69a6d51679cb7ead7&lt;/bp:comment&gt; [...]
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P21580"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Xref"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Complex_151ed4c4ece14ff69a6d51679cb7ead7"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Complex_151ed4c4ece14ff69a6d51679cb7ead7&lt;/bp:comment&gt; &lt;bp:displayName&gt;Complex&lt;/bp:displayName&gt; &lt;bp:name&gt;PRLR,JAK2&lt;/bp:name&gt; &lt;bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d"/&gt; &lt;bp:cellularLocation rdf:resource="http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"/&gt; &lt;bp:component rdf:resource="http://pathwaycommons.org/pc12/#Protein_b8221ae4aa1927b358e88d6eb6621650"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://identifiers.org/uniprot/O60674"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#EntityReference"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Protein_26f69726eb79e168d2f8dfa8c32611d9"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;bp:comment&gt;REPLACED http://pathwaycommons.org/pc12/Protein_26f69726eb79e168d2f8dfa8c32611d9&lt;/bp:comment&gt; &lt;bp:displayName&gt;TRAF2&lt;/bp:displayName&gt; &lt;bp:name&gt;TRAF2__9606&lt;/bp:name&gt; &lt;bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d"/&gt; &lt;bp:entityReference rdf:resource="http://identifiers.org/uniprot/Q12933"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://pathwaycommons.org/pc12/#Complex_9695d8dca18d787a873ffda9d7430f9f"&gt; &lt;rdf:type [...]
 </pre>
 </div>
 </div>

@@ -7594,9 +7594,8 @@ a.anchor-link {
   <span class="n">prot</span> <span class="o">=</span> <span class="n">EntityNode</span><span class="p">(</span><span class="s2">"P"</span><span class="p">,</span> <span class="n">Protein</span><span class="p">())</span>
   <span class="n">entityReference</span><span class="o">=</span><span class="n">EntityNode</span><span class="p">(</span><span class="s2">"E"</span><span class="p">,</span> <span class="n">EntityReference</span><span class="p">())</span>
   <span class="n">prot</span><span class="o">.</span><span class="n">connectedWith</span><span class="p">(</span><span class="n">entityReference</span><span class="p">,</span> <span class="s2">"entityReference"</span><span class="p">)</span>
-  <span class="n">prot</span><span class="o">.</span><span class="n">whereAttribute</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">,</span> <span class="s2">"Protein_9a"</span><span class="p">,</span><span class="s2">"CONTAINS"</span><span class="p">)</span>
+  <span class="n">prot</span><span class="o">.</span><span class="n">whereAttribute</span><span class="p">(</span><span class="s2">"displayName"</span><span class="p">,</span> <span class="s2">"FRK"</span><span class="p">,</span><span class="s2">"CONTAINS"</span><span class="p">)</span>
   <span class="n">p</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">prot</span><span class="p">,</span><span class="n">entityReference</span><span class="p">)</span>
-  
   <span class="k">return</span> <span class="n">p</span>
 </pre></div>
 </div>
@@ -7700,14 +7699,11 @@ The meta_label attribute allows to retrieve an entity labelled within the Patter
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>first  results (uris and class name only: for better memory management and faster results)
 __row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/O15111,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
+uri:http://pathwaycommons.org/pc12/#Protein_fe9aa3569b03eb22514796f21db8dea3,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
+uri:http://identifiers.org/uniprot/P42685,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
 __row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/Q14289,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-__row__
-uri:http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
-uri:http://identifiers.org/uniprot/P35626,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
+uri:http://pathwaycommons.org/pc12/#Protein_e327253efbb4440eb6664fc6e69627c4,  cls: Protein, meta_label :P, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
+uri:http://identifiers.org/uniprot/P42685,  cls: ProteinReference, meta_label :E, __class__:&lt;class 'rdfobj.mapper.PK'&gt;
 </pre>
 </div>
 </div>
@@ -7793,155 +7789,19 @@ level=3: entities at one more level are added (this option is costly).</code></p
 #-------------------------------------------------------------
 __row__
 #------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
+pk(uri):http://pathwaycommons.org/pc12/#Protein_fe9aa3569b03eb22514796f21db8dea3, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
 #------------------------
-pk(uri):http://identifiers.org/uniprot/O15111, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
+pk(uri):http://identifiers.org/uniprot/P42685, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
 __row__
 #------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
+pk(uri):http://pathwaycommons.org/pc12/#Protein_e327253efbb4440eb6664fc6e69627c4, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
 #------------------------
-pk(uri):http://identifiers.org/uniprot/Q14289, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
-__row__
-#------------------------
-pk(uri):http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6, class: &lt;class 'biopax.protein.Protein'&gt;, meta_label: P
-#------------------------
-pk(uri):http://identifiers.org/uniprot/P35626, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
+pk(uri):http://identifiers.org/uniprot/P42685, class: &lt;class 'biopax.proteinreference.ProteinReference'&gt;, meta_label: E
 #-------------------------------------------------------------
 __row__json
 #------------------------
 {
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
-  "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/O15111",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_461",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_79cdbae93881386b293a3156d62824cc",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_O15111"
-  },
-  "displayName": "IKKA_HUMAN",
-  "name": "Transcription factor 16",
-  "standardName": "Inhibitor of nuclear factor kappa-B kinase subunit alpha",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "dataSource": {
-    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
-    "comment": null,
-    "xref": null,
-    "displayName": null,
-    "name": null,
-    "standardName": null
-  },
-  "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
-  "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a824a9f25e4a68b2aeb0397e3160089",
-  "displayName": "PTK2B",
-  "name": "PTK2B__MI__0217",
-  "standardName": null,
-  "cellularLocation": null,
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
-  "memberPhysicalEntity": null,
-  "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/Q14289"
-  },
-  "__class__": "Protein"
-}
-#------------------------
-{
-  "uri": "http://identifiers.org/uniprot/Q14289",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_652",
-  "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_f7dacb816ac4162a42864d9719018866",
-    "comment": null,
-    "evidence": null,
-    "featureLocation": null,
-    "featureLocationType": null,
-    "memberFeature": null
-  },
-  "entityReferenceType": null,
-  "evidence": null,
-  "memberEntityReference": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_Q14289"
-  },
-  "displayName": "FAK2_HUMAN",
-  "name": "Related adhesion focal tyrosine kinase",
-  "standardName": "Protein-tyrosine kinase 2-beta",
-  "organism": {
-    "__class__": "BioSource",
-    "uri": "http://identifiers.org/taxonomy/9606"
-  },
-  "sequence": null,
-  "__class__": "ProteinReference"
-}
-__row__json
-#------------------------
-{
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a93d5072607ce98364874f1816a57c6",
+  "uri": "http://pathwaycommons.org/pc12/#Protein_fe9aa3569b03eb22514796f21db8dea3",
   "dataSource": {
     "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
     "comment": null,
@@ -7953,26 +7813,28 @@ __row__json
   "evidence": null,
   "xref": null,
   "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a93d5072607ce98364874f1816a57c6",
-  "displayName": "ADRBK2",
-  "name": "ADRBK2__9606",
+  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_fe9aa3569b03eb22514796f21db8dea3",
+  "displayName": "FRK",
+  "name": "FRK__9606",
   "standardName": null,
   "cellularLocation": null,
   "feature": null,
   "memberPhysicalEntity": null,
   "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/P35626"
-  },
+  "entityReference": [
+    {
+      "__class__": "EntityReference",
+      "uri": "http://identifiers.org/uniprot/P42685"
+    }
+  ],
   "__class__": "Protein"
 }
 #------------------------
 {
-  "uri": "http://identifiers.org/uniprot/P35626",
-  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_2152",
+  "uri": "http://identifiers.org/uniprot/P42685",
+  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_1963",
   "entityFeature": {
-    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_b964abf9ab11c16d578cf211a74297f4",
+    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_d45be1a02e6f260d835e1d7ce7ab48c2",
     "comment": null,
     "evidence": null,
     "featureLocation": null,
@@ -7984,11 +7846,83 @@ __row__json
   "memberEntityReference": null,
   "xref": {
     "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P35626"
+    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P42685"
   },
-  "displayName": "ARBK2_HUMAN",
-  "name": "GRK3",
-  "standardName": "Beta-adrenergic receptor kinase 2",
+  "displayName": "FRK_HUMAN",
+  "name": "RAK",
+  "standardName": "Tyrosine-protein kinase FRK",
+  "organism": {
+    "__class__": "BioSource",
+    "uri": "http://identifiers.org/taxonomy/9606"
+  },
+  "sequence": null,
+  "__class__": "ProteinReference"
+}
+__row__json
+#------------------------
+{
+  "uri": "http://pathwaycommons.org/pc12/#Protein_e327253efbb4440eb6664fc6e69627c4",
+  "dataSource": {
+    "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
+    "comment": null,
+    "xref": null,
+    "displayName": null,
+    "name": null,
+    "standardName": null
+  },
+  "evidence": null,
+  "xref": null,
+  "availability": null,
+  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_e327253efbb4440eb6664fc6e69627c4",
+  "displayName": "FRK",
+  "name": "FRK__Phosphorylation",
+  "standardName": null,
+  "cellularLocation": {
+    "__class__": "CellularLocationVocabulary",
+    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
+  },
+  "feature": [
+    {
+      "__class__": "EntityFeature",
+      "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_1157fef5ecac6dc59c2edbc1d9370ddb"
+    },
+    {
+      "__class__": "EntityFeature",
+      "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_3288185f8cb17b9ce299453361bb19b8"
+    }
+  ],
+  "memberPhysicalEntity": null,
+  "notFeature": null,
+  "entityReference": [
+    {
+      "__class__": "EntityReference",
+      "uri": "http://identifiers.org/uniprot/P42685"
+    }
+  ],
+  "__class__": "Protein"
+}
+#------------------------
+{
+  "uri": "http://identifiers.org/uniprot/P42685",
+  "comment": "REPLACED http://www.phosphosite.org/phosphosite.owl#po_1963",
+  "entityFeature": {
+    "__uri__": "http://pathwaycommons.org/pc12/#ModificationFeature_d45be1a02e6f260d835e1d7ce7ab48c2",
+    "comment": null,
+    "evidence": null,
+    "featureLocation": null,
+    "featureLocationType": null,
+    "memberFeature": null
+  },
+  "entityReferenceType": null,
+  "evidence": null,
+  "memberEntityReference": null,
+  "xref": {
+    "__class__": "Xref",
+    "uri": "http://pathwaycommons.org/pc12/#UnificationXref_uniprot_knowledgebase_P42685"
+  },
+  "displayName": "FRK_HUMAN",
+  "name": "RAK",
+  "standardName": "Tyrosine-protein kinase FRK",
   "organism": {
     "__class__": "BioSource",
     "uri": "http://identifiers.org/taxonomy/9606"
@@ -8046,7 +7980,7 @@ __row__json
 <pre>#----we can now process the related Protein 'P' selected within each row not only by its class name but as well by its meta_label--------------------
 __row__json
 {
-  "uri": "http://pathwaycommons.org/pc12/#Protein_9a138a025b1ef814f572a11f8e164d2e",
+  "uri": "http://pathwaycommons.org/pc12/#Protein_fe9aa3569b03eb22514796f21db8dea3",
   "dataSource": {
     "__uri__": "http://pathwaycommons.org/pc12/#Provenance_0cfa90c3ddb627e2e7f3af3d5bd9497d",
     "comment": null,
@@ -8056,29 +7990,22 @@ __row__json
     "standardName": null
   },
   "evidence": null,
-  "xref": {
-    "__class__": "Xref",
-    "uri": "http://pathwaycommons.org/pc12/#RelationshipXref_4eb6f3f2-a79f-46ad-826b-f3017c43eea5RelationshipXref_PSI-MI_MI_0217"
-  },
+  "xref": null,
   "availability": null,
-  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_9a138a025b1ef814f572a11f8e164d2e",
-  "displayName": "CHUK",
-  "name": "CHUK__MI__0217",
+  "comment": "REPLACED http://pathwaycommons.org/pc12/Protein_fe9aa3569b03eb22514796f21db8dea3",
+  "displayName": "FRK",
+  "name": "FRK__9606",
   "standardName": null,
-  "cellularLocation": {
-    "__class__": "CellularLocationVocabulary",
-    "uri": "http://pathwaycommons.org/pc12/#CellularLocationVocabulary_dc68fffeee0259e0d3bd7a3f6d0cc067"
-  },
-  "feature": {
-    "__class__": "EntityFeature",
-    "uri": "http://pathwaycommons.org/pc12/#ModificationFeature_0cd1e597c197d5ca80dcd8d421c392f6"
-  },
+  "cellularLocation": null,
+  "feature": null,
   "memberPhysicalEntity": null,
   "notFeature": null,
-  "entityReference": {
-    "__class__": "EntityReference",
-    "uri": "http://identifiers.org/uniprot/O15111"
-  },
+  "entityReference": [
+    {
+      "__class__": "EntityReference",
+      "uri": "http://identifiers.org/uniprot/P42685"
+    }
+  ],
   "__class__": "Protein"
 }
 </pre>
@@ -8100,7 +8027,7 @@ __row__json
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f4670032-5aeb-40c7-b5c4-0d318b415664">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c4bf0e7c-3a28-4732-9e9f-b8490f9ef463">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

@@ -7577,20 +7577,6 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=47a9056f-6eaa-4d10-9869-24a8de581ddb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f8db031f-4de4-4f33-a5d8-0b2292c50579">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7678,8 +7664,8 @@ stateChange : Pattern matching State changes for conversions: a Conversion with 
         that related to the same EntityReference. Complexes are excluded here
         
 molecularInteraction : 
-inSameComplexEffectingConversion : 
-        a Complex  that is the controller of a Conversion with the related Components 
+inSameComplexEffectingControl : 
+        a Complex  that is the controller of a Control Interaction with the related Components 
         
 bindsTo : 
         a Complex with a least 2 Components, connects the entities
@@ -7903,7 +7889,7 @@ where {
 ?o2 rdf:type ?o2__rdft .
 ?s4 rdf:type ?s4__rdft .
 ?o4 rdf:type ?o4__rdft .
-{ ?o2 a bi:Interaction }  UNION  { ?o2 a bi:BiochemicalReaction }  UNION  { ?o2 a bi:ComplexAssembly }  UNION  { ?o2 a bi:Catalysis }  UNION  { ?o2 a bi:TemplateReactionRegulation }  UNION  { ?o2 a bi:Degradation }  UNION  { ?o2 a bi:TemplateReaction }  UNION  { ?o2 a bi:MolecularInteraction }  UNION  { ?o2 a bi:Modulation }  UNION  { ?o2 a bi:GeneticInteraction }  UNION  { ?o2 a bi:TransportWithBiochemicalReaction }  UNION  { ?o2 a bi:Conversion }  UNION  { ?o2 a bi:Control }  UNION  { ?o2 a bi:Transport }  .
+{ ?o2 a bi:Conversion }  UNION  { ?o2 a bi:TransportWithBiochemicalReaction }  UNION  { ?o2 a bi:ComplexAssembly }  UNION  { ?o2 a bi:BiochemicalReaction }  UNION  { ?o2 a bi:Transport }  UNION  { ?o2 a bi:Degradation }  .
 { ?o4 a bi:SmallMolecule }  .
 { ?s2 a bi:Control }  UNION  { ?s2 a bi:Modulation }  UNION  { ?s2 a bi:Catalysis }  UNION  { ?s2 a bi:TemplateReactionRegulation }  { ?s4 a bi:Protein }
 FILTER (  ?controlledn0I =  bi:controlled  ) .
@@ -7927,7 +7913,7 @@ where {
 ?s6 rdf:type ?s6__rdft .
 { ?o2 a bi:Complex }  .
 { ?o4 a bi:Protein }  .
-{ ?s2 a bi:Control }  UNION  { ?s2 a bi:Modulation }  UNION  { ?s2 a bi:Catalysis }  UNION  { ?s2 a bi:TemplateReactionRegulation }  { ?s4 a bi:Interaction }  UNION  { ?s4 a bi:BiochemicalReaction }  UNION  { ?s4 a bi:ComplexAssembly }  UNION  { ?s4 a bi:Catalysis }  UNION  { ?s4 a bi:TemplateReactionRegulation }  UNION  { ?s4 a bi:Degradation }  UNION  { ?s4 a bi:TemplateReaction }  UNION  { ?s4 a bi:MolecularInteraction }  UNION  { ?s4 a bi:Modulation }  UNION  { ?s4 a bi:GeneticInteraction }  UNION  { ?s4 a bi:TransportWithBiochemicalReaction }  UNION  { ?s4 a bi:Conversion }  UNION  { ?s4 a bi:Control }  UNION  { ?s4 a bi:Transport }  { ?s6 a bi:SmallMolecule }
+{ ?s2 a bi:Control }  UNION  { ?s2 a bi:Modulation }  UNION  { ?s2 a bi:Catalysis }  UNION  { ?s2 a bi:TemplateReactionRegulation }  { ?s4 a bi:Conversion }  UNION  { ?s4 a bi:TransportWithBiochemicalReaction }  UNION  { ?s4 a bi:ComplexAssembly }  UNION  { ?s4 a bi:BiochemicalReaction }  UNION  { ?s4 a bi:Transport }  UNION  { ?s4 a bi:Degradation }  { ?s6 a bi:SmallMolecule }
 FILTER (  ?controlledn0I =  bi:controlled  ) .
 FILTER (  ?controllern0complex =  bi:controller  ) .
 FILTER (  ?componentn1Controller =  bi:component  ) .
@@ -7948,7 +7934,7 @@ where {
 ?s4 rdf:type ?s4__rdft .
 ?o4 rdf:type ?o4__rdft .
 ?s6 rdf:type ?s6__rdft .
-{ ?o2 a bi:Interaction }  UNION  { ?o2 a bi:BiochemicalReaction }  UNION  { ?o2 a bi:ComplexAssembly }  UNION  { ?o2 a bi:Catalysis }  UNION  { ?o2 a bi:TemplateReactionRegulation }  UNION  { ?o2 a bi:Degradation }  UNION  { ?o2 a bi:TemplateReaction }  UNION  { ?o2 a bi:MolecularInteraction }  UNION  { ?o2 a bi:Modulation }  UNION  { ?o2 a bi:GeneticInteraction }  UNION  { ?o2 a bi:TransportWithBiochemicalReaction }  UNION  { ?o2 a bi:Conversion }  UNION  { ?o2 a bi:Control }  UNION  { ?o2 a bi:Transport }  .
+{ ?o2 a bi:Conversion }  UNION  { ?o2 a bi:TransportWithBiochemicalReaction }  UNION  { ?o2 a bi:ComplexAssembly }  UNION  { ?o2 a bi:BiochemicalReaction }  UNION  { ?o2 a bi:Transport }  UNION  { ?o2 a bi:Degradation }  .
 { ?o4 a bi:Protein }  .
 { ?s2 a bi:Control }  UNION  { ?s2 a bi:Modulation }  UNION  { ?s2 a bi:Catalysis }  UNION  { ?s2 a bi:TemplateReactionRegulation }  { ?s4 a bi:Complex }  { ?s6 a bi:SmallMolecule }
 FILTER (  ?controlledn0I =  bi:controlled  ) .
@@ -7973,7 +7959,7 @@ where {
 ?o4 rdf:type ?o4__rdft .
 ?s6 rdf:type ?s6__rdft .
 ?o6 rdf:type ?o6__rdft .
-{ ?o2 a bi:Interaction }  UNION  { ?o2 a bi:BiochemicalReaction }  UNION  { ?o2 a bi:ComplexAssembly }  UNION  { ?o2 a bi:Catalysis }  UNION  { ?o2 a bi:TemplateReactionRegulation }  UNION  { ?o2 a bi:Degradation }  UNION  { ?o2 a bi:TemplateReaction }  UNION  { ?o2 a bi:MolecularInteraction }  UNION  { ?o2 a bi:Modulation }  UNION  { ?o2 a bi:GeneticInteraction }  UNION  { ?o2 a bi:TransportWithBiochemicalReaction }  UNION  { ?o2 a bi:Conversion }  UNION  { ?o2 a bi:Control }  UNION  { ?o2 a bi:Transport }  .
+{ ?o2 a bi:Conversion }  UNION  { ?o2 a bi:TransportWithBiochemicalReaction }  UNION  { ?o2 a bi:ComplexAssembly }  UNION  { ?o2 a bi:BiochemicalReaction }  UNION  { ?o2 a bi:Transport }  UNION  { ?o2 a bi:Degradation }  .
 { ?o4 a bi:Complex }  .
 { ?o6 a bi:SmallMolecule }  .
 { ?s2 a bi:Control }  UNION  { ?s2 a bi:Modulation }  UNION  { ?s2 a bi:Catalysis }  UNION  { ?s2 a bi:TemplateReactionRegulation }  { ?s4 a bi:Complex }  { ?s6 a bi:Protein }
@@ -8606,7 +8592,7 @@ http://pathwaycommons.org/pc12/#MolecularInteraction_55177babe306a49240238ec8784
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Pattern-13-:-inSameComplexEffectingConversion">Pattern 13 : inSameComplexEffectingConversion<a class="anchor-link" href="#Pattern-13-:-inSameComplexEffectingConversion">¶</a></h3>
+<h3 id="Pattern-13-:-inSameComplexEffectingControl">Pattern 13 : inSameComplexEffectingControl<a class="anchor-link" href="#Pattern-13-:-inSameComplexEffectingControl">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8619,7 +8605,7 @@ http://pathwaycommons.org/pc12/#MolecularInteraction_55177babe306a49240238ec8784
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># No results neither in Netpath nor in Panther.</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">inSameComplexEffectingConversion</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">inSameComplexEffectingControl</span><span class="p">()</span>
 
 <span class="n">res_P13</span> <span class="o">=</span> <span class="n">peN</span><span class="o">.</span><span class="n">executePattern</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
@@ -8636,7 +8622,17 @@ http://pathwaycommons.org/pc12/#MolecularInteraction_55177babe306a49240238ec8784
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>-- no result in this dataset--
+<pre>-- 360 results in this dataset --
+http://pathwaycommons.org/pc12/#Catalysis_41f0211d35bbdcdcbdfb963ae3c17404, http://pathwaycommons.org/pc12/#Complex_3c63da5f7e581c470e8f2ca551558302, http://pathwaycommons.org/pc12/#Protein_6e5c3b1dd2b890f17b63dcd1c6dcd774, http://pathwaycommons.org/pc12/#Protein_6e9eb16e84975dc47103b49c68613944, http://identifiers.org/uniprot/Q92793, http://identifiers.org/uniprot/Q09472, 
+http://pathwaycommons.org/pc12/#Catalysis_41f0211d35bbdcdcbdfb963ae3c17404, http://pathwaycommons.org/pc12/#Complex_3c63da5f7e581c470e8f2ca551558302, http://pathwaycommons.org/pc12/#Protein_6e9eb16e84975dc47103b49c68613944, http://pathwaycommons.org/pc12/#Protein_6e5c3b1dd2b890f17b63dcd1c6dcd774, http://identifiers.org/uniprot/Q09472, http://identifiers.org/uniprot/Q92793, 
+http://pathwaycommons.org/pc12/#Catalysis_2164519717fbd8ac420b838fe1f8e3c7, http://pathwaycommons.org/pc12/#Complex_f70fb481f0301dddb01b750eb5320991, http://pathwaycommons.org/pc12/#Protein_f5eb6fd7a4dfa7a8cd2d3b16e2ef2b21, http://pathwaycommons.org/pc12/#Protein_b61c37476d8e8101ce230a8c959e00b3, http://identifiers.org/uniprot/P61077, http://identifiers.org/uniprot/P62837, 
+http://pathwaycommons.org/pc12/#Catalysis_2164519717fbd8ac420b838fe1f8e3c7, http://pathwaycommons.org/pc12/#Complex_f70fb481f0301dddb01b750eb5320991, http://pathwaycommons.org/pc12/#Protein_b61c37476d8e8101ce230a8c959e00b3, http://pathwaycommons.org/pc12/#Protein_f5eb6fd7a4dfa7a8cd2d3b16e2ef2b21, http://identifiers.org/uniprot/P62837, http://identifiers.org/uniprot/P61077, 
+http://pathwaycommons.org/pc12/#Catalysis_ba3c7f260fa81264b2db4ae41a7086dc, http://pathwaycommons.org/pc12/#Complex_c8eebcc37ff58a7f7d3501f9213225c3, http://pathwaycommons.org/pc12/#Protein_7985a0e81b4b81f72615932c0c0aa8b1, http://pathwaycommons.org/pc12/#Protein_006441daf51e64e4a269b5baa164e04a, http://identifiers.org/uniprot/Q969H0, http://identifiers.org/uniprot/Q13616, 
+http://pathwaycommons.org/pc12/#Catalysis_ba3c7f260fa81264b2db4ae41a7086dc, http://pathwaycommons.org/pc12/#Complex_c8eebcc37ff58a7f7d3501f9213225c3, http://pathwaycommons.org/pc12/#Protein_7985a0e81b4b81f72615932c0c0aa8b1, http://pathwaycommons.org/pc12/#Protein_499c4559f1c70204e6df7801ee8cc30e, http://identifiers.org/uniprot/Q969H0, http://identifiers.org/uniprot/P63208, 
+http://pathwaycommons.org/pc12/#Catalysis_ba3c7f260fa81264b2db4ae41a7086dc, http://pathwaycommons.org/pc12/#Complex_c8eebcc37ff58a7f7d3501f9213225c3, http://pathwaycommons.org/pc12/#Protein_006441daf51e64e4a269b5baa164e04a, http://pathwaycommons.org/pc12/#Protein_7985a0e81b4b81f72615932c0c0aa8b1, http://identifiers.org/uniprot/Q13616, http://identifiers.org/uniprot/Q969H0, 
+http://pathwaycommons.org/pc12/#Catalysis_ba3c7f260fa81264b2db4ae41a7086dc, http://pathwaycommons.org/pc12/#Complex_c8eebcc37ff58a7f7d3501f9213225c3, http://pathwaycommons.org/pc12/#Protein_006441daf51e64e4a269b5baa164e04a, http://pathwaycommons.org/pc12/#Protein_499c4559f1c70204e6df7801ee8cc30e, http://identifiers.org/uniprot/Q13616, http://identifiers.org/uniprot/P63208, 
+http://pathwaycommons.org/pc12/#Catalysis_ba3c7f260fa81264b2db4ae41a7086dc, http://pathwaycommons.org/pc12/#Complex_c8eebcc37ff58a7f7d3501f9213225c3, http://pathwaycommons.org/pc12/#Protein_499c4559f1c70204e6df7801ee8cc30e, http://pathwaycommons.org/pc12/#Protein_7985a0e81b4b81f72615932c0c0aa8b1, http://identifiers.org/uniprot/P63208, http://identifiers.org/uniprot/Q969H0, 
+http://pathwaycommons.org/pc12/#Catalysis_ba3c7f260fa81264b2db4ae41a7086dc, http://pathwaycommons.org/pc12/#Complex_c8eebcc37ff58a7f7d3501f9213225c3, http://pathwaycommons.org/pc12/#Protein_499c4559f1c70204e6df7801ee8cc30e, http://pathwaycommons.org/pc12/#Protein_006441daf51e64e4a269b5baa164e04a, http://identifiers.org/uniprot/P63208, http://identifiers.org/uniprot/Q13616, 
 </pre>
 </div>
 </div>
@@ -8760,7 +8756,7 @@ where {
 ?o2 rdf:type ?o2__rdft .
 ?s4 rdf:type ?s4__rdft .
 { ?o2 a bi:Complex }  .
-{ ?s2 a bi:Complex }  { ?s4 a bi:PhysicalEntity }  UNION  { ?s4 a bi:Protein }  UNION  { ?s4 a bi:Complex }  UNION  { ?s4 a bi:SmallMolecule }  UNION  { ?s4 a bi:Rna }  UNION  { ?s4 a bi:DnaRegion }  UNION  { ?s4 a bi:Dna }  UNION  { ?s4 a bi:RnaRegion }
+{ ?s2 a bi:Complex }  { ?s4 a bi:PhysicalEntity }  UNION  { ?s4 a bi:SmallMolecule }  UNION  { ?s4 a bi:DnaRegion }  UNION  { ?s4 a bi:RnaRegion }  UNION  { ?s4 a bi:Dna }  UNION  { ?s4 a bi:Rna }  UNION  { ?s4 a bi:Protein }  UNION  { ?s4 a bi:Complex }
 FILTER (  ?componentn0C2 =  bi:component  ) .
 FILTER (  ?componentn1PE =  bi:component  ) .
 }
@@ -8812,6 +8808,34 @@ for more details</p>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9e9f1426-429f-48d8-aafa-32101666f583">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=37109292-f494-48a1-9fea-eea09bdecd3f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d6b473d9-92e3-46c4-b88a-9a1b9486b0a9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>

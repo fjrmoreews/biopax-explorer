@@ -7567,7 +7567,7 @@ a.anchor-link {
 <span class="n">db</span><span class="o">=</span><span class="s2">"http://db:3030"</span>  
 <span class="n">unwanted_subject_uri</span><span class="o">=</span><span class="s2">"http://localhost:3030/</span><span class="si">%s</span><span class="s2">/data"</span> <span class="o">%</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="c1"># avoid unwanted uri (local triple-store deployment)</span>
 
-<span class="n">credentials</span><span class="o">=</span><span class="kc">None</span>
+<span class="n">credentials</span><span class="o">=</span><span class="s2">"admin"</span>
 
 <span class="n">expath</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span> 
 <span class="n">exfile1</span><span class="o">=</span><span class="s2">"</span><span class="si">%s</span><span class="s2">/input/export_all_</span><span class="si">%s</span><span class="s2">.xml"</span> <span class="o">%</span> <span class="p">(</span><span class="n">expath</span><span class="p">,</span><span class="n">dataset</span><span class="p">)</span> 
@@ -7601,7 +7601,7 @@ a.anchor-link {
 <pre>export rdf_xml from triples store
 http://db:3030/g6p/query biopax http://www.biopax.org/release/biopax-level3.owl# http://localhost:3030/g6p/data 1000
 #############RDF XML #########################
-&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:ns1="http://www.biopax.org/release/biopax-level3.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#RelationshipXref127"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#RelationshipXref"/&gt; &lt;ns1:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;GO:0043843&lt;/ns1:id&gt; &lt;ns1:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;gene ontology&lt;/ns1:db&gt; &lt;ns1:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0355"/&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#Protein27"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_database_id_release_56_70395"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_R- [...]
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:ns1="http://www.biopax.org/release/biopax-level3.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_R-ALL-114632"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#UnificationXref"/&gt; &lt;ns1:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;Reactome stable identifier. Use this URL to connect to the web page of this instance in Reactome: http://www.reactome.org/cgi-bin/eventbrowser_st_id?ST_ID=R-ALL-114632.2&lt;/ns1:comment&gt; &lt;ns1:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;R-ALL-114632&lt;/ns1:id&gt; &lt;ns1:db rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;reactome&lt;/ns1:db&gt; &lt;ns1:idVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;2&lt;/ns1:idVersion&gt; &lt;/rdf:Description&gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#SmallMolecule98"&gt; &lt;rdf:type [...]
 ##############################################
 all triples exported to /work/input/export_all_g6p.xml
 ##############################################
@@ -7683,16 +7683,71 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bdbe1ca9-4a3b-42a2-bfcb-b21775947ff2">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bdbe1ca9-4a3b-42a2-bfcb-b21775947ff2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
+<span class="c1">#########create a dataset in fuseki if not exist#########</span>
+<span class="c1">##need admin role + credential</span>
+<span class="c1"># Fuseki server configuration</span>
+<span class="n">FUSEKI_URL</span> <span class="o">=</span><span class="s2">"http://db:3030"</span>  
+<span class="n">DATASET_NAME</span> <span class="o">=</span> <span class="s1">'test'</span>
+<span class="n">USERNAME</span> <span class="o">=</span> <span class="s1">'admin'</span>
+<span class="n">PASSWORD</span> <span class="o">=</span> <span class="s1">'admin'</span>
+
+<span class="k">def</span> <span class="nf">dataset_exists</span><span class="p">(</span><span class="n">fuseki_url</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="n">auth</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Check if a dataset exists on the Fuseki server."""</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">fuseki_url</span><span class="si">}</span><span class="s2">/$/datasets"</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">datasets</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'datasets'</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">'ds.name'</span><span class="p">]</span> <span class="o">==</span> <span class="sa">f</span><span class="s2">"/</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to retrieve datasets. Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_dataset</span><span class="p">(</span><span class="n">fuseki_url</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="n">auth</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Create a dataset on the Fuseki server if it doesn't exist."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset_exists</span><span class="p">(</span><span class="n">fuseki_url</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="n">auth</span><span class="p">):</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">}</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'dbName'</span><span class="p">:</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="s1">'dbType'</span><span class="p">:</span> <span class="s1">'mem'</span><span class="p">}</span>  <span class="c1"># 'mem' for in-memory; use 'tdb' for TDB</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">fuseki_url</span><span class="si">}</span><span class="s2">/$/datasets"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset '</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">' created successfully."</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to create dataset. Status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset '</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">' already exists."</span><span class="p">)</span>
+
+<span class="c1"># Run the dataset creation with authentication</span>
+<span class="n">auth</span> <span class="o">=</span> <span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="n">USERNAME</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>
+<span class="n">create_dataset</span><span class="p">(</span><span class="n">FUSEKI_URL</span><span class="p">,</span> <span class="n">DATASET_NAME</span><span class="p">,</span> <span class="n">auth</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>2024-08-19 13:50:29,647 - DEBUG - Starting new HTTP connection (1): db:3030
+2024-08-19 13:50:29,655 - DEBUG - http://db:3030 "GET /$/datasets HTTP/11" 200 414
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Dataset 'test' already exists.
+</pre>
 </div>
 </div>
 </div>
@@ -7702,11 +7757,11 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#########################</span>
- 
+<span class="c1">##delete data in triple store by URI</span>
 
 <span class="n">dataset</span><span class="o">=</span><span class="s2">"test"</span>
 <span class="n">db</span><span class="o">=</span><span class="s2">"http://db:3030"</span>  
@@ -7716,9 +7771,9 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <span class="n">sc</span><span class="o">=</span><span class="n">cl</span><span class="o">.</span><span class="n">BIOPAXStoreClient</span><span class="p">(</span><span class="n">db</span><span class="p">,</span><span class="n">dataset</span><span class="p">,</span><span class="n">credentials</span><span class="p">)</span>
  
 
-<span class="n">prefix</span><span class="o">=</span><span class="s2">"labt"</span>
-<span class="n">domain</span><span class="o">=</span><span class="s2">"http://mydatasource#"</span>
-<span class="n">uri_id</span><span class="o">=</span><span class="s2">"labt:p1245646"</span>
+<span class="n">prefix</span><span class="o">=</span><span class="s2">"eos"</span>
+<span class="n">domain</span><span class="o">=</span><span class="s2">"http://www.gruppomcr.com/2020/06/eos-ontology-meets#"</span>
+<span class="n">uri_id</span><span class="o">=</span><span class="s2">"eos:uritoberemoved2"</span>
 
 <span class="n">sc</span><span class="o">.</span><span class="n">delete_from_store_by_uri_id</span><span class="p">(</span><span class="n">uri_id</span><span class="p">,</span><span class="n">prefix</span><span class="p">,</span><span class="n">domain</span><span class="p">)</span>
 <span class="c1">#deletion done"</span>
@@ -7732,7 +7787,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="w"> </span>
@@ -7756,7 +7811,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <span class="n">rel</span><span class="o">.</span><span class="n">set_relationshipType</span><span class="p">(</span><span class="n">voc</span><span class="p">)</span>
 <span class="n">rel</span><span class="o">.</span><span class="n">set_db</span><span class="p">(</span><span class="s2">"database1"</span><span class="p">)</span>
               
- 
+<span class="nb">print</span><span class="p">(</span> <span class="n">rel</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="p">)</span>
 <span class="n">sc</span><span class="o">.</span><span class="n">insert_instance</span><span class="p">(</span><span class="n">rel</span><span class="p">)</span>
 
  
@@ -7773,7 +7828,22 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> insert done
+<pre>{
+  "uri": "http://www.reactome.org/biopax/56/71387#RelationshipXref90",
+  "comment": "Database 'x' identifier. Use this URL to connect to the web page of this instance in Reactome",
+  "db": "database1",
+  "dbVersion": null,
+  "id": null,
+  "idVersion": null,
+  "relationshipType": {
+    "__uri__": "http://localhost:3030/g6p/RelationshipTypeVocabulary_ac7de6f2f302971b64781fc96cc97c86",
+    "comment": "no_comment",
+    "xref": null,
+    "term": null
+  },
+  "__class__": "RelationshipXref"
+}
+ insert done
 </pre>
 </div>
 </div>
@@ -7784,7 +7854,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rel</span><span class="o">.</span><span class="n">set_db</span><span class="p">(</span><span class="s2">"database2"</span><span class="p">)</span>
@@ -7825,7 +7895,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -7847,7 +7917,7 @@ selected triples from parql queries exported to /work/input/export_query_g6p.xml
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">query</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">select_all_query</span><span class="p">()</span>
@@ -7891,7 +7961,7 @@ OFFSET 0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#store_to_graph( sc.wrapper,query)</span>
@@ -7938,12 +8008,12 @@ OFFSET 0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e50c688d-b2aa-4b6a-b6f7-0d5c36126d0e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e50c688d-b2aa-4b6a-b6f7-0d5c36126d0e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rdfxmlfile</span><span class="o">=</span><span class="s2">"/work/input/export_query_g6p.xml"</span>
@@ -7955,12 +8025,26 @@ OFFSET 0
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=84ef6635-8e59-43a5-a09e-c4fd10773e65">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>#############RDF XML #########################
+&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;rdf:RDF xmlns:ns1="http://www.biopax.org/release/biopax-level3.owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" &gt; &lt;rdf:Description rdf:about="http://www.reactome.org/biopax/56/71387#Protein67"&gt; &lt;rdf:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_R-HSA-3006348"/&gt; &lt;ns1:xref rdf:resource="http://www.reactome.org/biopax/56/71387#UnificationXref_reactome_database_id_release_56_3006348"/&gt; &lt;ns1:displayName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;SLC37A4&lt;/ns1:displayName&gt; &lt;ns1:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;G6PT1_HUMAN&lt;/ns1:name&gt; &lt;ns1:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;Glucose-6-phosphate translocase&lt;/ns1:name&gt; &lt;ns1:comment [...]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=84ef6635-8e59-43a5-a09e-c4fd10773e65">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"generate the related  graph data structure using networkx"</span><span class="p">)</span>
@@ -7975,6 +8059,24 @@ OFFSET 0
  
     
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>generate the related  graph data structure using networkx
+######################################
+Number of nodes: 111
+Number of edges: 134
+Is directed: False
+Is connected: True
+</pre>
 </div>
 </div>
 </div>
