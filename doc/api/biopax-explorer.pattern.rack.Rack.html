@@ -440,13 +440,16 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.get_validator_config.html">get_validator_config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.update_validator_config.html">update_validator_config</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.FullValidateArgType.html">FullValidateArgType</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
 </ul>
 <ul>
@@ -802,7 +805,7 @@
 <tr class="row-odd"><td><p><strong>inSameComplex</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>inSameComplexEffectingConversion</strong></p></td>
+<tr class="row-even"><td><p><strong>inSameComplexEffectingControl</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p><strong>modifierConv</strong></p></td>
@@ -955,7 +958,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameComplex" title="biopax-explorer.pattern.rack.Rack.inSameComplex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inSameComplex</span></code></a>([entity_node_list])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameComplexEffectingConversion" title="biopax-explorer.pattern.rack.Rack.inSameComplexEffectingConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inSameComplexEffectingConversion</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameComplexEffectingControl" title="biopax-explorer.pattern.rack.Rack.inSameComplexEffectingControl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inSameComplexEffectingControl</span></code></a>([entity_node_list])</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">rtype<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pattern</span></code></span></p>
@@ -1216,8 +1219,8 @@ The controller is in a Complex</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.pattern.rack.Rack.inSameComplexEffectingConversion">
-<span class="sig-name descname"><span class="pre">inSameComplexEffectingConversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_node_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/pattern/rack/rack.py#{'module': 'biopax-explorer.pattern.rack', 'fullname': 'Rack.inSameComplexEffectingConversion'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.pattern.rack.Rack.inSameComplexEffectingConversion" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="biopax-explorer.pattern.rack.Rack.inSameComplexEffectingControl">
+<span class="sig-name descname"><span class="pre">inSameComplexEffectingControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_node_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/pattern/rack/rack.py#{'module': 'biopax-explorer.pattern.rack', 'fullname': 'Rack.inSameComplexEffectingControl'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.pattern.rack.Rack.inSameComplexEffectingControl" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Pattern</span></code></span></p>
@@ -1456,7 +1459,7 @@ Complex at right</p>
 <li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameActiveComplexMolecularInteraction"><code class="docutils literal notranslate"><span class="pre">Rack.inSameActiveComplexMolecularInteraction()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameActiveComplexOtherInteraction"><code class="docutils literal notranslate"><span class="pre">Rack.inSameActiveComplexOtherInteraction()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameComplex"><code class="docutils literal notranslate"><span class="pre">Rack.inSameComplex()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameComplexEffectingConversion"><code class="docutils literal notranslate"><span class="pre">Rack.inSameComplexEffectingConversion()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inSameComplexEffectingControl"><code class="docutils literal notranslate"><span class="pre">Rack.inSameComplexEffectingControl()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.inspect"><code class="docutils literal notranslate"><span class="pre">Rack.inspect()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.modifierConv"><code class="docutils literal notranslate"><span class="pre">Rack.modifierConv()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.pattern.rack.Rack.modifierConvComplex"><code class="docutils literal notranslate"><span class="pre">Rack.modifierConvComplex()</span></code></a></li>

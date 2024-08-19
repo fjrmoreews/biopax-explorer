@@ -440,13 +440,16 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.get_validator_config.html">get_validator_config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.update_validator_config.html">update_validator_config</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.FullValidateArgType.html">FullValidateArgType</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
 </ul>
 <ul>
@@ -711,7 +714,7 @@ L4 for covering all generic cases like oxidization of a generic alcohol.
 Synonyms: Process, relationship, event.  Examples: protein-protein interaction,
 biochemical reaction, enzyme catalysis</p>
 </div></blockquote>
-<p>code generator : rdfobj (author F.Moreews 2023).</p>
+<p>code generator : rdfobj (author F.Moreews 2023-2024).</p>
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
@@ -719,32 +722,20 @@ biochemical reaction, enzyme catalysis</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_availability</span></code>()</p></td>
 <td><p>Attribute _availability  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_cofactor" title="biopax-explorer.biopax.interaction.Interaction.get_cofactor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cofactor</span></code></a>()</p></td>
-<td><p>Attribute _cofactor  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
 <td><p>Attribute _comment  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_controlled" title="biopax-explorer.biopax.interaction.Interaction.get_controlled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlled</span></code></a>()</p></td>
-<td><p>Attribute _controlled  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_controller" title="biopax-explorer.biopax.interaction.Interaction.get_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controller</span></code></a>()</p></td>
-<td><p>Attribute _controller  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
 <td><p>Attribute _dataSource  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
 <td><p>Attribute _displayName  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
 <td><p>Attribute _evidence  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_interactionType" title="biopax-explorer.biopax.interaction.Interaction.get_interactionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_interactionType" title="biopax-explorer.biopax.interaction.Interaction.get_interactionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code></a>()</p></td>
 <td><p>Attribute _interactionType  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_left" title="biopax-explorer.biopax.interaction.Interaction.get_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_left</span></code></a>()</p></td>
-<td><p>Attribute _left  getter</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code>()</p></td>
 <td><p>Attribute _name  getter</p></td>
@@ -752,19 +743,10 @@ biochemical reaction, enzyme catalysis</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_participant" title="biopax-explorer.biopax.interaction.Interaction.get_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participant</span></code></a>()</p></td>
 <td><p>Attribute _participant  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_product" title="biopax-explorer.biopax.interaction.Interaction.get_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_product</span></code></a>()</p></td>
-<td><p>Attribute _product  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_right" title="biopax-explorer.biopax.interaction.Interaction.get_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_right</span></code></a>()</p></td>
-<td><p>Attribute _right  getter</p></td>
-</tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_standardName</span></code>()</p></td>
 <td><p>Attribute _standardName  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_template" title="biopax-explorer.biopax.interaction.Interaction.get_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_template</span></code></a>()</p></td>
-<td><p>Attribute _template  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
 <td><p>Attribute _xref  getter</p></td>
 </tr>
 </tbody>
@@ -785,31 +767,19 @@ biochemical reaction, enzyme catalysis</p>
 <tr class="row-even"><td><p><strong>set_availability</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_cofactor</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-even"><td><p><strong>set_dataSource</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_controlled</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_controller</strong></p></td>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_dataSource</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_interactionType</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_left</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_interactionType</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>set_name</strong></p></td>
@@ -818,28 +788,19 @@ biochemical reaction, enzyme catalysis</p>
 <tr class="row-odd"><td><p><strong>set_participant</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_product</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_right</strong></p></td>
-<td></td>
-</tr>
 <tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_template</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
+<tr class="row-even"><td><p><strong>set_xref</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_xref</strong></p></td>
+<tr class="row-odd"><td><p><strong>to_json</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>to_json</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>type_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>type_attributes</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -852,64 +813,22 @@ biochemical reaction, enzyme catalysis</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.attribute_type_by_name" title="biopax-explorer.biopax.interaction.Interaction.attribute_type_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attribute_type_by_name</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_cofactor" title="biopax-explorer.biopax.interaction.Interaction.get_cofactor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cofactor</span></code></a>()</p></td>
-<td><p>Attribute _cofactor  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_controlled" title="biopax-explorer.biopax.interaction.Interaction.get_controlled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlled</span></code></a>()</p></td>
-<td><p>Attribute _controlled  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_controller" title="biopax-explorer.biopax.interaction.Interaction.get_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controller</span></code></a>()</p></td>
-<td><p>Attribute _controller  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_interactionType" title="biopax-explorer.biopax.interaction.Interaction.get_interactionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_interactionType" title="biopax-explorer.biopax.interaction.Interaction.get_interactionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code></a>()</p></td>
 <td><p>Attribute _interactionType  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_left" title="biopax-explorer.biopax.interaction.Interaction.get_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_left</span></code></a>()</p></td>
-<td><p>Attribute _left  getter</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_participant" title="biopax-explorer.biopax.interaction.Interaction.get_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participant</span></code></a>()</p></td>
 <td><p>Attribute _participant  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_product" title="biopax-explorer.biopax.interaction.Interaction.get_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_product</span></code></a>()</p></td>
-<td><p>Attribute _product  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_right" title="biopax-explorer.biopax.interaction.Interaction.get_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_right</span></code></a>()</p></td>
-<td><p>Attribute _right  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_template" title="biopax-explorer.biopax.interaction.Interaction.get_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_template</span></code></a>()</p></td>
-<td><p>Attribute _template  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_uri_string" title="biopax-explorer.biopax.interaction.Interaction.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_uri_string" title="biopax-explorer.biopax.interaction.Interaction.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.object_attributes" title="biopax-explorer.biopax.interaction.Interaction.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_cofactor" title="biopax-explorer.biopax.interaction.Interaction.set_cofactor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cofactor</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_controlled" title="biopax-explorer.biopax.interaction.Interaction.set_controlled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_controlled</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_controller" title="biopax-explorer.biopax.interaction.Interaction.set_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_controller</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.object_attributes" title="biopax-explorer.biopax.interaction.Interaction.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_interactionType" title="biopax-explorer.biopax.interaction.Interaction.set_interactionType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_interactionType</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_left" title="biopax-explorer.biopax.interaction.Interaction.set_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_left</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_participant" title="biopax-explorer.biopax.interaction.Interaction.set_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_participant</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_product" title="biopax-explorer.biopax.interaction.Interaction.set_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_product</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_right" title="biopax-explorer.biopax.interaction.Interaction.set_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_right</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_template" title="biopax-explorer.biopax.interaction.Interaction.set_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_template</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_participant" title="biopax-explorer.biopax.interaction.Interaction.set_participant"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_participant</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_uri_string" title="biopax-explorer.biopax.interaction.Interaction.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
@@ -931,43 +850,6 @@ biochemical reaction, enzyme catalysis</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_cofactor">
-<span class="sig-name descname"><span class="pre">get_cofactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_cofactor'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_cofactor" title="Permalink to this definition">#</a></dt>
-<dd><blockquote>
-<div><dl class="simple">
-<dt>Attribute _cofactor  getter</dt><dd><p>Any cofactor(s) or coenzyme(s) required for catalysis of the conversion by the</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>enzyme. This is a suproperty of participants.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_controlled">
-<span class="sig-name descname"><span class="pre">get_controlled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_controlled'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_controlled" title="Permalink to this definition">#</a></dt>
-<dd><blockquote>
-<div><dl class="simple">
-<dt>Attribute _controlled  getter</dt><dd><p>The entity that is controlled, e.g., in a biochemical reaction, the reaction is</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>controlled by an enzyme. Controlled is a sub-property of participants.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_controller">
-<span class="sig-name descname"><span class="pre">get_controller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_controller'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_controller" title="Permalink to this definition">#</a></dt>
-<dd><blockquote>
-<div><dl class="simple">
-<dt>Attribute _controller  getter</dt><dd><p>The controlling entity, e.g., in a biochemical reaction, an enzyme is the</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>controlling entity of the reaction. CONTROLLER is a sub-property of
-PARTICIPANTS.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_interactionType">
 <span class="sig-name descname"><span class="pre">get_interactionType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_interactionType'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_interactionType" title="Permalink to this definition">#</a></dt>
 <dd><blockquote>
@@ -982,20 +864,6 @@ vocabulary systems. For instance, this information would be useful for display
 on a web page or for querying a database. The PSI-MI interaction type controlled
 vocabulary should be used. This is browsable at:  <a class="reference external" href="http://www.ebi.ac.uk/ontology">http://www.ebi.ac.uk/ontology</a>-
 lookup/browse.do?ontName=MI&amp;termId=MI%3A0190&amp;termName=interaction%20type</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_left">
-<span class="sig-name descname"><span class="pre">get_left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_left'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_left" title="Permalink to this definition">#</a></dt>
-<dd><blockquote>
-<div><dl class="simple">
-<dt>Attribute _left  getter</dt><dd><p>The participants on the left side of the conversion interaction. Since</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>conversion interactions may proceed in either the left-to-right or right-to-left
-direction, occupants of the left property may be either reactants or products.
-left is a sub-property of participants.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1017,38 +885,6 @@ sub-property.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_product">
-<span class="sig-name descname"><span class="pre">get_product</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_product'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_product" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Attribute _product  getter</dt><dd><p>The product of a template reaction.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_right">
-<span class="sig-name descname"><span class="pre">get_right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_right'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_right" title="Permalink to this definition">#</a></dt>
-<dd><blockquote>
-<div><dl class="simple">
-<dt>Attribute _right  getter</dt><dd><p>The participants on the right side of the conversion interaction. Since</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>conversion interactions may proceed in either the left-to-right or right-to-left
-direction, occupants of the RIGHT property may be either reactants or products.
-RIGHT is a sub-property of PARTICIPANTS.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_template">
-<span class="sig-name descname"><span class="pre">get_template</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_template'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_template" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Attribute _template  getter</dt><dd><p>The template molecule that is used in this template reaction.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.get_uri_string">
 <span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.get_uri_string" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -1059,48 +895,13 @@ RIGHT is a sub-property of PARTICIPANTS.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_cofactor">
-<span class="sig-name descname"><span class="pre">set_cofactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_cofactor'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_cofactor" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_controlled">
-<span class="sig-name descname"><span class="pre">set_controlled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_controlled'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_controlled" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_controller">
-<span class="sig-name descname"><span class="pre">set_controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_controller'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_controller" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_interactionType">
 <span class="sig-name descname"><span class="pre">set_interactionType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_interactionType'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_interactionType" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_left">
-<span class="sig-name descname"><span class="pre">set_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_left'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_left" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_participant">
 <span class="sig-name descname"><span class="pre">set_participant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_participant'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_participant" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_product">
-<span class="sig-name descname"><span class="pre">set_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_product'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_product" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_right">
-<span class="sig-name descname"><span class="pre">set_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_right'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_right" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.interaction.Interaction.set_template">
-<span class="sig-name descname"><span class="pre">set_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/interaction/interaction.py#{'module': 'biopax-explorer.biopax.interaction', 'fullname': 'Interaction.set_template'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.interaction.Interaction.set_template" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1180,26 +981,12 @@ RIGHT is a sub-property of PARTICIPANTS.</p>
 <li><a class="reference internal" href="#">Interaction</a><ul>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction"><code class="docutils literal notranslate"><span class="pre">Interaction</span></code></a><ul>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">Interaction.attribute_type_by_name()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_cofactor"><code class="docutils literal notranslate"><span class="pre">Interaction.get_cofactor()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_controlled"><code class="docutils literal notranslate"><span class="pre">Interaction.get_controlled()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_controller"><code class="docutils literal notranslate"><span class="pre">Interaction.get_controller()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_interactionType"><code class="docutils literal notranslate"><span class="pre">Interaction.get_interactionType()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_left"><code class="docutils literal notranslate"><span class="pre">Interaction.get_left()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_participant"><code class="docutils literal notranslate"><span class="pre">Interaction.get_participant()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_product"><code class="docutils literal notranslate"><span class="pre">Interaction.get_product()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_right"><code class="docutils literal notranslate"><span class="pre">Interaction.get_right()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_template"><code class="docutils literal notranslate"><span class="pre">Interaction.get_template()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.get_uri_string"><code class="docutils literal notranslate"><span class="pre">Interaction.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.object_attributes"><code class="docutils literal notranslate"><span class="pre">Interaction.object_attributes()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_cofactor"><code class="docutils literal notranslate"><span class="pre">Interaction.set_cofactor()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_controlled"><code class="docutils literal notranslate"><span class="pre">Interaction.set_controlled()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_controller"><code class="docutils literal notranslate"><span class="pre">Interaction.set_controller()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_interactionType"><code class="docutils literal notranslate"><span class="pre">Interaction.set_interactionType()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_left"><code class="docutils literal notranslate"><span class="pre">Interaction.set_left()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_participant"><code class="docutils literal notranslate"><span class="pre">Interaction.set_participant()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_product"><code class="docutils literal notranslate"><span class="pre">Interaction.set_product()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_right"><code class="docutils literal notranslate"><span class="pre">Interaction.set_right()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_template"><code class="docutils literal notranslate"><span class="pre">Interaction.set_template()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.set_uri_string"><code class="docutils literal notranslate"><span class="pre">Interaction.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.to_json"><code class="docutils literal notranslate"><span class="pre">Interaction.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.interaction.Interaction.type_attributes"><code class="docutils literal notranslate"><span class="pre">Interaction.type_attributes()</span></code></a></li>

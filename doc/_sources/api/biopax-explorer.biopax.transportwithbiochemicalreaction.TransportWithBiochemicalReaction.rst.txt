@@ -16,12 +16,15 @@ TransportWithBiochemicalReaction
       ~TransportWithBiochemicalReaction.get_deltaS
       ~TransportWithBiochemicalReaction.get_eCNumber
       ~TransportWithBiochemicalReaction.get_kEQ
+      ~TransportWithBiochemicalReaction.get_uri_string
       ~TransportWithBiochemicalReaction.object_attributes
       ~TransportWithBiochemicalReaction.set_deltaG
       ~TransportWithBiochemicalReaction.set_deltaH
       ~TransportWithBiochemicalReaction.set_deltaS
       ~TransportWithBiochemicalReaction.set_eCNumber
       ~TransportWithBiochemicalReaction.set_kEQ
+      ~TransportWithBiochemicalReaction.set_uri_string
+      ~TransportWithBiochemicalReaction.to_json
       ~TransportWithBiochemicalReaction.type_attributes
 
    .. rubric:: Methods Documentation
@@ -32,10 +35,13 @@ TransportWithBiochemicalReaction
    .. automethod:: get_deltaS
    .. automethod:: get_eCNumber
    .. automethod:: get_kEQ
+   .. automethod:: get_uri_string
    .. automethod:: object_attributes
    .. automethod:: set_deltaG
    .. automethod:: set_deltaH
    .. automethod:: set_deltaS
    .. automethod:: set_eCNumber
    .. automethod:: set_kEQ
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
    .. automethod:: type_attributes

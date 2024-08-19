@@ -440,13 +440,16 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.get_validator_config.html">get_validator_config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.update_validator_config.html">update_validator_config</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.FullValidateArgType.html">FullValidateArgType</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
 </ul>
 <ul>
@@ -714,25 +717,34 @@
 <tr class="row-even"><td><p><strong>get_kEQ</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>object_attributes</strong></p></td>
+<tr class="row-odd"><td><p><strong>get_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_deltaG</strong></p></td>
+<tr class="row-even"><td><p><strong>object_attributes</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_deltaH</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_deltaG</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_deltaS</strong></p></td>
+<tr class="row-even"><td><p><strong>set_deltaH</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_eCNumber</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_deltaS</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_kEQ</strong></p></td>
+<tr class="row-even"><td><p><strong>set_eCNumber</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>type_attributes</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_kEQ</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>to_json</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>type_attributes</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -760,25 +772,34 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_kEQ" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_kEQ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kEQ</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_uri_string" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaG" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaG</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaH" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaH</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaG" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaG</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaS" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaS</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaH" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaH</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_eCNumber" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_eCNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eCNumber</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaS" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_deltaS</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kEQ</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_eCNumber" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_eCNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_eCNumber</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.type_attributes" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.type_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_attributes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kEQ</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_uri_string" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_uri_string</span></code></a>(uristr)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.to_json" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.to_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_json</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.type_attributes" title="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.type_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -816,6 +837,11 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_uri_string">
+<span class="sig-name descname"><span class="pre">get_uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transportwithbiochemicalreaction/transportwithbiochemicalreaction.py#{'module': 'biopax-explorer.biopax.transportwithbiochemicalreaction', 'fullname': 'TransportWithBiochemicalReaction.get_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes">
 <span class="sig-name descname"><span class="pre">object_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transportwithbiochemicalreaction/transportwithbiochemicalreaction.py#{'module': 'biopax-explorer.biopax.transportwithbiochemicalreaction', 'fullname': 'TransportWithBiochemicalReaction.object_attributes'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -843,6 +869,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ">
 <span class="sig-name descname"><span class="pre">set_kEQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transportwithbiochemicalreaction/transportwithbiochemicalreaction.py#{'module': 'biopax-explorer.biopax.transportwithbiochemicalreaction', 'fullname': 'TransportWithBiochemicalReaction.set_kEQ'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_uri_string">
+<span class="sig-name descname"><span class="pre">set_uri_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uristr</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transportwithbiochemicalreaction/transportwithbiochemicalreaction.py#{'module': 'biopax-explorer.biopax.transportwithbiochemicalreaction', 'fullname': 'TransportWithBiochemicalReaction.set_uri_string'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_uri_string" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.to_json">
+<span class="sig-name descname"><span class="pre">to_json</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/transportwithbiochemicalreaction/transportwithbiochemicalreaction.py#{'module': 'biopax-explorer.biopax.transportwithbiochemicalreaction', 'fullname': 'TransportWithBiochemicalReaction.to_json'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.to_json" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -917,12 +953,15 @@
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_deltaS"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.get_deltaS()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_eCNumber"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.get_eCNumber()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_kEQ"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.get_kEQ()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.get_uri_string"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.object_attributes"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaG"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.set_deltaG()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaH"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.set_deltaH()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_deltaS"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.set_deltaS()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_eCNumber"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.set_eCNumber()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_kEQ"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.set_kEQ()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.set_uri_string"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.set_uri_string()</span></code></a></li>
+<li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.to_json"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.to_json()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.transportwithbiochemicalreaction.TransportWithBiochemicalReaction.type_attributes"><code class="docutils literal notranslate"><span class="pre">TransportWithBiochemicalReaction.type_attributes()</span></code></a></li>
 </ul>
 </li>

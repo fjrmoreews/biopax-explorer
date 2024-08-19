@@ -14,10 +14,13 @@ CovalentBindingFeature
       ~CovalentBindingFeature.get_bindsTo
       ~CovalentBindingFeature.get_intraMolecular
       ~CovalentBindingFeature.get_modificationType
+      ~CovalentBindingFeature.get_uri_string
       ~CovalentBindingFeature.object_attributes
       ~CovalentBindingFeature.set_bindsTo
       ~CovalentBindingFeature.set_intraMolecular
       ~CovalentBindingFeature.set_modificationType
+      ~CovalentBindingFeature.set_uri_string
+      ~CovalentBindingFeature.to_json
       ~CovalentBindingFeature.type_attributes
 
    .. rubric:: Methods Documentation
@@ -26,8 +29,11 @@ CovalentBindingFeature
    .. automethod:: get_bindsTo
    .. automethod:: get_intraMolecular
    .. automethod:: get_modificationType
+   .. automethod:: get_uri_string
    .. automethod:: object_attributes
    .. automethod:: set_bindsTo
    .. automethod:: set_intraMolecular
    .. automethod:: set_modificationType
+   .. automethod:: set_uri_string
+   .. automethod:: to_json
    .. automethod:: type_attributes

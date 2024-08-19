@@ -440,13 +440,16 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.get_validator_config.html">get_validator_config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.update_validator_config.html">update_validator_config</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.FullValidateArgType.html">FullValidateArgType</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
 </ul>
 <ul>
@@ -713,7 +716,7 @@ Transcription, translation, replication, reverse transcription. E.g.      DNA to
 RNA is transcription, RNA to protein is translation and DNA to      protein is
 protein expression from DNA.</p>
 </div></blockquote>
-<p>code generator : rdfobj (author F.Moreews 2023).</p>
+<p>code generator : rdfobj (author F.Moreews 2023-2024).</p>
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
@@ -721,32 +724,20 @@ protein expression from DNA.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_availability</span></code>()</p></td>
 <td><p>Attribute _availability  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cofactor</span></code>()</p></td>
-<td><p>Attribute _cofactor  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
 <td><p>Attribute _comment  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlled</span></code>()</p></td>
-<td><p>Attribute _controlled  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controller</span></code>()</p></td>
-<td><p>Attribute _controller  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
 <td><p>Attribute _dataSource  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
 <td><p>Attribute _displayName  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
 <td><p>Attribute _evidence  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code>()</p></td>
 <td><p>Attribute _interactionType  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_left</span></code>()</p></td>
-<td><p>Attribute _left  getter</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code>()</p></td>
 <td><p>Attribute _name  getter</p></td>
@@ -757,19 +748,16 @@ protein expression from DNA.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.templatereaction.TemplateReaction.get_product" title="biopax-explorer.biopax.templatereaction.TemplateReaction.get_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_product</span></code></a>()</p></td>
 <td><p>Attribute _product  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_right</span></code>()</p></td>
-<td><p>Attribute _right  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_standardName</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_standardName</span></code>()</p></td>
 <td><p>Attribute _standardName  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.templatereaction.TemplateReaction.get_template" title="biopax-explorer.biopax.templatereaction.TemplateReaction.get_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_template</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.templatereaction.TemplateReaction.get_template" title="biopax-explorer.biopax.templatereaction.TemplateReaction.get_template"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_template</span></code></a>()</p></td>
 <td><p>Attribute _template  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.templatereaction.TemplateReaction.get_templateDirection" title="biopax-explorer.biopax.templatereaction.TemplateReaction.get_templateDirection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_templateDirection</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.templatereaction.TemplateReaction.get_templateDirection" title="biopax-explorer.biopax.templatereaction.TemplateReaction.get_templateDirection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_templateDirection</span></code></a>()</p></td>
 <td><p>Attribute _templateDirection  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
 <td><p>Attribute _xref  getter</p></td>
 </tr>
 </tbody>
@@ -790,31 +778,19 @@ protein expression from DNA.</p>
 <tr class="row-even"><td><p><strong>set_availability</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_cofactor</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-even"><td><p><strong>set_dataSource</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_controlled</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_controller</strong></p></td>
+<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_dataSource</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_interactionType</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_left</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_interactionType</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>set_name</strong></p></td>
@@ -826,28 +802,25 @@ protein expression from DNA.</p>
 <tr class="row-even"><td><p><strong>set_product</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_right</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_standardName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_template</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_template</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_templateDirection</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_templateDirection</strong></p></td>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_xref</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_xref</strong></p></td>
+<tr class="row-even"><td><p><strong>to_json</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>to_json</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>type_attributes</strong></p></td>
+<tr class="row-odd"><td><p><strong>type_attributes</strong></p></td>
 <td></td>
 </tr>
 </tbody>

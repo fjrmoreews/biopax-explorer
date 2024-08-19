@@ -11,26 +11,12 @@ Interaction
    .. autosummary::
 
       ~Interaction.attribute_type_by_name
-      ~Interaction.get_cofactor
-      ~Interaction.get_controlled
-      ~Interaction.get_controller
       ~Interaction.get_interactionType
-      ~Interaction.get_left
       ~Interaction.get_participant
-      ~Interaction.get_product
-      ~Interaction.get_right
-      ~Interaction.get_template
       ~Interaction.get_uri_string
       ~Interaction.object_attributes
-      ~Interaction.set_cofactor
-      ~Interaction.set_controlled
-      ~Interaction.set_controller
       ~Interaction.set_interactionType
-      ~Interaction.set_left
       ~Interaction.set_participant
-      ~Interaction.set_product
-      ~Interaction.set_right
-      ~Interaction.set_template
       ~Interaction.set_uri_string
       ~Interaction.to_json
       ~Interaction.type_attributes
@@ -38,26 +24,12 @@ Interaction
    .. rubric:: Methods Documentation
 
    .. automethod:: attribute_type_by_name
-   .. automethod:: get_cofactor
-   .. automethod:: get_controlled
-   .. automethod:: get_controller
    .. automethod:: get_interactionType
-   .. automethod:: get_left
    .. automethod:: get_participant
-   .. automethod:: get_product
-   .. automethod:: get_right
-   .. automethod:: get_template
    .. automethod:: get_uri_string
    .. automethod:: object_attributes
-   .. automethod:: set_cofactor
-   .. automethod:: set_controlled
-   .. automethod:: set_controller
    .. automethod:: set_interactionType
-   .. automethod:: set_left
    .. automethod:: set_participant
-   .. automethod:: set_product
-   .. automethod:: set_right
-   .. automethod:: set_template
    .. automethod:: set_uri_string
    .. automethod:: to_json
    .. automethod:: type_attributes

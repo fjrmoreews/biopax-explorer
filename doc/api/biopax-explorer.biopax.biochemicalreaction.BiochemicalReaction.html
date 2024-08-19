@@ -440,13 +440,16 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.get_validator_config.html">get_validator_config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.update_validator_config.html">update_validator_config</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.FullValidateArgType.html">FullValidateArgType</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
 </ul>
 <ul>
@@ -715,7 +718,7 @@ should generally be represented as unbalanced reactions in which the monomer is
 consumed but the polymer remains unchanged, e.g. glycogen + glucose = glycogen.
 A better coverage for polymerization will be developed.</p>
 </div></blockquote>
-<p>code generator : rdfobj (author F.Moreews 2023).</p>
+<p>code generator : rdfobj (author F.Moreews 2023-2024).</p>
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
@@ -723,62 +726,50 @@ A better coverage for polymerization will be developed.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_availability</span></code>()</p></td>
 <td><p>Attribute _availability  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cofactor</span></code>()</p></td>
-<td><p>Attribute _cofactor  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_comment</span></code>()</p></td>
 <td><p>Attribute _comment  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controlled</span></code>()</p></td>
-<td><p>Attribute _controlled  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_controller</span></code>()</p></td>
-<td><p>Attribute _controller  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_conversionDirection</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_conversionDirection</span></code>()</p></td>
 <td><p>Attribute _conversionDirection  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dataSource</span></code>()</p></td>
 <td><p>Attribute _dataSource  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaG" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deltaG</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaG" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deltaG</span></code></a>()</p></td>
 <td><p>Attribute _deltaG  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaH" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deltaH</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaH" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deltaH</span></code></a>()</p></td>
 <td><p>Attribute _deltaH  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaS" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deltaS</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaS" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_deltaS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_deltaS</span></code></a>()</p></td>
 <td><p>Attribute _deltaS  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_displayName</span></code>()</p></td>
 <td><p>Attribute _displayName  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_eCNumber" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_eCNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_eCNumber</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_eCNumber" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_eCNumber"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_eCNumber</span></code></a>()</p></td>
 <td><p>Attribute _eCNumber  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_evidence</span></code>()</p></td>
 <td><p>Attribute _evidence  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interactionType</span></code>()</p></td>
 <td><p>Attribute _interactionType  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_kEQ" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_kEQ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kEQ</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_kEQ" title="biopax-explorer.biopax.biochemicalreaction.BiochemicalReaction.get_kEQ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kEQ</span></code></a>()</p></td>
 <td><p>Attribute _kEQ  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_left</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_left</span></code>()</p></td>
 <td><p>Attribute _left  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_name</span></code>()</p></td>
 <td><p>Attribute _name  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participant</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participant</span></code>()</p></td>
 <td><p>Attribute _participant  getter</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participantStoichiometry</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_participantStoichiometry</span></code>()</p></td>
 <td><p>Attribute _participantStoichiometry  getter</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_product</span></code>()</p></td>
-<td><p>Attribute _product  getter</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_right</span></code>()</p></td>
 <td><p>Attribute _right  getter</p></td>
@@ -789,10 +780,7 @@ A better coverage for polymerization will be developed.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_standardName</span></code>()</p></td>
 <td><p>Attribute _standardName  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_template</span></code>()</p></td>
-<td><p>Attribute _template  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xref</span></code>()</p></td>
 <td><p>Attribute _xref  getter</p></td>
 </tr>
 </tbody>
@@ -813,61 +801,49 @@ A better coverage for polymerization will be developed.</p>
 <tr class="row-even"><td><p><strong>set_availability</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_cofactor</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_comment</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_comment</strong></p></td>
+<tr class="row-even"><td><p><strong>set_conversionDirection</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_controlled</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_dataSource</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_controller</strong></p></td>
+<tr class="row-even"><td><p><strong>set_deltaG</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_conversionDirection</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_deltaH</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_dataSource</strong></p></td>
+<tr class="row-even"><td><p><strong>set_deltaS</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_deltaG</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_displayName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_deltaH</strong></p></td>
+<tr class="row-even"><td><p><strong>set_eCNumber</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_deltaS</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_evidence</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_displayName</strong></p></td>
+<tr class="row-even"><td><p><strong>set_interactionType</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_eCNumber</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_kEQ</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_evidence</strong></p></td>
+<tr class="row-even"><td><p><strong>set_left</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_interactionType</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_name</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_kEQ</strong></p></td>
+<tr class="row-even"><td><p><strong>set_participant</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_left</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_name</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_participant</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><strong>set_participantStoichiometry</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>set_product</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_participantStoichiometry</strong></p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p><strong>set_right</strong></p></td>
@@ -879,19 +855,16 @@ A better coverage for polymerization will be developed.</p>
 <tr class="row-even"><td><p><strong>set_standardName</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_template</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
+<tr class="row-even"><td><p><strong>set_xref</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_xref</strong></p></td>
+<tr class="row-odd"><td><p><strong>to_json</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>to_json</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>type_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>type_attributes</strong></p></td>
 <td></td>
 </tr>
 </tbody>

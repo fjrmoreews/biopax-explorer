@@ -1,0 +1,6 @@
+get_validator_config
+====================
+
+.. currentmodule:: biopax_explorer.biopax.utils.validate_utils
+
+.. autofunction:: get_validator_config

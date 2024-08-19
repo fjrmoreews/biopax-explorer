@@ -1,5 +1,5 @@
 /*
- * language_data.js
+ * language-data.js
  * ~~~~~~~~~~~~~~~~
  *
  * This script contains the language-specific data used by searchtools.js,

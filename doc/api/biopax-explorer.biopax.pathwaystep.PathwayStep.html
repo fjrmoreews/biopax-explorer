@@ -440,13 +440,16 @@
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.gen_utils.PackageModelPopulator.html">PackageModelPopulator</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.get_validator_config.html">get_validator_config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ignore_error.html">ignore_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.log_error.html">log_error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.raise_error.html">raise_error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.update_validator_config.html">update_validator_config</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.BaseDecorator.html">BaseDecorator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.CValidateArgType.html">CValidateArgType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.FullValidateArgType.html">FullValidateArgType</a></li>
 <li class="toctree-l1"><a class="reference internal" href="biopax-explorer.biopax.utils.validate_utils.ValidationDecorator.html">ValidationDecorator</a></li>
 </ul>
 <ul>
@@ -710,7 +713,7 @@ composed of one biochemical reaction (BR1) and one catalysis (CAT1) instance,
 where CAT1 describes the catalysis of BR1. The M phase of the cell cycle,
 defined as a pathway, precedes the G1 phase, also defined as a pathway.</p>
 </div></blockquote>
-<p>code generator : rdfobj (author F.Moreews 2023).</p>
+<p>code generator : rdfobj (author F.Moreews 2023-2024).</p>
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
@@ -724,10 +727,7 @@ defined as a pathway, precedes the G1 phase, also defined as a pathway.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_nextStep" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_nextStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nextStep</span></code></a>()</p></td>
 <td><p>Attribute _nextStep  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stepConversion</span></code></a>()</p></td>
-<td><p>Attribute _stepConversion  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stepProcess</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stepProcess</span></code></a>()</p></td>
 <td><p>Attribute _stepProcess  getter</p></td>
 </tr>
 </tbody>
@@ -754,19 +754,16 @@ defined as a pathway, precedes the G1 phase, also defined as a pathway.</p>
 <tr class="row-even"><td><p><strong>set_nextStep</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_stepConversion</strong></p></td>
+<tr class="row-odd"><td><p><strong>set_stepProcess</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>set_stepProcess</strong></p></td>
+<tr class="row-even"><td><p><strong>set_uri_string</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong>set_uri_string</strong></p></td>
+<tr class="row-odd"><td><p><strong>to_json</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><strong>to_json</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><strong>type_attributes</strong></p></td>
+<tr class="row-even"><td><p><strong>type_attributes</strong></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -785,25 +782,19 @@ defined as a pathway, precedes the G1 phase, also defined as a pathway.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_nextStep" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_nextStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_nextStep</span></code></a>()</p></td>
 <td><p>Attribute _nextStep  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stepConversion</span></code></a>()</p></td>
-<td><p>Attribute _stepConversion  getter</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stepProcess</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_stepProcess</span></code></a>()</p></td>
 <td><p>Attribute _stepProcess  getter</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_uri_string" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_uri_string" title="biopax-explorer.biopax.pathwaystep.PathwayStep.get_uri_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_uri_string</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.object_attributes" title="biopax-explorer.biopax.pathwaystep.PathwayStep.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.object_attributes" title="biopax-explorer.biopax.pathwaystep.PathwayStep.object_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">object_attributes</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_evidence" title="biopax-explorer.biopax.pathwaystep.PathwayStep.set_evidence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_evidence</span></code></a>(value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_evidence" title="biopax-explorer.biopax.pathwaystep.PathwayStep.set_evidence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_evidence</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep" title="biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_nextStep</span></code></a>(value)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepConversion" title="biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepConversion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stepConversion</span></code></a>(value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep" title="biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_nextStep</span></code></a>(value)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepProcess" title="biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepProcess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_stepProcess</span></code></a>(value)</p></td>
@@ -850,15 +841,6 @@ indicate pathway branching.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion">
-<span class="sig-name descname"><span class="pre">get_stepConversion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathwaystep/pathwaystep.py#{'module': 'biopax-explorer.biopax.pathwaystep', 'fullname': 'PathwayStep.get_stepConversion'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion" title="Permalink to this definition">#</a></dt>
-<dd><dl class="simple">
-<dt>Attribute _stepConversion  getter</dt><dd><p>The central process that take place at this step of the biochemical pathway.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess">
 <span class="sig-name descname"><span class="pre">get_stepProcess</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathwaystep/pathwaystep.py#{'module': 'biopax-explorer.biopax.pathwaystep', 'fullname': 'PathwayStep.get_stepProcess'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess" title="Permalink to this definition">#</a></dt>
 <dd><dl class="simple">
@@ -885,11 +867,6 @@ indicate pathway branching.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep">
 <span class="sig-name descname"><span class="pre">set_nextStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathwaystep/pathwaystep.py#{'module': 'biopax-explorer.biopax.pathwaystep', 'fullname': 'PathwayStep.set_nextStep'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepConversion">
-<span class="sig-name descname"><span class="pre">set_stepConversion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://forgemia.inra.fr/pegase/biopax-explorer/-/tree/main/src/biopax-explorer/biopax/pathwaystep/pathwaystep.py#{'module': 'biopax-explorer.biopax.pathwaystep', 'fullname': 'PathwayStep.set_stepConversion'}"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepConversion" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -976,13 +953,11 @@ indicate pathway branching.</p>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.attribute_type_by_name"><code class="docutils literal notranslate"><span class="pre">PathwayStep.attribute_type_by_name()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_evidence"><code class="docutils literal notranslate"><span class="pre">PathwayStep.get_evidence()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_nextStep"><code class="docutils literal notranslate"><span class="pre">PathwayStep.get_nextStep()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepConversion"><code class="docutils literal notranslate"><span class="pre">PathwayStep.get_stepConversion()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_stepProcess"><code class="docutils literal notranslate"><span class="pre">PathwayStep.get_stepProcess()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.get_uri_string"><code class="docutils literal notranslate"><span class="pre">PathwayStep.get_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.object_attributes"><code class="docutils literal notranslate"><span class="pre">PathwayStep.object_attributes()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_evidence"><code class="docutils literal notranslate"><span class="pre">PathwayStep.set_evidence()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_nextStep"><code class="docutils literal notranslate"><span class="pre">PathwayStep.set_nextStep()</span></code></a></li>
-<li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepConversion"><code class="docutils literal notranslate"><span class="pre">PathwayStep.set_stepConversion()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_stepProcess"><code class="docutils literal notranslate"><span class="pre">PathwayStep.set_stepProcess()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.set_uri_string"><code class="docutils literal notranslate"><span class="pre">PathwayStep.set_uri_string()</span></code></a></li>
 <li><a class="reference internal" href="#biopax-explorer.biopax.pathwaystep.PathwayStep.to_json"><code class="docutils literal notranslate"><span class="pre">PathwayStep.to_json()</span></code></a></li>

@@ -13,6 +13,7 @@ CValidateArgType
       ~CValidateArgType.cast
       ~CValidateArgType.class_for_name
       ~CValidateArgType.conversionClassMapping
+      ~CValidateArgType.get_class_from_string
       ~CValidateArgType.init_caster
       ~CValidateArgType.split_mod
 
@@ -21,5 +22,6 @@ CValidateArgType
    .. automethod:: cast
    .. automethod:: class_for_name
    .. automethod:: conversionClassMapping
+   .. automethod:: get_class_from_string
    .. automethod:: init_caster
    .. automethod:: split_mod
