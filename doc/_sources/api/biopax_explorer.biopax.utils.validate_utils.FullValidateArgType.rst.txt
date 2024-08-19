@@ -1,0 +1,7 @@
+FullValidateArgType
+===================
+
+.. currentmodule:: biopax_explorer.biopax.utils.validate_utils
+
+.. autoclass:: FullValidateArgType
+   :show-inheritance:

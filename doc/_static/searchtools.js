@@ -251,7 +251,7 @@ const Search = {
       const queryTermLower = queryTerm.toLowerCase();
 
       // maybe skip this "word"
-      // stopwords array is from language-data.js
+      // stopwords array is from language_data.js
       if (
         stopwords.indexOf(queryTermLower) !== -1 ||
         queryTerm.match(/^\d+$/)
@@ -268,7 +268,7 @@ const Search = {
       }
     });
 
-    if (SPHINX_HIGHLIGHT_ENABLED) {  // set in sphinx-highlight.js
+    if (SPHINX_HIGHLIGHT_ENABLED) {  // set in sphinx_highlight.js
       localStorage.setItem("sphinx_highlight_terms", [...highlightTerms].join(" "))
     }
 

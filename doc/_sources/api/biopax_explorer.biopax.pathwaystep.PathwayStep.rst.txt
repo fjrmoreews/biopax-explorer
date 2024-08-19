@@ -13,13 +13,11 @@ PathwayStep
       ~PathwayStep.attribute_type_by_name
       ~PathwayStep.get_evidence
       ~PathwayStep.get_nextStep
-      ~PathwayStep.get_stepConversion
       ~PathwayStep.get_stepProcess
       ~PathwayStep.get_uri_string
       ~PathwayStep.object_attributes
       ~PathwayStep.set_evidence
       ~PathwayStep.set_nextStep
-      ~PathwayStep.set_stepConversion
       ~PathwayStep.set_stepProcess
       ~PathwayStep.set_uri_string
       ~PathwayStep.to_json
@@ -30,13 +28,11 @@ PathwayStep
    .. automethod:: attribute_type_by_name
    .. automethod:: get_evidence
    .. automethod:: get_nextStep
-   .. automethod:: get_stepConversion
    .. automethod:: get_stepProcess
    .. automethod:: get_uri_string
    .. automethod:: object_attributes
    .. automethod:: set_evidence
    .. automethod:: set_nextStep
-   .. automethod:: set_stepConversion
    .. automethod:: set_stepProcess
    .. automethod:: set_uri_string
    .. automethod:: to_json

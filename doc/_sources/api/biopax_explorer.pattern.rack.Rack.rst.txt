@@ -37,7 +37,7 @@ Rack
       ~Rack.inSameActiveComplexMolecularInteraction
       ~Rack.inSameActiveComplexOtherInteraction
       ~Rack.inSameComplex
-      ~Rack.inSameComplexEffectingConversion
+      ~Rack.inSameComplexEffectingControl
       ~Rack.inspect
       ~Rack.modifierConv
       ~Rack.modifierConvComplex
@@ -88,7 +88,7 @@ Rack
    .. automethod:: inSameActiveComplexMolecularInteraction
    .. automethod:: inSameActiveComplexOtherInteraction
    .. automethod:: inSameComplex
-   .. automethod:: inSameComplexEffectingConversion
+   .. automethod:: inSameComplexEffectingControl
    .. automethod:: inspect
    .. automethod:: modifierConv
    .. automethod:: modifierConvComplex
